@@ -24,8 +24,8 @@ export function MobileNav({ solid = false }: { solid?: boolean }) {
         Menü
       </button>
       {open ? (
-        <div className="absolute right-0 top-full z-50 mt-2 w-[min(100vw-2rem,20rem)] rounded-xl border border-zinc-700 bg-zinc-950 py-2 shadow-xl">
-          <nav className="flex max-h-[70vh] flex-col gap-0.5 overflow-y-auto px-2">
+        <div className="fixed inset-x-4 top-[4.75rem] z-[120] max-h-[calc(100dvh-5.5rem)] overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-950 py-2 shadow-2xl shadow-black/35">
+          <nav className="flex max-h-[calc(100dvh-6.5rem)] flex-col gap-0.5 overflow-y-auto px-2">
             {mainNav.map((item) => {
               if (item.href === "/dienstleistungen") {
                 return (
