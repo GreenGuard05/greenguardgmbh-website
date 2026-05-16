@@ -1,8 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f6faf7;
+  --foreground: #0f172a;
+  /* Markenfarben: kräftiges Blattgrün (Logo „Guard“ / Raute), klarer als das frühere Moosgrün */
+  --gg-bg-logo: #2b2b2b;
+  --gg-green-rgb: 112, 163, 64;
+  --gg-green-light: #a8e055;
+  --gg-green: #70a340;
+  --gg-green-deep: #386622;
+  --gg-green-highlight: #d4f5a8;
 }
 
 @theme inline {
@@ -10,17 +17,512 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --animate-gg-ambient-breathe: gg-ambient-breathe 6.5s ease-in-out infinite;
+  --animate-gg-ambient-drift: gg-ambient-drift 9s ease-in-out infinite;
+  --animate-gg-float-soft: gg-float-soft 10s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes gg-ambient-breathe {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: scale(1);
   }
+  50% {
+    opacity: 1;
+    transform: scale(1.07);
+  }
+}
+
+@keyframes gg-ambient-drift {
+  0%,
+  100% {
+    opacity: 0.68;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  33% {
+    opacity: 0.92;
+    transform: translate3d(10px, -14px, 0) rotate(2deg) scale(1.05);
+  }
+  66% {
+    opacity: 1;
+    transform: translate3d(-8px, 10px, 0) rotate(-1.5deg) scale(1.06);
+  }
+}
+
+@keyframes gg-float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes gg-heading-shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+    filter: drop-shadow(0 0 0 rgb(112 163 64 / 0));
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: drop-shadow(0 10px 22px rgb(112 163 64 / 0.18));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .gg-float-soft {
+    animation: gg-float-soft 10s ease-in-out infinite;
+  }
+
+  .gg-heading-motion {
+    background-size: 220% 220%;
+    animation: gg-heading-shimmer 7.5s ease-in-out infinite;
+  }
+}
+
+.gg-heading-accent {
+  background-image: linear-gradient(110deg, var(--gg-green-deep), var(--gg-green), var(--gg-green-light), var(--gg-green-deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes gg-region-route-dash {
+  to {
+    stroke-dashoffset: -56;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .gg-region-route {
+    animation: gg-float-soft 14s ease-in-out infinite;
+  }
+
+  .gg-region-route-path {
+    animation: gg-region-route-dash 24s linear infinite;
+  }
+}
+
+@keyframes gg-cta-contact-phone {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-6deg) scale(1);
+  }
+  35% {
+    transform: translate3d(14px, -22px, 0) rotate(-2deg) scale(1.06);
+  }
+  70% {
+    transform: translate3d(-10px, 14px, 0) rotate(-9deg) scale(1.02);
+  }
+}
+
+@keyframes gg-cta-contact-mail {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(5deg) scale(1);
+  }
+  35% {
+    transform: translate3d(-18px, 20px, 0) rotate(1deg) scale(1.05);
+  }
+  70% {
+    transform: translate3d(12px, -16px, 0) rotate(8deg) scale(1.03);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .gg-cta-contact-icon-phone {
+    animation: gg-cta-contact-phone 11s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .gg-cta-contact-icon-mail {
+    animation: gg-cta-contact-mail 13.5s ease-in-out infinite;
+    animation-delay: -3s;
+    will-change: transform;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gg-cta-contact-icon-phone,
+  .gg-cta-contact-icon-mail {
+    animation: none;
+    will-change: auto;
+  }
+}
+
+/** Dezentes Punkt-Raster für Content-Bereiche (z. B. Über uns) */
+.gg-about-dots {
+  background-image: radial-gradient(circle at center, rgb(112 163 64 / 0.14) 1.25px, transparent 1.5px);
+  background-size: 20px 20px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .gg-about-card-tilt {
+    border-radius: 1rem;
+    overflow: hidden;
+    isolation: isolate;
+    transform: translateZ(0);
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.35s ease;
+  }
+  .gg-about-card-tilt:hover {
+    transform: translateY(-4px) translateZ(0);
+    box-shadow:
+      0 18px 40px -12px rgb(0 0 0 / 0.12),
+      0 0 0 1px rgb(112 163 64 / 0.12);
+  }
+  .gg-about-card-tilt-media {
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .gg-about-card-tilt:hover .gg-about-card-tilt-media {
+    transform: scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gg-about-card-tilt:hover {
+    transform: none;
+  }
+  .gg-about-card-tilt:hover .gg-about-card-tilt-media {
+    transform: none;
+  }
+}
+
+/* Sanftes Scrollen, Abstand für fixe Navigation bei Ankern */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+html {
+  scroll-padding-top: 5rem;
+}
+
+/* Skip-Link: nur sichtbar bei Tastaturfokus (WCAG 2.4.1) */
+.gg-skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.gg-skip-link:focus {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  border-radius: 0.5rem;
+  background: #fff;
+  color: #0f172a;
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.12),
+    0 4px 6px -4px rgb(0 0 0 / 0.08);
+  outline: 2px solid #70a340;
+  outline-offset: 2px;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Logo-Claim / Slogan – Farbe je Kontext per Utility-Klassen */
+.gg-brand-slogan {
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.035em;
+}
+
+.gg-text-green-brand {
+  background-image: linear-gradient(
+    180deg,
+    var(--gg-green-highlight) 0%,
+    var(--gg-green-light) 35%,
+    var(--gg-green) 58%,
+    var(--gg-green-deep) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gg-text-hero-white {
+  background-image: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f0f2f1 45%,
+    #c5cdc8 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gg-text-hero-muted {
+  background-image: linear-gradient(
+    180deg,
+    #f4f4f5 0%,
+    #c4c4c4 55%,
+    #9ca3af 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gg-text-stat-value {
+  background-image: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #e8ebe9 50%,
+    #c9d1cc 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* --- Primär-CTA: Pill, Grün-Verlauf, weicher Glow (Logo-Grün) --- */
+.gg-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0.875rem 1.625rem;
+  font-size: 0.9375rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  border-radius: 9999px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(
+    180deg,
+    var(--gg-green-light) 0%,
+    var(--gg-green) 48%,
+    var(--gg-green-deep) 100%
+  );
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.22),
+    0 0 18px 5px rgba(var(--gg-green-rgb), 0.16),
+    0 0 36px 10px rgba(var(--gg-green-rgb), 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition:
+    filter 0.16s ease,
+    transform 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+.gg-btn-primary:hover {
+  filter: brightness(1.03);
+  transform: translateY(-1px);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.28),
+    0 0 22px 7px rgba(var(--gg-green-rgb), 0.2),
+    0 0 40px 12px rgba(var(--gg-green-rgb), 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.gg-btn-primary:active {
+  transform: translateY(0);
+  filter: brightness(0.98);
+}
+
+.gg-btn-primary:focus-visible {
+  outline: 2px solid rgba(var(--gg-green-rgb), 0.85);
+  outline-offset: 3px;
+}
+
+.gg-btn-primary-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.gg-btn-primary-label {
+  background-image: linear-gradient(180deg, #ffffff 0%, #f4f4f4 55%, #ebebeb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Pfeil außerhalb von background-clip:text, damit Hover-Transform sichtbar bleibt */
+.gg-btn-primary-arrow {
+  display: inline-block;
+  flex-shrink: 0;
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+  line-height: 1;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gg-btn-primary:hover .gg-btn-primary-arrow,
+.gg-btn-primary:focus-visible .gg-btn-primary-arrow {
+  transform: translateX(0.3rem);
+}
+
+/* Überschriften auf hellem Grund: sehr dezenter Verlauf */
+.gg-text-heading-section {
+  background-image: linear-gradient(180deg, #171717 0%, #404040 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Tiefgrün / Akzent zweite Zeile (Über uns, CTA-Frage) */
+.gg-text-green-forest {
+  background-image: linear-gradient(
+    180deg,
+    var(--gg-green-light) 0%,
+    var(--gg-green) 45%,
+    var(--gg-green-deep) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gg-btn-black-solid {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  background: var(--gg-bg-logo);
+  padding: 0.75rem 1.35rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.15s ease, transform 0.15s ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.gg-btn-black-solid:hover {
+  background: #3a3a3a;
+  transform: translateY(-1px);
+}
+
+.gg-btn-black-solid [aria-hidden] {
+  display: inline-block;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gg-btn-black-solid:hover [aria-hidden],
+.gg-btn-black-solid:focus-visible [aria-hidden] {
+  transform: translateX(0.3rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gg-btn-primary-arrow,
+  .gg-btn-outline-light-arrow,
+  .gg-btn-black-solid [aria-hidden] {
+    transition: none;
+  }
+
+  .gg-btn-primary:hover .gg-btn-primary-arrow,
+  .gg-btn-primary:focus-visible .gg-btn-primary-arrow,
+  .gg-btn-outline-light:hover .gg-btn-outline-light-arrow,
+  .gg-btn-outline-light:focus-visible .gg-btn-outline-light-arrow,
+  .gg-btn-black-solid:hover [aria-hidden],
+  .gg-btn-black-solid:focus-visible [aria-hidden] {
+    transform: none;
+  }
+}
+
+.gg-btn-outline-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(var(--gg-green-rgb), 0.5);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 0.65rem 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--gg-green-highlight);
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.gg-btn-outline-dark:hover {
+  background: rgba(var(--gg-green-rgb), 0.14);
+  border-color: rgba(var(--gg-green-rgb), 0.75);
+}
+
+/* Hell umrandeter CTA (Leistungs-Sektion Startseite) */
+.gg-btn-outline-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(24, 24, 27, 0.14);
+  background: #fff;
+  padding: 0.875rem 1.625rem;
+  font-size: 0.9375rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #18181b;
+  text-decoration: none;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+  transition:
+    border-color 0.16s ease,
+    box-shadow 0.16s ease,
+    transform 0.16s ease,
+    color 0.16s ease;
+}
+
+.gg-btn-outline-light:hover {
+  border-color: rgba(56, 102, 34, 0.35);
+  color: #14532d;
+  transform: translateY(-1px);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+}
+
+.gg-btn-outline-light:active {
+  transform: translateY(0);
+}
+
+.gg-btn-outline-light:focus-visible {
+  outline: 2px solid rgba(var(--gg-green-rgb), 0.65);
+  outline-offset: 3px;
+}
+
+.gg-btn-outline-light-arrow {
+  display: inline-block;
+  flex-shrink: 0;
+  line-height: 1;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gg-btn-outline-light:hover .gg-btn-outline-light-arrow,
+.gg-btn-outline-light:focus-visible .gg-btn-outline-light-arrow {
+  transform: translateX(0.3rem);
 }

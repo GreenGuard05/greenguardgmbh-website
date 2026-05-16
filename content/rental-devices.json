@@ -1,0 +1,93 @@
+[
+  {
+    "id": "benzin-holzhaecksler",
+    "name": "Mobiler Benzin-Holzhäcksler mit Antrieb",
+    "image": "/images/rental/benzin-holzhaecksler.png",
+    "description": "Mobiler Benzin-Häcksler für Grünpflege, Baumschnitt sowie Holz- und Asthäckseln. Dank Fahrantrieb auch für schmale Wege und enge Durchgänge geeignet.",
+    "details": "Saubere und gepflegte Maschine. Anlieferung nach Absprache möglich, Einweisung bei Abholung selbstverständlich.",
+    "facts": ["Bis 10 cm Aststärke", "Mit Fahrantrieb", "Hackschnitzel ca. 1 cm"],
+    "price": "90 EUR / 24h · 160 EUR Wochenende · 300 EUR / 5 Tage",
+    "deposit": "200 EUR Kaution",
+    "fuel": "Super E5",
+    "suitableFor": ["trockenes Holz", "frisches Holz", "Äste & Zweige", "Schnittabfälle", "Palmblätter"],
+    "notSuitableFor": ["Mais", "Stroh", "Luzerne", "krautige Materialien"]
+  },
+  {
+    "id": "dreibeinleiter-plattform",
+    "name": "Voll verstellbare Dreibeinleiter mit Plattform",
+    "image": "/images/rental/dreibeinleiter-plattform.png",
+    "description": "Professionelle Dreibeinleiter zur Vermietung für Arbeiten auf unebenem Boden, Treppen, im Gartenbereich und rund ums Haus. Die einzeln verstellbaren Beine sorgen für sicheren Stand auf schwierigen Untergründen.",
+    "details": "Saubere und gepflegte Leiter. Lieferung nach Absprache möglich. Ideal für Heckenschnitt, Arbeiten an Bäumen, Fassadenarbeiten, Renovierungen, Treppen und professionelle Einsätze im Innen- und Außenbereich.",
+    "facts": ["Arbeitshöhe ca. 3,0-3,6 m", "Einzeln verstellbare Beine", "Große Plattform"],
+    "price": "30 EUR / 24h",
+    "deposit": "100 EUR Kaution",
+    "fuel": "Kein Kraftstoff",
+    "suitableFor": [
+      "Garten- & Heckenschnitt",
+      "Treppen & Stufen",
+      "unebenes Gelände",
+      "Innen- & Außenbereich",
+      "Baum- & Landschaftspflege"
+    ],
+    "notSuitableFor": ["Arbeiten ohne festen Stand", "unsachgemäße Nutzung", "Überlastung"]
+  },
+  {
+    "id": "as-hochgrasmaeher",
+    "name": "AS Hochgrasmäher mit Antrieb",
+    "image": "/images/rental/as-hochgrasmaeher.png",
+    "description": "Leistungsstarker Hochgrasmäher zur Vermietung für hohes Gras, Wiesen, Brachflächen und schwieriges Gelände. Dank Antrieb und wendigem 3-Rad-Konzept ideal für große Grundstücke und professionelle Grünpflege.",
+    "details": "Der spezielle 2-Takt-Motor sorgt auch in Schräg- und Hanglagen für zuverlässige Schmierung. Das arretierbare Vorderrad unterstützt sicheres Arbeiten am Hang. Lieferung nach Absprache möglich, Einweisung bei Abholung inklusive kurzer Probefahrt.",
+    "facts": ["Bis 1.700 m²/h", "Schnittbreite 63 cm", "Gras bis 90 cm Höhe"],
+    "price": "59 EUR / 24h",
+    "deposit": "200 EUR Kaution",
+    "fuel": "Super E5 Gemisch",
+    "suitableFor": [
+      "hohes Gras",
+      "Wiesen & Brachflächen",
+      "Hanglagen",
+      "unebenes Gelände",
+      "verwilderte Grundstücke",
+      "schwer zugängliche Bereiche"
+    ],
+    "notSuitableFor": ["Steine im Mähbereich", "unsachgemäße Nutzung", "Flächen ohne vorherige Sichtprüfung"]
+  },
+  {
+    "id": "rasentraktor-frontmaeher",
+    "name": "Rasentraktor Frontmäher",
+    "image": "/images/rental/rasentraktor-frontmaeher.png",
+    "description": "Leistungsstarker Frontmäher zur Vermietung für große Grundstücke, Grünflächen und gewerbliche Mäharbeiten. Dank Frontmähwerk, Hydrostat-Antrieb und 50:50-Knicklenkung lässt sich die Maschine komfortabel und präzise manövrieren.",
+    "details": "Saubere und gepflegte Maschine. Einweisung bei Abholung selbstverständlich möglich. Lieferung nach Absprache möglich. Ideal zum effizienten Mähen großer Flächen mit sauberem, gleichmäßigem Schnittbild.",
+    "facts": ["100 cm Schnittbreite", "3.000-5.000 m²/h", "25-90 mm Schnitthöhe"],
+    "price": "140 EUR / 24h",
+    "deposit": "200 EUR Kaution",
+    "fuel": "Super E5",
+    "suitableFor": [
+      "große Privatgrundstücke",
+      "Gewerbeflächen",
+      "Wohnanlagen",
+      "Park- & Grünanlagen",
+      "Hausmeister- & Landschaftspflege"
+    ],
+    "notSuitableFor": ["enge Handarbeitsbereiche", "sehr steile Hanglagen", "Flächen ohne Sichtprüfung"]
+  },
+  {
+    "id": "akku-scheuersaugmaschine",
+    "name": "Scheuersaugmaschine mit Akku",
+    "image": "/images/rental/akku-scheuersaugmaschine.png",
+    "description": "Leistungsstarke Akku-Scheuersaugmaschine zur Vermietung für große Bodenflächen in Industrie, Gewerbe, Lager, Verkauf und öffentlichen Einrichtungen. Kabellos, wendig und ideal für effiziente Reinigungsarbeiten auf robusten Innenflächen.",
+    "details": "Vollgeladen in ca. 6-8 Stunden. Wasserzufuhr, Bürsten- und Saugmotor sind einzeln zuschaltbar. Bürste mit 490 mm Durchmesser und 25 kg Anpressdruck für gründliche Reinigung. Saubere und gepflegte Maschine. Anlieferung nach Absprache möglich.",
+    "facts": ["Bis 2.200 m²/h", "Bürste 490 mm", "45 l Frischwasser / 50 l Abwasser"],
+    "price": "95 EUR / 24h",
+    "deposit": "200 EUR Kaution",
+    "fuel": "Elektro / Akku",
+    "suitableFor": [
+      "Industriehallen",
+      "Gewerbeflächen",
+      "Verkaufsflächen",
+      "Werkstätten & Lagerhallen",
+      "Fliesen",
+      "Stein- & Industrieböden"
+    ],
+    "notSuitableFor": ["empfindliche Böden ohne Prüfung", "Teppichflächen", "Außenflächen mit grobem Schmutz"]
+  }
+]
