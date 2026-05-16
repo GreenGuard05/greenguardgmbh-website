@@ -52,7 +52,12 @@ export const serviceFaqs: Record<string, ServiceFaq[]> = {
     {
       question: "Für welche Orte ist Winterdienst möglich?",
       answer:
-        "Der Schwerpunkt liegt auf Gerbstedt, Mansfeld-Südharz und Umgebung. Weitere Orte werden nach Objekt, Route und Kapazität abgestimmt.",
+        "Ein Schwerpunkt liegt auf Halle (Saale), Gerbstedt, Mansfeld-Südharz und Umgebung. Weitere Orte werden nach Objekt, Route und Kapazität abgestimmt.",
+    },
+    {
+      question: "Übernimmt Green Guard GmbH Winterdienst in Halle (Saale)?",
+      answer:
+        "Ja. Winterdienst in Halle (Saale) ist ein wichtiger Schwerpunkt, besonders für Verwaltungen, Gewerbeflächen, Wohnanlagen, Zufahrten und Parkbereiche.",
     },
   ],
   reinigung: [

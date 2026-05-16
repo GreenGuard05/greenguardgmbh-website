@@ -41,7 +41,7 @@ export const serviceSeoDescriptions: Record<string, string> = {
   hausmeisterservice:
     "Hausmeisterservice Gerbstedt: Objektbetreuung, Kleinreparaturen und Objektkontrolle für Immobilien in Mansfeld-Südharz – ein fester Ansprechpartner bei der Green Guard GmbH.",
   winterdienst:
-    "Winterdienst für Gehwege, Parkplätze und Zufahrten: Schneeräumung und Streudienst mit Bereitschaft – Green Guard GmbH aus Gerbstedt sorgt für Verkehrssicherheit.",
+    "Winterdienst Halle (Saale), Gerbstedt & Mansfeld-Südharz: Schneeräumung, Räumdienst und Streudienst für Wege, Zufahrten, Parkflächen und Objekte.",
   reinigung:
     "Gebäudereinigung in Sachsen-Anhalt: Unterhalts- und Grundreinigung für Treppenhäuser, Büros und Außenanlagen – sauber und termingerecht von Green Guard GmbH.",
   strauchpflege:

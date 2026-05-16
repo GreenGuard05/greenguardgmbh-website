@@ -26,6 +26,21 @@ export const localAreas = [
         answer:
           "Je nach Auslastung sind Besichtigungen in Gerbstedt oft kurzfristig möglich, weil die Wege kurz sind und viele Einsätze regional geplant werden.",
       },
+      {
+        question: "Kann ich mehrere Leistungen für ein Objekt in Gerbstedt kombinieren?",
+        answer:
+          "Ja. Grünpflege, Hausmeisterservice, Reinigung, Winterdienst und Mietgeräte können passend zum Objekt gemeinsam abgestimmt werden.",
+      },
+      {
+        question: "Übernimmt Green Guard GmbH auch regelmäßige Pflegeintervalle in Gerbstedt?",
+        answer:
+          "Ja. Regelmäßige Intervalle für Rasen, Beete, Sträucher, Objektkontrollen oder Reinigung können individuell geplant werden.",
+      },
+      {
+        question: "Sind Mietgeräte in Gerbstedt kurzfristig verfügbar?",
+        answer:
+          "Die Verfügbarkeit hängt vom Gerät und Zeitraum ab. Eine kurze Anfrage reicht, damit wir Bestand, Übergabe und Einweisung prüfen können.",
+      },
     ],
   },
   {
@@ -54,6 +69,21 @@ export const localAreas = [
         question: "Ist Hettstedt auch für größere Wohnanlagen interessant?",
         answer:
           "Ja. Gerade Hausverwaltungen und Eigentümergemeinschaften profitieren von festen Abläufen und einem regional erreichbaren Ansprechpartner.",
+      },
+      {
+        question: "Kann Green Guard GmbH in Hettstedt Winterdienst übernehmen?",
+        answer:
+          "Ja. Winterdienst für Gehwege, Zufahrten und Parkflächen kann je nach Objekt, Route und Kapazität abgestimmt werden.",
+      },
+      {
+        question: "Sind Treppenhausreinigung und Außenpflege kombinierbar?",
+        answer:
+          "Ja. Reinigung, Grünanlagenpflege und Hausmeisterservice können für Hettstedt als gemeinsames Betreuungspaket geplant werden.",
+      },
+      {
+        question: "Wie läuft eine Anfrage für Hettstedt ab?",
+        answer:
+          "Sie senden uns kurz Adresse, gewünschte Leistung und Umfang. Danach klären wir Besichtigung, Rhythmus und ein passendes Angebot.",
       },
     ],
   },
@@ -84,6 +114,21 @@ export const localAreas = [
         answer:
           "Möglich sind unter anderem Grünanlagenpflege, Hausmeisterservice, Gebäudereinigung, Strauchpflege und Winterdienst nach persönlicher Abstimmung.",
       },
+      {
+        question: "Sind regelmäßige Einsätze in Sangerhausen möglich?",
+        answer:
+          "Ja. Wiederkehrende Einsätze sind möglich, wenn Umfang, Route und Terminfenster sinnvoll geplant werden können.",
+      },
+      {
+        question: "Betreut Green Guard GmbH auch Gewerbeflächen in Sangerhausen?",
+        answer:
+          "Ja. Gewerbeflächen, Außenbereiche, Zufahrten und Eingangsbereiche können nach Bedarf betreut oder gereinigt werden.",
+      },
+      {
+        question: "Kann ich für Sangerhausen ein unverbindliches Angebot erhalten?",
+        answer:
+          "Ja. Nach kurzer Beschreibung des Objekts und der gewünschten Leistung erstellen wir eine passende Rückmeldung.",
+      },
     ],
   },
   {
@@ -112,6 +157,21 @@ export const localAreas = [
         question: "Kann Green Guard GmbH in Eisleben wiederkehrende Termine übernehmen?",
         answer:
           "Ja. Wiederkehrende Intervalle für Reinigung, Grünpflege oder Objektkontrolle können je nach Objekt und Umfang fest geplant werden.",
+      },
+      {
+        question: "Ist Winterdienst in Lutherstadt Eisleben möglich?",
+        answer:
+          "Winterdienst kann je nach Route, Flächen und Kapazität abgestimmt werden, besonders bei planbaren Objekten.",
+      },
+      {
+        question: "Übernimmt Green Guard GmbH Treppenhausreinigung in Eisleben?",
+        answer:
+          "Ja. Treppenhausreinigung und Unterhaltsreinigung können für Wohnanlagen, Gewerbe und Gemeinschaftsbereiche geplant werden.",
+      },
+      {
+        question: "Kann Grünpflege und Reinigung in Eisleben kombiniert werden?",
+        answer:
+          "Ja. Außenpflege, Strauchpflege, Treppenhausreinigung und Objektbetreuung lassen sich sinnvoll miteinander verbinden.",
       },
     ],
   },
@@ -142,6 +202,21 @@ export const localAreas = [
         answer:
           "Ja. Regelmäßige Intervalle für Grünpflege, Reinigung, Objektkontrolle oder Winterdienst können individuell geplant werden.",
       },
+      {
+        question: "Bietet Green Guard GmbH in Mansfeld Strauch- und Buschpflege an?",
+        answer:
+          "Ja. Formschnitt, Rückschnitt, Auslichten und Grünschnittentsorgung können in Mansfeld nach Saison und Bedarf abgestimmt werden.",
+      },
+      {
+        question: "Ist Hausmeisterservice in Mansfeld für Verwaltungen geeignet?",
+        answer:
+          "Ja. Objektkontrollen, Kleinreparaturen, Müllplatzpflege und Koordination kleiner Aufgaben sind besonders für Verwaltungen sinnvoll.",
+      },
+      {
+        question: "Wie schnell kann ein Einsatz in Mansfeld abgestimmt werden?",
+        answer:
+          "Das hängt von Umfang und Auslastung ab. Nach Ihrer Anfrage prüfen wir zeitnah Termin, Objekt und passende Leistung.",
+      },
     ],
   },
   {
@@ -170,6 +245,21 @@ export const localAreas = [
         question: "Sind Kombinationen aus mehreren Leistungen möglich?",
         answer:
           "Ja. Häufig werden Grünpflege, Hausmeisterservice, Reinigung und Winterdienst kombiniert, damit ein Objekt aus einer Hand betreut wird.",
+      },
+      {
+        question: "Welche Orte in Mansfeld-Südharz betreut Green Guard GmbH?",
+        answer:
+          "Unter anderem Gerbstedt, Hettstedt, Mansfeld, Lutherstadt Eisleben, Sangerhausen und weitere Orte nach Abstimmung.",
+      },
+      {
+        question: "Ist Winterdienst im Landkreis Mansfeld-Südharz möglich?",
+        answer:
+          "Ja. Winterdienst wird nach Route, Objektgröße und Kapazität geplant, damit Räum- und Streudienst zuverlässig funktionieren.",
+      },
+      {
+        question: "Kann ich für mehrere Objekte im Landkreis anfragen?",
+        answer:
+          "Ja. Mehrere Objekte können gemeinsam betrachtet werden, damit Leistungen, Fahrwege und Pflegeintervalle sinnvoll geplant werden.",
       },
     ],
   },
@@ -200,6 +290,21 @@ export const localAreas = [
         answer:
           "Hilfreich sind genaue Adresse, gewünschte Leistung, Flächengröße, gewünschter Zeitraum und Bilder vom Objekt.",
       },
+      {
+        question: "Sind regelmäßige Objektpflege-Einsätze in Aschersleben möglich?",
+        answer:
+          "Ja, wenn Umfang und Route sinnvoll planbar sind. Besonders geeignet sind größere oder wiederkehrende Aufträge.",
+      },
+      {
+        question: "Kann Green Guard GmbH in Aschersleben Winterdienst leisten?",
+        answer:
+          "Winterdienst ist nach Absprache möglich, vor allem für planbare Flächen, Zufahrten und Parkbereiche.",
+      },
+      {
+        question: "Bietet Green Guard GmbH in Aschersleben auch Reinigung an?",
+        answer:
+          "Ja. Gebäudereinigung, Treppenhausreinigung und Außenanlagenreinigung können je nach Objekt abgestimmt werden.",
+      },
     ],
   },
   {
@@ -228,6 +333,21 @@ export const localAreas = [
         question: "Welche Aufträge eignen sich für Bernburg besonders?",
         answer:
           "Besonders geeignet sind planbare Pflegeintervalle, größere Außenflächen, Objektbetreuung und kombinierte Leistungen.",
+      },
+      {
+        question: "Kann ich in Bernburg Winterdienst anfragen?",
+        answer:
+          "Ja. Winterdienst in Bernburg wird individuell nach Fläche, Route, Räumzeit und Kapazität geprüft.",
+      },
+      {
+        question: "Sind Grünpflege und Reinigung in Bernburg kombinierbar?",
+        answer:
+          "Ja. Außenpflege, Gebäudereinigung und Hausmeisterservice können bei passenden Objekten gemeinsam geplant werden.",
+      },
+      {
+        question: "Für wen ist Green Guard GmbH in Bernburg geeignet?",
+        answer:
+          "Geeignet sind vor allem Gewerbeflächen, Wohnanlagen, Hausverwaltungen und größere private Grundstücke.",
       },
     ],
   },
@@ -258,6 +378,21 @@ export const localAreas = [
         answer:
           "Regelmäßige Einsätze sind möglich, wenn Umfang und Route sinnvoll geplant werden können.",
       },
+      {
+        question: "Welche Leistungen sind in Halberstadt sinnvoll?",
+        answer:
+          "Sinnvoll sind besonders Grünpflege, Objektbetreuung, Reinigung, Strauchpflege und Winterdienst für größere oder wiederkehrende Einsätze.",
+      },
+      {
+        question: "Kann Green Guard GmbH in Halberstadt Hausverwaltungen unterstützen?",
+        answer:
+          "Ja. Verwaltungen können Objektpflege, Außenanlagen, Reinigung und Winterdienst als abgestimmte Leistungen anfragen.",
+      },
+      {
+        question: "Wie wird ein Einsatz in Halberstadt geplant?",
+        answer:
+          "Wir prüfen Adresse, Flächen, gewünschte Leistung und Terminfenster und melden uns mit einer realistischen Einschätzung zurück.",
+      },
     ],
   },
   {
@@ -287,22 +422,37 @@ export const localAreas = [
         answer:
           "Angefragt werden können Grünpflege, Gebäudereinigung, Hausmeisterservice, Strauchpflege, Winterdienst und weitere Objektarbeiten.",
       },
+      {
+        question: "Sind wiederkehrende Einsätze in Quedlinburg möglich?",
+        answer:
+          "Ja, wenn Route, Umfang und Kapazität passen. Wiederkehrende Arbeiten sind besonders bei größeren Objekten sinnvoll.",
+      },
+      {
+        question: "Kann Green Guard GmbH in Quedlinburg Grünanlagen pflegen?",
+        answer:
+          "Ja. Rasenarbeiten, Beetpflege, Strauchpflege, Formschnitt und Grünschnittentsorgung können angefragt werden.",
+      },
+      {
+        question: "Ist Winterdienst in Quedlinburg möglich?",
+        answer:
+          "Winterdienst ist nach individueller Prüfung möglich, insbesondere bei planbaren Flächen und klaren Zuständigkeiten.",
+      },
     ],
   },
   {
     name: "Halle (Saale)",
     slug: "halle-saale",
-    headline: "Einsätze auch in Halle (Saale)",
-    text: "Auch Halle (Saale) gehört zum Einsatzgebiet von Green Guard GmbH. Für größere Objekte, Verwaltungen, Gewerbeflächen und planbare Einsätze stimmen wir Leistungen und Anfahrt individuell ab.",
-    heroSuffix: "Planbare Einsätze in Halle (Saale).",
+    headline: "Winterdienst-Schwerpunkt Halle (Saale)",
+    text: "Halle (Saale) gehört besonders beim Winterdienst zum wichtigen Einsatzgebiet von Green Guard GmbH. Für Verwaltungen, Gewerbeflächen, Wohnanlagen, Zufahrten und Parkbereiche stimmen wir Routen, Räumzeiten und Streudienst frühzeitig ab.",
+    heroSuffix: "Winterdienst und Objektpflege in Halle (Saale).",
     metaDescription:
-      "Green Guard GmbH für Halle (Saale): Grünanlagenpflege, Hausmeisterservice, Winterdienst, Gebäudereinigung und Objektpflege für größere Objekte.",
+      "Winterdienst Halle (Saale): Green Guard GmbH übernimmt Räum- und Streudienst, Zufahrten, Parkflächen und Objektpflege für Verwaltungen, Gewerbe und Wohnanlagen.",
     lead:
-      "Halle (Saale) ist besonders für größere, planbare Einsätze interessant. Für Verwaltungen, Gewerbe und Objektbetreiber stimmen wir Leistungen, Anfahrt und Rhythmus sorgfältig ab.",
+      "Halle (Saale) ist für Green Guard GmbH besonders beim Winterdienst ein Schwerpunkt. Für Verwaltungen, Gewerbe und Objektbetreiber stimmen wir Routen, Einsatzzeiten, Streupunkte und Dokumentation sorgfältig ab.",
     focus: [
-      "Grünanlagenpflege und Objektpflege für größere Außenflächen",
+      "Winterdienst für Gehwege, Zufahrten, Parkflächen und größere Objektbereiche",
+      "Räum- und Streudienst mit klarer Routenplanung und persönlicher Abstimmung",
       "Hausmeisterservice und Gebäudereinigung für Verwaltungen und Gewerbe",
-      "Winterdienst für planbare Flächen, Zufahrten und Parkbereiche",
     ],
     customers: ["Hausverwaltungen", "Gewerbeflächen", "Objektbetreiber", "Größere Wohnanlagen"],
     faqs: [
@@ -312,9 +462,24 @@ export const localAreas = [
           "Ja. Halle (Saale) gehört zum Einsatzgebiet, vor allem bei planbaren Einsätzen, größeren Objekten und abgestimmten Leistungsumfängen.",
       },
       {
-        question: "Welche Aufträge sind in Halle (Saale) sinnvoll?",
+        question: "Ist Winterdienst in Halle (Saale) ein Schwerpunkt?",
         answer:
-          "Besonders sinnvoll sind regelmäßige Objektpflege, Grünanlagenpflege, Gebäudereinigung, Hausmeisterservice und Winterdienst für größere Flächen.",
+          "Ja. Winterdienst in Halle (Saale) ist ein wichtiger Schwerpunkt, besonders für Verwaltungen, Gewerbeflächen, Wohnanlagen, Parkflächen und Zufahrten.",
+      },
+      {
+        question: "Welche Flächen betreut Green Guard GmbH beim Winterdienst in Halle (Saale)?",
+        answer:
+          "Möglich sind Gehwege, Zufahrten, Parkflächen, Objektbereiche und Gewerbeflächen nach abgestimmter Route.",
+      },
+      {
+        question: "Sind Saisonverträge für Halle (Saale) möglich?",
+        answer:
+          "Ja. Saisonverträge sind besonders sinnvoll, damit Routen, Räumzeiten und Zuständigkeiten vor Winterbeginn klar feststehen.",
+      },
+      {
+        question: "Bietet Green Guard GmbH in Halle (Saale) auch Objektpflege außerhalb des Winters an?",
+        answer:
+          "Ja. Neben Winterdienst können auch Grünanlagenpflege, Hausmeisterservice und Gebäudereinigung abgestimmt werden.",
       },
     ],
   },
@@ -344,6 +509,21 @@ export const localAreas = [
         question: "Was sollte bei einer Anfrage für weitere Orte angegeben werden?",
         answer:
           "Hilfreich sind Einsatzort, gewünschte Leistung, Flächengröße, gewünschter Zeitraum und Bilder, falls vorhanden.",
+      },
+      {
+        question: "Sind regelmäßige Einsätze außerhalb der Kernorte möglich?",
+        answer:
+          "Ja, wenn Anfahrt, Umfang und Terminplanung sinnvoll zusammenpassen. Wir prüfen das vor einer Zusage individuell.",
+      },
+      {
+        question: "Welche Leistungen können für weitere Orte angefragt werden?",
+        answer:
+          "Anfragbar sind Grünpflege, Hausmeisterservice, Reinigung, Strauchpflege, Winterdienst und Mietgeräte nach Verfügbarkeit.",
+      },
+      {
+        question: "Kann Green Guard GmbH auch größere Sonderaufträge übernehmen?",
+        answer:
+          "Ja. Größere Sonderaufträge prüfen wir anhand von Ort, Zeitfenster, Personalbedarf und benötigter Technik.",
       },
     ],
   },
@@ -403,6 +583,9 @@ export const coreLocalSeoKeywords = [
   "Hausmeisterservice Halle Saale",
   "Grünanlagenpflege Halle Saale",
   "Winterdienst Halle Saale",
+  "Räumdienst Halle Saale",
+  "Streudienst Halle Saale",
+  "Schneeräumung Halle Saale",
   "Treppenhausreinigung Mansfeld-Südharz",
   "Strauchpflege Sachsen-Anhalt",
   "Geräte mieten Gerbstedt",

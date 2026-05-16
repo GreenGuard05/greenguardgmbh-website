@@ -9,12 +9,12 @@ export function LocalAreasSection() {
           Lokale Einsatzgebiete
         </p>
         <h2 className="mt-5 text-2xl font-bold leading-tight tracking-tight text-zinc-900 sm:text-3xl">
-          Sichtbar für Suchanfragen in{" "}
+          Vor Ort für{" "}
           <span className="gg-heading-accent gg-heading-motion">Gerbstedt, Hettstedt, Eisleben, Halle (Saale) und Mansfeld-Südharz.</span>
         </h2>
         <p className="mt-4 text-sm leading-relaxed text-zinc-600 sm:text-base">
-          Viele Kunden suchen nicht nur nach einer Leistung, sondern nach Leistung plus Ort. Deshalb werden die
-          wichtigsten Einsatzgebiete auf der Website klar benannt und mit den Leistungen von Green Guard GmbH verbunden.
+          Wählen Sie Ihr Einsatzgebiet aus und erfahren Sie, welche Leistungen wir dort sinnvoll planen können. Für
+          größere Objekte stimmen wir Umfang, Rhythmus, Anfahrt und Ansprechpartner persönlich mit Ihnen ab.
         </p>
       </div>
       <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">

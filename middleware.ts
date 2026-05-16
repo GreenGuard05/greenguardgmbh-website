@@ -2,11 +2,20 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { COOKIE_NAME, verifyAdminCookie } from "@/lib/admin-session";
 
+function isLocalAdminHost(hostname: string) {
+  return hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1";
+}
+
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   if (!pathname.startsWith("/admin/bilder") && !pathname.startsWith("/admin/mietgeraete")) {
     return NextResponse.next();
   }
+
+  if (!isLocalAdminHost(request.nextUrl.hostname)) {
+    return new NextResponse("Not found", { status: 404 });
+  }
+
   if (pathname.startsWith("/admin/bilder/login")) {
     return NextResponse.next();
   }

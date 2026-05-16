@@ -300,7 +300,7 @@ const pages: Record<string, ServicePageContent> = {
       suffix: "rund um die Uhr.",
     },
     heroDescription:
-      "Wir sorgen dafür, dass Ihre Wege, Parkplätze und Zufahrten sicher bleiben – auch bei starkem Schneefall und Eisglätte. Rund um die Uhr, 7 Tage die Woche.",
+      "Wir sorgen dafür, dass Wege, Parkplätze und Zufahrten sicher bleiben – in Gerbstedt, Mansfeld-Südharz und besonders auch in Halle (Saale). Rund um die Uhr, 7 Tage die Woche.",
     heroPrimaryLabel: "Saisonvertrag anfragen",
     story: {
       eyebrow: "Sicher durch den Winter",
@@ -309,7 +309,7 @@ const pages: Record<string, ServicePageContent> = {
       lead:
         "Winterdienst ist mehr als Schneeschieben. Für Eigentümer und Verwaltungen geht es um Sicherheit, Dokumentation und die Erfüllung der Verkehrssicherungspflicht.",
       paragraphs: [
-        "Green Guard GmbH plant Winterdienst-Einsätze für Gehwege, Zufahrten und Parkplätze so, dass gefährliche Glätte frühzeitig reduziert wird. Wir arbeiten mit abgestumpfendem Streudienst, Frostschutzbehandlung und klaren Routen.",
+        "Green Guard GmbH plant Winterdienst-Einsätze für Gehwege, Zufahrten und Parkplätze so, dass gefährliche Glätte frühzeitig reduziert wird. In Halle (Saale) liegt ein besonderer Schwerpunkt auf planbaren Routen für Verwaltungen, Gewerbeflächen, Wohnanlagen und Parkbereiche.",
         "Gerade bei Hausverwaltungen zählt Verlässlichkeit in den frühen Morgenstunden: Ein Saisonvertrag schafft Planungssicherheit, Einzeleinsätze helfen bei kurzfristigem Bedarf.",
       ],
       cards: [
@@ -400,14 +400,14 @@ const pages: Record<string, ServicePageContent> = {
       },
     ],
     seoBlock: {
-      eyebrow: "Winterdienst Gerbstedt",
-      heading: "Winterdienst mit Räum- und Streudienst in Mansfeld-Südharz.",
+      eyebrow: "Winterdienst Halle (Saale) & Gerbstedt",
+      heading: "Winterdienst mit Räum- und Streudienst in Halle (Saale) und Mansfeld-Südharz.",
       headingAccent: "Räum- und Streudienst",
       text:
-        "Für Winterdienst in Gerbstedt, Schneeräumung in Mansfeld-Südharz und zuverlässigen Streudienst in Sachsen-Anhalt ist eine klare Einsatzplanung entscheidend. Green Guard GmbH unterstützt bei Gehwegen, Zufahrten, Parkplätzen und der Dokumentation der Verkehrssicherungspflicht.",
+        "Für Winterdienst in Halle (Saale), Schneeräumung in Gerbstedt, Räumdienst in Mansfeld-Südharz und zuverlässigen Streudienst in Sachsen-Anhalt ist eine klare Einsatzplanung entscheidend. Green Guard GmbH unterstützt bei Gehwegen, Zufahrten, Parkplätzen, Gewerbeflächen und der Dokumentation der Verkehrssicherungspflicht.",
       bullets: [
-        "Schneeräumung für Gehwege, Zufahrten und Parkplätze",
-        "Abstumpfender Streudienst und Frostschutzbehandlung",
+        "Schneeräumung für Gehwege, Zufahrten und Parkplätze in Halle (Saale) und Umgebung",
+        "Abstumpfender Streudienst, Räumdienst und Frostschutzbehandlung",
         "24/7 Bereitschaft, Routenplanung und Einsatzdokumentation",
       ],
     },
