@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useRef, useState } from "react";
 import { sendContactRequest, type ContactFormState } from "@/app/kontakt/actions";
 
 const services = [
@@ -25,20 +25,42 @@ export function ContactForm({
   initialService?: string;
   initialDevice?: string;
 }) {
+  const formRef = useRef<HTMLFormElement>(null);
+  const statusRef = useRef<HTMLParagraphElement>(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [company, setCompany] = useState("");
   const [service, setService] = useState(initialService);
   const [device, setDevice] = useState(initialDevice);
-  const [formStartedAt] = useState(() => Date.now());
+  const [formStartedAt, setFormStartedAt] = useState(() => Date.now());
   const [message, setMessage] = useState(
     initialDevice ? `Ich interessiere mich für folgendes Mietgerät: ${initialDevice}\n\nGewünschter Zeitraum:\nEinsatzort:\n` : "",
   );
-  const [state, formAction, pending] = useActionState(sendContactRequest, initialFormState);
+  const [state, formAction, pending] = useActionState(async (prev: ContactFormState, formData: FormData) => {
+    const result = await sendContactRequest(prev, formData);
+
+    if (result.ok && result.message) {
+      setName("");
+      setEmail("");
+      setPhone("");
+      setCompany("");
+      setService("");
+      setDevice("");
+      setMessage("");
+      setFormStartedAt(Date.now());
+      formRef.current?.reset();
+      window.requestAnimationFrame(() => {
+        statusRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    }
+
+    return result;
+  }, initialFormState);
 
   return (
     <form
+      ref={formRef}
       action={formAction}
       className="overflow-hidden rounded-3xl border border-emerald-900/10 bg-white shadow-xl shadow-emerald-950/10 ring-1 ring-white"
     >
@@ -57,8 +79,10 @@ export function ContactForm({
         </p>
         {state.message ? (
           <p
+            ref={statusRef}
             className={`rounded-2xl px-4 py-3 text-sm ${state.ok ? "bg-emerald-50 text-emerald-950 ring-1 ring-emerald-100" : "bg-red-50 text-red-900 ring-1 ring-red-200"}`}
             role="status"
+            aria-live="polite"
           >
             {state.message}
           </p>

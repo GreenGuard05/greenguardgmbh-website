@@ -190,7 +190,11 @@ export async function sendContactRequest(
       text: body,
     });
 
-    return { ok: true, message: "Vielen Dank. Ihre Anfrage wurde per E-Mail an Green Guard GmbH übermittelt." };
+    return {
+      ok: true,
+      message:
+        "Vielen Dank. Ihre Anfrage wurde ordnungsgemäß übermittelt. Wir melden uns innerhalb von 24 Stunden bei Ihnen.",
+    };
   } catch (error) {
     const message = error instanceof Error ? error.message : "Die Anfrage konnte nicht gesendet werden.";
     return { ok: false, message };
