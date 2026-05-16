@@ -32,6 +32,13 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: site.name,
     publisher: site.name,
     category: "business",
+    icons: {
+      icon: [
+        { url: "/branding/green-guard-favicon-48.png", sizes: "48x48", type: "image/png" },
+        { url: "/branding/green-guard-favicon.png", type: "image/png" },
+      ],
+      apple: [{ url: "/branding/green-guard-apple-icon.png", sizes: "180x180", type: "image/png" }],
+    },
     keywords: [
       "Facility Management Gerbstedt",
       "Grünanlagenpflege Sachsen-Anhalt",
