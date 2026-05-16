@@ -81,6 +81,11 @@ export default function ImpressumPage() {
             Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der
             Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors.
           </p>
+          <h3>Bildmaterial</h3>
+          <p>
+            Das auf dieser Website verwendete Bildmaterial stammt teilweise aus eigenen Aufnahmen und teilweise von
+            Pexels.com. Eine Namensnennung ist nach der Pexels-Lizenz nicht erforderlich.
+          </p>
           <h2>Streitschlichtung</h2>
           <p>
             Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer
