@@ -1,9 +1,12 @@
 import type { MetadataRoute } from "next";
+import { localAreas } from "@/lib/local-seo";
+import { getRentalDevices } from "@/lib/rental-devices.server";
 import { services } from "@/lib/services";
 import { siteUrl } from "@/lib/seo";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
+  const rentalDevices = await getRentalDevices();
 
   const staticPaths = [
     "",
@@ -11,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/kontakt",
     "/ueber-uns",
     "/mieten",
+    "/einsatzgebiet",
     "/impressum",
     "/datenschutz",
   ];
@@ -28,6 +32,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly",
       priority: 0.75,
+    });
+  }
+
+  for (const area of localAreas) {
+    entries.push({
+      url: `${siteUrl}/einsatzgebiet/${area.slug}`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.78,
+    });
+  }
+
+  for (const device of rentalDevices) {
+    entries.push({
+      url: `${siteUrl}/mieten/${device.id}`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.72,
     });
   }
 

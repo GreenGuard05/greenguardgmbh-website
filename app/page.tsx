@@ -7,6 +7,7 @@ import { HomeHero } from "@/components/home-hero";
 import { HomeLeistungenGrid } from "@/components/home-leistungen-grid";
 import { HomePreFooterCta } from "@/components/home-pre-footer-cta";
 import { RevealOnScroll } from "@/components/reveal-on-scroll";
+import { coreLocalSeoKeywords } from "@/lib/local-seo";
 import { createPageMetadata, homeDescription } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { getResolvedSiteMedia } from "@/lib/site-media.server";
@@ -22,6 +23,13 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "Facility Management, Grünpflege & Winterdienst Sachsen-Anhalt",
     description: homeDescription,
     path: "/",
+    keywords: [
+      ...coreLocalSeoKeywords,
+      "Facility Management Hettstedt",
+      "Grünpflege Eisleben",
+      "Objektbetreuung Mansfeld-Südharz",
+      "Gartenpflege Sachsen-Anhalt",
+    ],
     ogImage: media.heroSide,
     ogImageWidth: 1600,
     ogImageHeight: 1000,

@@ -4,8 +4,10 @@ import { CtaPrimary } from "@/components/cta-primary";
 import { FaqStartpageTeaser } from "@/components/faq-startpage-teaser";
 import { HomeSectionAmbient } from "@/components/home-section-ambient";
 import { InnerPageBand, InnerPageHero, InnerPagePhoneLink, InnerPageRoot } from "@/components/inner-page-hero";
+import { LocalAreasSection } from "@/components/local-areas-section";
 import { ServiceCard } from "@/components/service-card";
 import { ServiceTrustStats } from "@/components/service-trust-stats";
+import { coreLocalSeoKeywords } from "@/lib/local-seo";
 import { createPageMetadata, pageDescriptions } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { getResolvedSiteMedia } from "@/lib/site-media.server";
@@ -39,6 +41,14 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "Dienstleistungen",
     description: pageDescriptions.dienstleistungen,
     path: "/dienstleistungen",
+    keywords: [
+      ...coreLocalSeoKeywords,
+      "Grünanlagenpflege Hettstedt",
+      "Hausmeisterservice Gerbstedt",
+      "Winterdienst Eisleben",
+      "Gebäudereinigung Mansfeld-Südharz",
+      "Objektbetreuung Sachsen-Anhalt",
+    ],
     ogImage: media["service.gruenanlage"],
     ogImageAlt: "Green Guard GmbH Leistungen – Grünanlagenpflege",
   });
@@ -211,6 +221,10 @@ export default async function DienstleistungenPage() {
           <FaqStartpageTeaser />
         </div>
         <p className="mt-6 text-sm text-zinc-500">Einsatzgebiet: Gerbstedt und ganz Sachsen-Anhalt</p>
+      </InnerPageBand>
+
+      <InnerPageBand ambientScene="services" className="border-t border-zinc-200/70">
+        <LocalAreasSection />
       </InnerPageBand>
 
       <section className="relative overflow-hidden border-t border-zinc-200/60 py-20 text-center sm:py-24 md:py-28">

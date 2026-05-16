@@ -1,5 +1,7 @@
+import Link from "next/link";
 import { ChipCheckIcon } from "@/components/chip-check-icon";
 import { HomeSectionAmbient } from "@/components/home-section-ambient";
+import { getLocalAreaByName } from "@/lib/local-seo";
 import { regionCitiesColumns } from "@/lib/reviews";
 
 function PinSm({ className }: { className?: string }) {
@@ -95,15 +97,21 @@ export function HomeEinsatzgebiet() {
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {[left, right].map((col, ci) => (
               <ul key={ci} className="flex flex-col gap-3 sm:gap-3.5">
-                {col.map((city) => (
-                  <li
-                    key={city}
-                    className="flex items-center gap-2.5 rounded-xl border border-zinc-200/80 bg-white/95 px-3 py-2.5 shadow-md shadow-zinc-900/5 transition duration-200 hover:-translate-y-0.5 hover:border-emerald-900/12 hover:shadow-lg motion-reduce:hover:-translate-y-0 sm:gap-3 sm:px-3.5 sm:py-3"
-                  >
-                    <ChipCheckIcon className="h-5 w-5 shrink-0 text-emerald-600 sm:h-6 sm:w-6" />
-                    <span className="min-w-0 text-xs font-medium text-zinc-900 sm:text-sm">{city}</span>
-                  </li>
-                ))}
+                {col.map((city) => {
+                  const area = getLocalAreaByName(city);
+
+                  return (
+                    <li key={city}>
+                      <Link
+                        href={area ? `/einsatzgebiet/${area.slug}` : "/einsatzgebiet"}
+                        className="flex items-center gap-2.5 rounded-xl border border-zinc-200/80 bg-white/95 px-3 py-2.5 shadow-md shadow-zinc-900/5 transition duration-200 hover:-translate-y-0.5 hover:border-emerald-900/12 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#70a340] motion-reduce:hover:-translate-y-0 sm:gap-3 sm:px-3.5 sm:py-3"
+                      >
+                        <ChipCheckIcon className="h-5 w-5 shrink-0 text-emerald-600 sm:h-6 sm:w-6" />
+                        <span className="min-w-0 text-xs font-medium text-zinc-900 sm:text-sm">{city}</span>
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             ))}
           </div>

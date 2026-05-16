@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { localAreaNames } from "@/lib/local-seo";
 import { site } from "@/lib/site";
 
 /**
@@ -7,8 +8,8 @@ import { site } from "@/lib/site";
  */
 export const siteUrl = "https://greenguard-msh.de" as const;
 
-/** Öffentliche Marken-Icons (Next.js: app/icon.svg, app/apple-icon.tsx) */
-export const siteIconUrl = `${siteUrl}/icon.svg` as const;
+/** Öffentliches Marken-Icon für strukturierte Daten */
+export const siteIconUrl = `${siteUrl}/branding/green-guard-favicon.png` as const;
 
 /** Standard-Meta-Description für die Startseite / Fallback (~155 Zeichen, snippet-tauglich) */
 export const homeDescription =
@@ -123,10 +124,16 @@ export function buildLocalBusinessJsonLd(heroImageUrl: string) {
       addressRegion: "Sachsen-Anhalt",
       addressCountry: "DE",
     },
-    areaServed: {
-      "@type": "State",
-      name: "Sachsen-Anhalt",
-    },
+    areaServed: [
+      {
+        "@type": "State",
+        name: "Sachsen-Anhalt",
+      },
+      ...localAreaNames.map((name) => ({
+        "@type": "Place",
+        name,
+      })),
+    ],
     priceRange: "$$",
     sameAs: [site.googleBusinessProfileUrl, site.instagramUrl],
   } as const;
@@ -163,5 +170,61 @@ export function buildServiceBreadcrumbJsonLd(serviceTitle: string, pageUrl: stri
       { "@type": "ListItem", position: 2, name: "Dienstleistungen", item: `${siteUrl}/dienstleistungen` },
       { "@type": "ListItem", position: 3, name: serviceTitle, item: pageUrl },
     ],
+  } as const;
+}
+
+export function buildServiceJsonLd(opts: {
+  slug: string;
+  title: string;
+  description: string;
+  image?: string;
+  offers: string[];
+}) {
+  const pageUrl = `${siteUrl}/dienstleistungen/${opts.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${pageUrl}#service`,
+    name: `${opts.title} von ${site.name}`,
+    serviceType: opts.title,
+    description: opts.description,
+    url: pageUrl,
+    image: opts.image,
+    provider: { "@id": `${siteUrl}/#localbusiness` },
+    areaServed: localAreaNames.map((name) => ({
+      "@type": "Place",
+      name,
+    })),
+    availableChannel: {
+      "@type": "ServiceChannel",
+      serviceUrl: `${siteUrl}/kontakt`,
+      servicePhone: site.phoneTel,
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: `${opts.title} Leistungen`,
+      itemListElement: opts.offers.map((name) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name,
+        },
+      })),
+    },
+  } as const;
+}
+
+export function buildFaqJsonLd(faqs: ReadonlyArray<{ question: string; answer: string }>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
   } as const;
 }

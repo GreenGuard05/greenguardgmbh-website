@@ -1,11 +1,21 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { CtaPrimary } from "@/components/cta-primary";
 import { FaqStartpageTeaser } from "@/components/faq-startpage-teaser";
 import { InnerPageBand, InnerPageHero, InnerPagePhoneLink, InnerPageRoot } from "@/components/inner-page-hero";
+import { LocalAreasSection } from "@/components/local-areas-section";
 import type { RentalDevice } from "@/lib/rental-devices";
 import { getRentalDevices } from "@/lib/rental-devices.server";
-import { createPageMetadata, pageDescriptions, siteUrl } from "@/lib/seo";
+import {
+  absoluteImageUrl,
+  priceNumber,
+  rentalContactHref,
+  rentalDeviceHref,
+  rentalSeoDescription,
+  rentalSeoKeywords,
+} from "@/lib/rental-seo";
+import { createPageMetadata, siteUrl } from "@/lib/seo";
 import { getResolvedSiteMedia } from "@/lib/site-media.server";
 
 const rentalSteps = [
@@ -34,42 +44,6 @@ const rentalAudiences = [
   "Kunden, die vorab Beratung zur passenden Maschine wünschen",
 ];
 
-function rentalContactHref(deviceName: string) {
-  const params = new URLSearchParams({
-    leistung: "Gerätemietservice",
-    geraet: deviceName,
-  });
-  return `/kontakt?${params.toString()}#angebot-formular`;
-}
-
-function absoluteImageUrl(src: string) {
-  if (!src) return undefined;
-  if (src.startsWith("http://") || src.startsWith("https://")) return src;
-  return `${siteUrl}${src.startsWith("/") ? src : `/${src}`}`;
-}
-
-function rentalSeoDescription(devices: RentalDevice[]) {
-  if (!devices.length) return pageDescriptions.mieten;
-  const names = devices.slice(0, 5).map((device) => device.name).join(", ");
-  return `Mietgeräte in Gerbstedt mieten: ${names}. Preise, Kaution, Bilder und Anfrage direkt online bei Green Guard GmbH in Mansfeld-Südharz.`;
-}
-
-function rentalSeoKeywords(devices: RentalDevice[]) {
-  const base = [
-    "Geräte mieten Gerbstedt",
-    "Mietgeräte Mansfeld-Südharz",
-    "Gerätemietservice Sachsen-Anhalt",
-    "Green Guard GmbH Mietgeräte",
-  ];
-  return [...base, ...devices.flatMap((device) => [device.name, `${device.name} mieten`])];
-}
-
-function priceNumber(price: string | undefined) {
-  if (!price) return undefined;
-  const match = price.match(/\d+(?:[,.]\d+)?/);
-  return match?.[0]?.replace(",", ".");
-}
-
 function buildRentalDevicesJsonLd(devices: RentalDevice[]) {
   const pageUrl = `${siteUrl}/mieten`;
   return {
@@ -90,12 +64,12 @@ function buildRentalDevicesJsonLd(devices: RentalDevice[]) {
         itemListElement: devices.map((device, index) => ({
           "@type": "ListItem",
           position: index + 1,
-          item: { "@id": `${pageUrl}#${device.id}` },
+          item: { "@id": `${siteUrl}${rentalDeviceHref(device)}#product` },
         })),
       },
       ...devices.map((device) => ({
         "@type": "Product",
-        "@id": `${pageUrl}#${device.id}`,
+        "@id": `${siteUrl}${rentalDeviceHref(device)}#product`,
         name: device.name,
         image: absoluteImageUrl(device.image),
         description: [device.description, device.details].filter(Boolean).join(" "),
@@ -104,6 +78,7 @@ function buildRentalDevicesJsonLd(devices: RentalDevice[]) {
           "@type": "Brand",
           name: "Green Guard GmbH",
         },
+        url: `${siteUrl}${rentalDeviceHref(device)}`,
         offers: {
           "@type": "Offer",
           url: `${siteUrl}${rentalContactHref(device.name)}`,
@@ -254,7 +229,14 @@ export default async function MietenPage() {
                   ) : null}
                 </a>
                 <div className="flex flex-1 flex-col p-5">
-                  <h3 className="text-lg font-bold text-zinc-900">{device.name}</h3>
+                  <h3 className="text-lg font-bold text-zinc-900">
+                    <Link
+                      href={rentalDeviceHref(device)}
+                      className="outline-offset-4 transition hover:text-emerald-800 focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#70a340]"
+                    >
+                      {device.name}
+                    </Link>
+                  </h3>
                   {device.price ? (
                     <div className="mt-3 rounded-2xl bg-gradient-to-br from-[#70a340] to-[#2f6f1f] p-4 text-white shadow-lg shadow-emerald-900/20">
                       <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-white/75">Mietpreis</p>
@@ -311,6 +293,12 @@ export default async function MietenPage() {
                     </div>
                   </details>
                   <div className="mt-auto pt-5">
+                    <Link
+                      href={rentalDeviceHref(device)}
+                      className="mb-3 inline-flex w-full justify-center rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-sm font-bold text-emerald-900 transition hover:border-emerald-300 hover:bg-emerald-100"
+                    >
+                      Geräteseite öffnen
+                    </Link>
                     <CtaPrimary href={rentalContactHref(device.name)} className="w-full justify-center">
                       Dieses Gerät anfragen
                     </CtaPrimary>
@@ -394,6 +382,10 @@ export default async function MietenPage() {
             </div>
           </div>
         </div>
+        </InnerPageBand>
+
+        <InnerPageBand ambientScene="services" className="border-t border-zinc-200/70">
+          <LocalAreasSection />
         </InnerPageBand>
 
         <section className="mx-auto max-w-4xl px-4 py-14 sm:px-6 sm:py-16">

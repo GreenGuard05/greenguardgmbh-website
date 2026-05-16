@@ -2,13 +2,24 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { CtaPrimary } from "@/components/cta-primary";
-import { InnerPageHero, InnerPagePhoneLink, InnerPageRoot } from "@/components/inner-page-hero";
+import { InnerPageBand, InnerPageHero, InnerPagePhoneLink, InnerPageRoot } from "@/components/inner-page-hero";
+import { LocalAreasSection } from "@/components/local-areas-section";
 import { ServiceCtaBand } from "@/components/service-cta-band";
+import { ServiceFaqSection } from "@/components/service-faq-section";
 import { ServiceScopeSection } from "@/components/service-scope-section";
 import { ServiceStorySection } from "@/components/service-story-section";
+import { buildLocalKeywordCombinations } from "@/lib/local-seo";
 import { getServicePageContent } from "@/lib/service-pages";
+import { serviceFaqs } from "@/lib/service-faqs";
 import { getService, services } from "@/lib/services";
-import { buildServiceBreadcrumbJsonLd, createPageMetadata, serviceSeoDescriptions, siteUrl } from "@/lib/seo";
+import {
+  buildFaqJsonLd,
+  buildServiceBreadcrumbJsonLd,
+  buildServiceJsonLd,
+  createPageMetadata,
+  serviceSeoDescriptions,
+  siteUrl,
+} from "@/lib/seo";
 import { site } from "@/lib/site";
 import type { ResolvedSiteMedia } from "@/lib/site-media-defaults";
 import { getResolvedSiteMedia } from "@/lib/site-media.server";
@@ -35,6 +46,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${service.title} · Gerbstedt`,
     description,
     path,
+    keywords: [
+      service.title,
+      `${service.title} Gerbstedt`,
+      `${service.title} Mansfeld-Südharz`,
+      ...service.tags,
+      ...buildLocalKeywordCombinations(service.title),
+    ],
     ogImage,
     ogImageWidth: 1600,
     ogImageHeight: 1066,
@@ -55,11 +73,24 @@ export default async function ServicePage({ params }: Props) {
 
   const pageUrl = `${siteUrl}/dienstleistungen/${slug}`;
   const breadcrumbLd = buildServiceBreadcrumbJsonLd(service.title, pageUrl);
+  const faqs = serviceFaqs[slug] ?? [];
+  const serviceJsonLd = buildServiceJsonLd({
+    slug,
+    title: service.title,
+    description: page.seoBlock.text,
+    image: service.image,
+    offers: page.scope.columns.flat(),
+  });
+  const faqJsonLd = buildFaqJsonLd(faqs);
   const heroPrimaryLabel = page.heroPrimaryLabel ?? "Kostenloses Angebot";
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+      {faqs.length ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      ) : null}
       <InnerPageRoot>
         <InnerPageHero
           eyebrow={service.eyebrow}
@@ -101,6 +132,12 @@ export default async function ServicePage({ params }: Props) {
           ambientScene={page.ambientScene}
         />
         <ServiceScopeSection scope={page.scope} ambientScene={page.ambientScene} />
+        <InnerPageBand ambientScene={page.ambientScene}>
+          <ServiceFaqSection title={service.title} faqs={faqs} />
+        </InnerPageBand>
+        <InnerPageBand ambientScene="services" className="border-t border-zinc-200/70">
+          <LocalAreasSection />
+        </InnerPageBand>
         <ServiceCtaBand cta={page.cta} ambientScene={page.ambientScene} />
       </InnerPageRoot>
     </>

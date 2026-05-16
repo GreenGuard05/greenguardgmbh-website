@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { OrganizationJsonLd } from "@/components/organization-json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { coreLocalSeoKeywords } from "@/lib/local-seo";
 import { getResolvedSiteMedia } from "@/lib/site-media.server";
 import { homeDescription, siteUrl } from "@/lib/seo";
 import { site } from "@/lib/site";
@@ -40,6 +41,7 @@ export async function generateMetadata(): Promise<Metadata> {
       apple: [{ url: "/branding/green-guard-apple-icon.png", sizes: "180x180", type: "image/png" }],
     },
     keywords: [
+      ...coreLocalSeoKeywords,
       "Facility Management Gerbstedt",
       "Grünanlagenpflege Sachsen-Anhalt",
       "Winterdienst Gerbstedt",

@@ -10,7 +10,7 @@ import {
 
 const FILE = path.join(process.cwd(), "content", "rental-devices.json");
 
-function cleanDevice(raw: unknown, index: number): RentalDevice | null {
+function cleanDevice(raw: unknown): RentalDevice | null {
   if (!raw || typeof raw !== "object" || Array.isArray(raw)) return null;
   const data = raw as Record<string, unknown>;
   const name = typeof data.name === "string" ? data.name.trim() : "";
@@ -18,7 +18,7 @@ function cleanDevice(raw: unknown, index: number): RentalDevice | null {
 
   const idSource = typeof data.id === "string" && data.id.trim() ? data.id.trim() : name;
   return {
-    id: `${slugifyRentalDeviceName(idSource)}-${index}`.replace(/-0$/, ""),
+    id: slugifyRentalDeviceName(idSource),
     name,
     image: typeof data.image === "string" ? data.image.trim() : "",
     description: typeof data.description === "string" ? data.description.trim() : "",
