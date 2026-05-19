@@ -15,10 +15,10 @@ export function ServiceFaqSection({ title, faqs }: { title: string; faqs: Servic
         {faqs.map((faq) => (
           <details
             key={faq.question}
-            className="group rounded-2xl border border-zinc-200 bg-zinc-50/80 p-4 open:bg-white open:shadow-sm"
+            className="gg-surface-card group rounded-2xl border border-zinc-200 bg-zinc-50/80 p-4 open:bg-white open:shadow-sm"
           >
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-bold text-zinc-900">
-              {faq.question}
+              <span className="min-w-0 flex-1 pr-2">{faq.question}</span>
               <span className="rounded-full bg-white px-2 py-1 text-xs text-zinc-500 ring-1 ring-zinc-200 transition group-open:rotate-180">
                 ↓
               </span>

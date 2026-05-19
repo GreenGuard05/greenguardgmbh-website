@@ -13,7 +13,8 @@ import {
   rentalDeviceSeoDescription,
   rentalSeoKeywords,
 } from "@/lib/rental-seo";
-import { createPageMetadata } from "@/lib/seo";
+import { PageBreadcrumbs } from "@/components/page-breadcrumbs";
+import { buildBreadcrumbJsonLd, createPageMetadata, focusKeywords, siteUrl } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -37,16 +38,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${device.name} mieten · Gerbstedt`,
     description: rentalDeviceSeoDescription(device),
     path: `/mieten/${device.id}`,
-    keywords: [
-      device.name,
-      `${device.name} mieten`,
-      `${device.name} Gerbstedt`,
-      `${device.name} Mansfeld-Südharz`,
-      `${device.name} Sachsen-Anhalt`,
-      ...rentalSeoKeywords(devices),
-      ...(device.facts ?? []),
-      ...(device.suitableFor ?? []),
-    ],
+    keywords: focusKeywords(
+      [
+        device.name,
+        `${device.name} mieten`,
+        `${device.name} Gerbstedt`,
+        `${device.name} Sachsen-Anhalt`,
+      ],
+      rentalSeoKeywords(devices).slice(0, 4),
+    ),
     ogImage: absoluteImageUrl(device.image),
     ogImageAlt: `${device.name} mieten bei Green Guard GmbH`,
   });
@@ -76,11 +76,27 @@ export default async function RentalDevicePage({ params }: Props) {
   if (!device) notFound();
 
   const productJsonLd = buildRentalProductJsonLd(device);
+  const pageUrl = `${siteUrl}/mieten/${device.id}`;
+  const breadcrumbLd = buildBreadcrumbJsonLd([
+    { name: "Startseite", item: siteUrl },
+    { name: "Geräte mieten", item: `${siteUrl}/mieten` },
+    { name: device.name, item: pageUrl },
+  ]);
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <InnerPageRoot>
+        <PageBreadcrumbs
+          variant="dark"
+          className="mx-auto max-w-6xl px-4 pb-2 pt-1 sm:px-6"
+          items={[
+            { label: "Startseite", href: "/" },
+            { label: "Geräte mieten", href: "/mieten" },
+            { label: device.name },
+          ]}
+        />
         <InnerPageHero
           eyebrow="Mietgerät · Gerbstedt"
           heroTitle={{
@@ -93,7 +109,6 @@ export default async function RentalDevicePage({ params }: Props) {
             "Professionelles Mietgerät von Green Guard GmbH für Einsätze in Gerbstedt, Mansfeld-Südharz und Umgebung."
           }
           tone="dark"
-          ambientScene="caretaker"
           actions={
             <>
               <CtaPrimary href={rentalContactHref(device.name)}>Dieses Gerät anfragen</CtaPrimary>
@@ -126,7 +141,7 @@ export default async function RentalDevicePage({ params }: Props) {
           }
         />
 
-        <InnerPageBand ambientScene="services">
+        <InnerPageBand>
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-12">
             <div>
               <Link
@@ -177,7 +192,7 @@ export default async function RentalDevicePage({ params }: Props) {
           </div>
         </InnerPageBand>
 
-        <InnerPageBand ambientScene="services" className="border-t border-zinc-200/70">
+        <InnerPageBand footerBlend className="border-t border-zinc-200/70">
           <LocalAreasSection />
         </InnerPageBand>
       </InnerPageRoot>

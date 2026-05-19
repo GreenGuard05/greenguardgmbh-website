@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { ChipCheckIcon } from "@/components/chip-check-icon";
 import { ContactForm } from "@/components/contact-form";
 import { CtaPrimary } from "@/components/cta-primary";
 import { FaqStartpageTeaser } from "@/components/faq-startpage-teaser";
 import { InnerPageBand, InnerPageHero, InnerPagePhoneLink, InnerPageRoot } from "@/components/inner-page-hero";
 import { RevealOnScroll } from "@/components/reveal-on-scroll";
-import { createPageMetadata, pageDescriptions } from "@/lib/seo";
+import { PageBreadcrumbs } from "@/components/page-breadcrumbs";
+import { buildContactPageJsonLd, createPageMetadata, pageDescriptions } from "@/lib/seo";
 import { mailtoHref, site, siteLocationLines } from "@/lib/site";
 import { getResolvedSiteMedia } from "@/lib/site-media.server";
 
@@ -66,10 +66,22 @@ export default async function KontaktPage({ searchParams }: KontaktPageProps) {
   const params = (await searchParams) ?? {};
   const initialService = firstParam(params.leistung);
   const initialDevice = firstParam(params.geraet);
+  const initialMessage = firstParam(params.nachricht);
+
+  const contactJsonLd = buildContactPageJsonLd();
 
   return (
-    <InnerPageRoot>
-      <InnerPageHero
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }} />
+      <InnerPageRoot>
+        <PageBreadcrumbs
+          className="mx-auto max-w-6xl px-4 pb-2 pt-1 sm:px-6"
+          items={[
+            { label: "Startseite", href: "/" },
+            { label: "Kontakt" },
+          ]}
+        />
+        <InnerPageHero
         eyebrow="Persönlicher Kontakt"
         heroTitle={{
           prefix: "Lassen Sie uns",
@@ -82,7 +94,6 @@ export default async function KontaktPage({ searchParams }: KontaktPageProps) {
             was ansteht. Wir melden uns persönlich, verständlich und ohne Umwege.
           </>
         }
-        ambientScene="about"
         actions={
           <>
             <InnerPagePhoneLink />
@@ -119,7 +130,7 @@ export default async function KontaktPage({ searchParams }: KontaktPageProps) {
                     aria-label={
                       card.title === "Anrufen" ? `Jetzt Green Guard GmbH unter ${site.phone} anrufen` : undefined
                     }
-                    className="group rounded-2xl border border-zinc-200/80 bg-white p-5 shadow-md shadow-zinc-900/5 ring-1 ring-white transition hover:-translate-y-0.5 hover:border-emerald-200 hover:shadow-lg"
+                    className="gg-surface-card group min-w-0 rounded-2xl border border-zinc-200/80 bg-white p-5 shadow-md shadow-zinc-900/5 ring-1 ring-white transition hover:-translate-y-0.5 hover:border-emerald-200 hover:shadow-lg sm:p-6"
                   >
                     <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#eef6e6] text-lg text-[#70a340] ring-1 ring-emerald-100">
                       {card.title === "Anrufen" ? "☎" : card.title === "E-Mail schreiben" ? "✉" : "↘"}
@@ -188,8 +199,8 @@ export default async function KontaktPage({ searchParams }: KontaktPageProps) {
               <ul className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
                 {benefits.map((item) => (
                   <li key={item} className="flex items-start gap-3 rounded-2xl bg-white/80 p-4 text-sm text-zinc-700 shadow-sm ring-1 ring-zinc-200/70 sm:text-base">
-                    <ChipCheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
-                    {item}
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-600" aria-hidden />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
@@ -202,11 +213,16 @@ export default async function KontaktPage({ searchParams }: KontaktPageProps) {
 
           <div id="angebot-formular" className="min-w-0 scroll-mt-28">
             <RevealOnScroll emphasis delayMs={60}>
-              <ContactForm initialService={initialService} initialDevice={initialDevice} />
+              <ContactForm
+                initialService={initialService}
+                initialDevice={initialDevice}
+                initialMessage={initialMessage}
+              />
             </RevealOnScroll>
           </div>
         </div>
       </InnerPageBand>
-    </InnerPageRoot>
+      </InnerPageRoot>
+    </>
   );
 }

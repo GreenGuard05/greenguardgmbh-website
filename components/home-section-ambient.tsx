@@ -1,6 +1,12 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import {
+  LeistungenHousePaths,
+  LeistungenLawnMowerPaths,
+  LeistungenSnowflakePaths,
+  LeistungenTeamPaths,
+} from "@/components/leistungen-ambient-icons";
 
 export type HomeAmbientScene =
   | "services"
@@ -305,60 +311,42 @@ function SceneShrubCare({ tone }: { tone: "light" | "dark" }) {
   );
 }
 
-/** Übersicht Dienstleistungen – gemischte Leistungs-Icons */
+/** Leistungen – Rasenmäher, Haus, Schneeflocke, Team */
 function SceneServices({ tone }: { tone: "light" | "dark" }) {
-  const t = tone === "dark" ? "text-emerald-200/[0.26]" : "text-emerald-800/[0.32]";
+  const t = tone === "dark" ? "text-emerald-200/[0.28]" : "text-emerald-800/[0.34]";
   return (
     <div className={`relative h-full w-full ${t}`}>
       <AmbientGlyph
         motion="drift"
         durationSec={10}
-        className="right-[2%] top-[6%] h-40 w-40 -rotate-6 sm:h-48 sm:w-48"
+        className="right-[-10%] top-[-6%] h-[min(48vw,16rem)] w-[min(48vw,16rem)] -rotate-6 sm:right-[-4%] sm:top-[-2%] sm:h-56 sm:w-56"
         delaySec={0}
       >
-        <path d="M2 10h1.2l.9-2.2h15.8l.9 2.2H22" />
-        <path d="M8 10V7.2h8V10" />
-        <circle cx="6.2" cy="14.2" r="2" />
-        <circle cx="17.8" cy="14.2" r="2" />
-      </AmbientGlyph>
-      <AmbientGlyph
-        motion="drift"
-        durationSec={9}
-        className="bottom-[12%] left-[0%] h-36 w-36 rotate-8 sm:h-44 sm:w-44"
-        delaySec={1.2}
-      >
-        <path d="M4.5 20V9.5L12 4l7.5 5.5V20" />
-        <path d="M9 20v-6h6v6M7 11.5h2.5M14.5 11.5H17" />
-      </AmbientGlyph>
-      <AmbientGlyph
-        motion="drift"
-        durationSec={8.5}
-        className="left-[28%] top-[42%] h-28 w-28 sm:h-32 sm:w-32"
-        delaySec={2.3}
-      >
-        <path d="M12 3v18M5 7l14 10M19 7 5 17" />
-        <circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none" />
-      </AmbientGlyph>
-      <AmbientGlyph
-        motion="drift"
-        durationSec={11}
-        className="right-[18%] top-[52%] h-24 w-24 opacity-90 sm:h-32 sm:w-32"
-        delaySec={0.7}
-      >
-        <path d="M4 15c-2-3.5-2-7.5 0-11" />
-        <path d="M20 15c2-3.5 2-7.5 0-11" />
-        <path d="M7 12.5 17 21.5" />
-        <path d="M17 12.5 7 21.5" />
+        <LeistungenLawnMowerPaths />
       </AmbientGlyph>
       <AmbientGlyph
         motion="drift"
         durationSec={9.5}
-        className="left-[8%] top-[14%] h-24 w-24 rotate-[-12deg] opacity-85"
-        delaySec={1.8}
+        className="bottom-[-8%] left-[-10%] h-[min(44vw,14rem)] w-[min(44vw,14rem)] rotate-3 sm:bottom-[-4%] sm:left-[-5%] sm:h-52 sm:w-52"
+        delaySec={1.1}
       >
-        <path d="M12 3v11" />
-        <path d="M8 14h8l1.5 6h-11L8 14Z" />
-        <path d="M9 20v-3M12 20v-3M15 20v-3" />
+        <LeistungenHousePaths />
+      </AmbientGlyph>
+      <AmbientGlyph
+        motion="drift"
+        durationSec={9}
+        className="left-[-6%] top-[14%] h-[min(40vw,13rem)] w-[min(40vw,13rem)] sm:left-[0%] sm:top-[18%] sm:h-48 sm:w-48"
+        delaySec={2.2}
+      >
+        <LeistungenSnowflakePaths />
+      </AmbientGlyph>
+      <AmbientGlyph
+        motion="drift"
+        durationSec={10.5}
+        className="right-[-6%] bottom-[-4%] h-[min(38vw,12rem)] w-[min(38vw,12rem)] sm:right-[2%] sm:bottom-[2%] sm:h-44 sm:w-44"
+        delaySec={0.7}
+      >
+        <LeistungenTeamPaths />
       </AmbientGlyph>
     </div>
   );
@@ -460,16 +448,36 @@ function SceneFaq({ tone }: { tone: "light" | "dark" }) {
   const t = tone === "dark" ? "text-emerald-200/[0.26]" : "text-emerald-800/[0.34]";
   return (
     <div className={`relative h-full w-full ${t}`}>
-      <AmbientGlyph className="right-[8%] top-[18%] h-40 w-40 -rotate-6 sm:h-48 sm:w-48" delaySec={0.4}>
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-        <path d="M9 10h6M9 14h4" />
+      <AmbientGlyph
+        motion="drift"
+        durationSec={10}
+        className="right-[-6%] top-[8%] h-[min(44vw,14rem)] w-[min(44vw,14rem)] sm:right-[2%] sm:top-[12%] sm:h-52 sm:w-52"
+        delaySec={0.3}
+      >
+        <path d="M5 6h12a2.5 2.5 0 0 1 2.5 2.5v7.5A2.5 2.5 0 0 1 17 18.5H10l-3.5 3.5V18.5H5A2.5 2.5 0 0 1 2.5 16V8.5A2.5 2.5 0 0 1 5 6z" />
+        <path d="M7.5 10h7M7.5 12h5M7.5 14h6M7.5 16h4" />
+        <path d="M15 11h12a2.5 2.5 0 0 1 2.5 2.5v7.5a2.5 2.5 0 0 1-2.5 2.5h-7l-3.5 3.5V23.5H15a2.5 2.5 0 0 1-2.5-2.5v-7.5A2.5 2.5 0 0 1 15 11z" />
+        <path d="M21.5 15.5a2 2 0 1 0-2.6 1.9c.9.5 1.6 1.3 1.6 2.4" />
+        <circle cx="21.5" cy="22" r="0.95" fill="currentColor" stroke="none" />
       </AmbientGlyph>
-      <AmbientGlyph className="bottom-[10%] left-[-4%] h-48 w-48 rotate-3 sm:h-56 sm:w-56" delaySec={1.6}>
-        <circle cx="12" cy="12" r="10" />
-        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01" />
+      <AmbientGlyph
+        motion="drift"
+        durationSec={9}
+        className="bottom-[6%] left-[-8%] h-36 w-36 rotate-6 opacity-80 sm:bottom-[10%] sm:left-[-2%] sm:h-44 sm:w-44"
+        delaySec={1.6}
+      >
+        <path d="M15 11h12a2.5 2.5 0 0 1 2.5 2.5v7.5a2.5 2.5 0 0 1-2.5 2.5h-7l-3.5 3.5V23.5H15a2.5 2.5 0 0 1-2.5-2.5v-7.5A2.5 2.5 0 0 1 15 11z" />
+        <path d="M21.5 15.5a2 2 0 1 0-2.6 1.9c.9.5 1.6 1.3 1.6 2.4" />
+        <circle cx="21.5" cy="22" r="0.95" fill="currentColor" stroke="none" />
       </AmbientGlyph>
-      <AmbientGlyph className="left-[30%] top-[40%] h-28 w-28 rotate-6 opacity-90" delaySec={2.8}>
-        <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />
+      <AmbientGlyph
+        motion="drift"
+        durationSec={11}
+        className="left-[8%] top-[42%] h-28 w-28 -rotate-6 opacity-75 sm:h-32 sm:w-32"
+        delaySec={2.7}
+      >
+        <path d="M5 6h12a2.5 2.5 0 0 1 2.5 2.5v7.5A2.5 2.5 0 0 1 17 18.5H10l-3.5 3.5V18.5H5A2.5 2.5 0 0 1 2.5 16V8.5A2.5 2.5 0 0 1 5 6z" />
+        <path d="M7.5 10h7M7.5 12h5M7.5 14h6M7.5 16h4" />
       </AmbientGlyph>
     </div>
   );
@@ -554,12 +562,17 @@ function AmbientOrbs({ style, tone }: { style: CSSProperties; tone: "light" | "d
  * Bereichsbezogene Hintergrund-Motive + weiche Lichtwolken.
  * Deckkraft und Parallax reagieren auf Scroll (Sichtanteil); Puls über CSS-Animation.
  */
+export type HomeAmbientBleed = "none" | "vertical";
+
 export function HomeSectionAmbient({
   scene,
   tone = "light",
+  bleed = "vertical",
 }: {
   scene: HomeAmbientScene;
   tone?: "light" | "dark";
+  /** Icons über Sektionsgrenzen hinaus – nicht am Rand abschneiden */
+  bleed?: HomeAmbientBleed;
 }) {
   const rootRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef(0);
@@ -636,11 +649,27 @@ export function HomeSectionAmbient({
     };
   }, [tone]);
 
+  const bleedY = bleed === "vertical" ? "28%" : "0%";
+
   return (
-    <div ref={rootRef} className="pointer-events-none absolute inset-0 z-[1] overflow-hidden" aria-hidden>
+    <div
+      ref={rootRef}
+      className={[
+        "pointer-events-none absolute inset-x-0 z-[2]",
+        bleed === "vertical" ? "overflow-visible" : "overflow-hidden",
+      ].join(" ")}
+      style={{
+        top: bleed === "vertical" ? `calc(-1 * ${bleedY})` : 0,
+        bottom: bleed === "vertical" ? `calc(-1 * ${bleedY})` : 0,
+      }}
+      aria-hidden
+    >
       <AmbientOrbs style={orbStyle} tone={tone} />
       <div
-        className="absolute inset-[-16%] max-sm:scale-[0.88] will-change-[opacity,transform] motion-reduce:will-change-auto motion-reduce:transform-none"
+        className={[
+          "absolute inset-x-0 will-change-[opacity,transform] motion-reduce:will-change-auto motion-reduce:transform-none",
+          bleed === "vertical" ? "inset-y-[-24%] max-sm:scale-[0.9]" : "inset-[-16%] max-sm:scale-[0.88]",
+        ].join(" ")}
         style={glyphPack}
       >
         <SceneBody scene={scene} tone={tone} />

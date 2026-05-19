@@ -9,6 +9,13 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1"],
   async redirects() {
     return [
+      /** www → kanonische Domain ohne www (HTTPS setzt i. d. R. das Hosting) */
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.greenguard-msh.de" }],
+        destination: "https://greenguard-msh.de/:path*",
+        permanent: true,
+      },
       {
         source: "/index.html",
         destination: "/",

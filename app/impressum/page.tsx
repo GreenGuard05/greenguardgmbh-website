@@ -22,7 +22,7 @@ export default function ImpressumPage() {
       />
 
       <section className="mx-auto max-w-3xl px-4 pb-16 sm:px-6 sm:pb-20">
-        <article className="space-y-6 rounded-2xl border border-zinc-200/80 bg-white p-6 text-zinc-700 shadow-md shadow-zinc-900/5 sm:p-10 [&_h2]:mt-10 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-zinc-900 [&_h2:first-child]:mt-0 [&_h3]:mt-6 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-zinc-900 [&_a]:font-medium [&_a]:text-emerald-800 [&_a]:underline [&_a]:decoration-emerald-200 [&_a]:underline-offset-2 hover:[&_a]:text-emerald-950">
+        <article className="gg-surface-card space-y-6 rounded-2xl border border-zinc-200/80 bg-white p-6 text-zinc-700 shadow-md shadow-zinc-900/5 sm:p-10 [&_h2]:mt-10 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-zinc-900 [&_h2:first-child]:mt-0 [&_h3]:mt-6 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-zinc-900 [&_a]:font-medium [&_a]:text-emerald-800 [&_a]:underline [&_a]:decoration-emerald-200 [&_a]:underline-offset-2 hover:[&_a]:text-emerald-950">
           <h2 className="!mt-0 text-xl font-semibold text-zinc-900">Angaben gemäß § 5 TMG</h2>
           <p>
             {siteLocationLines.map((line) => (
@@ -83,8 +83,23 @@ export default function ImpressumPage() {
           </p>
           <h3>Bildmaterial</h3>
           <p>
-            Das auf dieser Website verwendete Bildmaterial stammt teilweise aus eigenen Aufnahmen und teilweise von
-            Pexels.com. Eine Namensnennung ist nach der Pexels-Lizenz nicht erforderlich.
+            Das auf dieser Website verwendete Bildmaterial stammt teilweise aus eigenen Aufnahmen und teilweise von{" "}
+            <a href="https://www.pexels.com/de-de/" target="_blank" rel="noopener noreferrer">
+              Pexels
+            </a>{" "}
+            (Lizenz gemäß Pexels-Nutzungsbedingungen; Namensnennung nicht erforderlich).
+          </p>
+          <h3>Kartendarstellung (Einsatzgebiet)</h3>
+          <p>
+            Die schematische Karte von Sachsen-Anhalt auf dieser Website basiert u. a. auf Geodaten von{" "}
+            <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">
+              OpenStreetMap
+            </a>{" "}
+            © OpenStreetMap-Mitwirkende,{" "}
+            <a href="https://opendatacommons.org/licenses/odbl/" target="_blank" rel="noopener noreferrer">
+              ODbL 1.0
+            </a>
+            . Die grafische Aufbereitung erfolgt durch {site.name}.
           </p>
           <h2>Streitschlichtung</h2>
           <p>

@@ -71,6 +71,20 @@ export const googleReviews: GoogleReview[] = [
  */
 export const googleReviewCount = googleReviews.length;
 
+/**
+ * Für JSON-LD (aggregateRating) – muss zu den auf der Website gezeigten Google-Bewertungen passen.
+ * Bei Abweichung vom Google-Unternehmensprofil Werte dort anpassen.
+ */
+export const googleAggregateRating = {
+  ratingValue: 5,
+  bestRating: 5,
+  worstRating: 1,
+  reviewCount: googleReviewCount,
+} as const;
+
+/** Hero: Karussell & Marquee ohne interne Test-Einträge */
+export const heroGoogleReviews = googleReviews.filter((r) => r.name !== "Philipp Boiko");
+
 export const regionCities = [
   "Gerbstedt",
   "Hettstedt",

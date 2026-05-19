@@ -78,7 +78,6 @@ export function buildRentalProductJsonLd(device: RentalDevice) {
       priceCurrency: "EUR",
       ...(priceNumber(device.price) ? { price: priceNumber(device.price) } : {}),
       availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/UsedCondition",
       businessFunction: "https://schema.org/LeaseOut",
     },
   } as const;

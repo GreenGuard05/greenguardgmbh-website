@@ -1,9 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { OrganizationJsonLd } from "@/components/organization-json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { coreLocalSeoKeywords } from "@/lib/local-seo";
 import { getResolvedSiteMedia } from "@/lib/site-media.server";
 import { homeDescription, siteUrl } from "@/lib/seo";
 import { site } from "@/lib/site";
@@ -19,8 +18,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#70a340" },
+    { media: "(prefers-color-scheme: dark)", color: "#2b2b2b" },
+  ],
+};
+
 export async function generateMetadata(): Promise<Metadata> {
   const media = await getResolvedSiteMedia();
+  const googleVerification = process.env.GOOGLE_SITE_VERIFICATION?.trim();
+
   return {
     metadataBase: new URL(siteUrl),
     title: {
@@ -35,19 +43,14 @@ export async function generateMetadata(): Promise<Metadata> {
     category: "business",
     icons: {
       icon: [
-        { url: "/branding/green-guard-favicon-48.png", sizes: "48x48", type: "image/png" },
-        { url: "/branding/green-guard-favicon.png", type: "image/png" },
+        { url: "/branding/green-guard-favicon.svg", type: "image/svg+xml" },
+        { url: "/icon.svg", type: "image/svg+xml" },
       ],
-      apple: [{ url: "/branding/green-guard-apple-icon.png", sizes: "180x180", type: "image/png" }],
+      apple: [{ url: "/branding/green-guard-favicon.svg", type: "image/svg+xml" }],
     },
-    keywords: [
-      ...coreLocalSeoKeywords,
-      "Facility Management Gerbstedt",
-      "Grünanlagenpflege Sachsen-Anhalt",
-      "Winterdienst Gerbstedt",
-      "Hausmeisterservice Mansfeld-Südharz",
-      "Green Guard GmbH",
-    ],
+    ...(googleVerification
+      ? { verification: { google: googleVerification } }
+      : {}),
     robots: {
       index: true,
       follow: true,
@@ -102,7 +105,11 @@ export default function RootLayout({
         </a>
         <OrganizationJsonLd />
         <SiteHeader />
-        <main id="main-content" className="flex-1" tabIndex={-1}>
+        <main
+          id="main-content"
+          className="overflow-x-hidden overflow-y-clip [&>:last-child]:mb-0"
+          tabIndex={-1}
+        >
           {children}
         </main>
         <SiteFooter />

@@ -2,11 +2,19 @@ import Link from "next/link";
 import { SiteLogo } from "@/components/site-logo";
 import { mailtoHref, serviceLinks, site, siteLocationLines } from "@/lib/site";
 
-const quickLinks = [
+type QuickLink = { href: string; label: string; external?: boolean };
+
+const quickLinks: QuickLink[] = [
+  { href: "/einsatzgebiet", label: "Einsatzgebiet" },
   { href: "/ueber-uns", label: "Über uns" },
   { href: "/#faq", label: "FAQ" },
   { href: "/mieten", label: "Geräte mieten" },
   { href: "/kontakt", label: "Kontakt & Angebot" },
+  {
+    href: site.googleBusinessProfileUrl,
+    label: "Google Unternehmensprofil",
+    external: true,
+  },
   { href: "/impressum", label: "Impressum" },
   { href: "/datenschutz", label: "Datenschutz" },
 ];
@@ -74,7 +82,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-[color:rgba(112,163,64,0.2)] bg-[#2b2b2b] text-zinc-300">
+    <footer className="gg-site-footer relative z-[2] shrink-0 text-zinc-300">
       <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-4 gap-y-8 px-4 py-12 sm:gap-x-8 sm:gap-y-10 sm:px-6 sm:py-14 lg:grid-cols-4 lg:gap-10">
         <div className="col-span-2 lg:col-span-1">
           <Link href="/" className="block max-w-full" title={site.name}>
@@ -124,7 +132,21 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2 sm:mt-5 sm:space-y-3">
             {quickLinks.map((item) => (
               <li key={item.href}>
-                <ChevronLink href={item.href} label={item.label} />
+                {item.external ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex min-w-0 items-start gap-2 text-sm leading-snug text-zinc-300 transition hover:text-white"
+                  >
+                    <span className="text-[#70a340] leading-snug" aria-hidden>
+                      ›
+                    </span>
+                    <span className="min-w-0 break-words">{item.label}</span>
+                  </a>
+                ) : (
+                  <ChevronLink href={item.href} label={item.label} />
+                )}
               </li>
             ))}
           </ul>

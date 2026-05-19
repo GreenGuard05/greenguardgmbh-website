@@ -22,7 +22,7 @@ export default function DatenschutzPage() {
       />
 
       <section className="mx-auto max-w-3xl px-4 pb-16 sm:px-6 sm:pb-20">
-        <article className="space-y-6 rounded-2xl border border-zinc-200/80 bg-white p-6 text-zinc-700 shadow-md shadow-zinc-900/5 sm:p-10 [&_h2]:mt-10 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-zinc-900 [&_h2:first-child]:mt-0 [&_h3]:mt-6 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-zinc-900 [&_ul]:list-disc [&_ul]:pl-5 [&_a]:font-medium [&_a]:text-emerald-800 [&_a]:underline [&_a]:decoration-emerald-200 [&_a]:underline-offset-2 hover:[&_a]:text-emerald-950">
+        <article className="gg-surface-card space-y-6 rounded-2xl border border-zinc-200/80 bg-white p-6 text-zinc-700 shadow-md shadow-zinc-900/5 sm:p-10 [&_h2]:mt-10 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-zinc-900 [&_h2:first-child]:mt-0 [&_h3]:mt-6 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-zinc-900 [&_ul]:list-disc [&_ul]:pl-5 [&_a]:font-medium [&_a]:text-emerald-800 [&_a]:underline [&_a]:decoration-emerald-200 [&_a]:underline-offset-2 hover:[&_a]:text-emerald-950">
           <p className="!mt-0 text-sm text-zinc-500">Stand: Mai 2026</p>
           <h2 className="!mt-6 text-xl font-semibold text-zinc-900">1. Datenschutz auf einen Blick</h2>
           <h3>Allgemeine Hinweise</h3>
@@ -90,6 +90,48 @@ export default function DatenschutzPage() {
             Kontaktformular-Anfragen werden per E-Mail an {site.email} übermittelt. Die Verarbeitung der E-Mail erfolgt
             über den von uns eingesetzten Mailserver bzw. E-Mail-Dienstleister. Die Anfrage wird anschließend wie eine
             normale geschäftliche E-Mail zur Bearbeitung Ihres Anliegens behandelt.
+          </p>
+          <h3>Stock-Fotos (Pexels)</h3>
+          <p>
+            Auf einigen Seiten werden Fotos von{" "}
+            <a href="https://www.pexels.com/de-de/" target="_blank" rel="noopener noreferrer">
+              Pexels
+            </a>{" "}
+            eingebunden (Domain: <strong>images.pexels.com</strong>). Beim Laden dieser Bilder stellt Ihr Browser eine
+            Verbindung zu den Servern von Pexels her. Dabei können technische Daten wie Ihre IP-Adresse, Datum und Uhrzeit
+            des Abrufs, Browsertyp und die abgerufene Bild-URL an Pexels bzw. deren Hosting-Anbieter übermittelt werden.
+          </p>
+          <p>
+            Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in einer ansprechenden,
+            verständlichen Darstellung unserer Leistungen. Soweit wir eigene Aufnahmen verwenden, entfällt der Abruf bei
+            Pexels für die betreffenden Bilder.
+          </p>
+          <p>
+            Weitere Informationen zur Datenverarbeitung durch Pexels finden Sie in der{" "}
+            <a href="https://www.pexels.com/privacy-policy/" target="_blank" rel="noopener noreferrer">
+              Datenschutzerklärung von Pexels
+            </a>
+            .
+          </p>
+          <h3>Schematische Einsatzgebiet-Karte</h3>
+          <p>
+            Auf der Startseite und im Bereich „Einsatzgebiet“ zeigen wir eine vereinfachte Landkarte von
+            Sachsen-Anhalt mit markierten Orten. Die Karte wird als <strong>SVG-Grafik direkt von unserer Website</strong>{" "}
+            ausgeliefert. Beim bloßen Ansehen der Karte werden <strong>keine Kartenkacheln</strong> von Anbietern wie
+            Google Maps oder OpenStreetMap-Servern nachgeladen und es findet dadurch <strong>keine Datenübermittlung</strong>{" "}
+            an diese Kartendienste statt.
+          </p>
+          <p>
+            Die Umrisse und ungefähren Ortsmarkierungen beruhen auf öffentlich zugänglichen Geodaten, u. a. auf Daten von{" "}
+            <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">
+              OpenStreetMap
+            </a>{" "}
+            (© OpenStreetMap-Mitwirkende, Lizenz{" "}
+            <a href="https://opendatacommons.org/licenses/odbl/" target="_blank" rel="noopener noreferrer">
+              ODbL 1.0
+            </a>
+            ). Die Darstellung dient ausschließlich der Orientierung über unser Einsatzgebiet und ersetzt keine amtliche
+            Karte.
           </p>
           <h2>4. Cookies, Analyse und Tracking</h2>
           <p>

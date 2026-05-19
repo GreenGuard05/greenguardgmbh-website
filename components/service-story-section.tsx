@@ -1,6 +1,4 @@
 import { CtaPrimary } from "@/components/cta-primary";
-import { HomeSectionAmbient, type HomeAmbientScene } from "@/components/home-section-ambient";
-import { ServiceVisualIcon, type ServiceVisualIconName } from "@/components/service-visual-icon";
 import type {
   ServiceAudienceItem,
   ServiceProcessStep,
@@ -47,50 +45,16 @@ function AccentHeading({
   );
 }
 
-function iconForCardTitle(title: string): ServiceVisualIconName {
-  const value = title.toLowerCase();
-
-  if (value.includes("ästhetisch") || value.includes("form") || value.includes("saubere form")) return "landscapePlan";
-  if (value.includes("fachgerecht")) return "quality";
-  if (value.includes("regional")) return "location";
-  if (value.includes("alltag")) return "propertyCare";
-  if (value.includes("kurze wege") || value.includes("ansprechpartner")) return "person";
-  if (value.includes("klare leistung")) return "document";
-  if (value.includes("24/7")) return "standby";
-  if (value.includes("dokumentiert")) return "routeDoc";
-  if (value.includes("planbar")) return "seasonContract";
-  if (value.includes("innen")) return "mop";
-  if (value.includes("bedarf")) return "calendar";
-  if (value.includes("gewerbe")) return "officeClean";
-  if (value.includes("wachstum")) return "treeCare";
-  if (value.includes("ordentlich")) return "greenWaste";
-
-  return "sparkle";
-}
-
-function iconForAudienceTitle(title: string): ServiceVisualIconName {
-  const value = title.toLowerCase();
-
-  if (value.includes("hausverwaltung") || value.includes("wohnanlage")) return "propertyCare";
-  if (value.includes("gewerbe") || value.includes("büro")) return "officeClean";
-  if (value.includes("privat") || value.includes("eigentümer")) return "person";
-  if (value.includes("bau") || value.includes("umbau")) return "constructionClean";
-
-  return "inspection";
-}
-
 export function ServiceStorySection({
   story,
   audiences,
   process,
   seoBlock,
-  ambientScene = "services",
 }: {
   story: ServiceStory;
   audiences: ServiceAudienceItem[];
   process: ServiceProcessStep[];
   seoBlock: ServiceSeoBlock;
-  ambientScene?: HomeAmbientScene;
 }) {
   return (
     <>
@@ -107,7 +71,6 @@ export function ServiceStorySection({
           className="pointer-events-none absolute -right-20 bottom-10 h-80 w-80 rounded-full bg-[#a8e055]/12 blur-3xl"
           aria-hidden
         />
-        <HomeSectionAmbient scene={ambientScene} />
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
           <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-start lg:gap-14">
             <div className="min-w-0">
@@ -136,14 +99,8 @@ export function ServiceStorySection({
               {story.cards.map((card) => (
                 <article
                   key={card.title}
-                  className="rounded-2xl border border-zinc-200/80 bg-white p-5 shadow-md shadow-zinc-900/5 ring-1 ring-white transition duration-300 hover:-translate-y-0.5 hover:shadow-lg motion-reduce:transform-none"
+                  className="gg-surface-card rounded-2xl border border-zinc-200/80 bg-white p-5 shadow-md shadow-zinc-900/5 ring-1 ring-white transition duration-300 hover:-translate-y-0.5 hover:shadow-lg motion-reduce:transform-none sm:p-6"
                 >
-                  <span
-                    className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#eef6e6] text-[#70a340] ring-1 ring-emerald-100"
-                    aria-hidden
-                  >
-                    <ServiceVisualIcon name={iconForCardTitle(card.title)} />
-                  </span>
                   <h3 className="text-base font-bold text-zinc-900">{card.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-zinc-600">{card.description}</p>
                 </article>
@@ -175,18 +132,12 @@ export function ServiceStorySection({
                 tatsächlichen Bedarf und zur Nutzung vor Ort passt.
               </p>
             </div>
-            <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-3">
+            <div className="grid min-w-0 gap-4 sm:grid-cols-3 lg:grid-cols-3">
               {audiences.map((item) => (
                 <article
                   key={item.title}
-                  className="rounded-2xl border border-zinc-200/80 bg-white p-5 shadow-md shadow-zinc-900/5 transition duration-300 hover:-translate-y-0.5 hover:shadow-lg motion-reduce:transform-none"
+                  className="gg-surface-card rounded-2xl border border-zinc-200/80 bg-white p-5 shadow-md shadow-zinc-900/5 transition duration-300 hover:-translate-y-0.5 hover:shadow-lg motion-reduce:transform-none sm:p-6"
                 >
-                  <span
-                    className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#eef6e6] text-[#70a340] ring-1 ring-emerald-100"
-                    aria-hidden
-                  >
-                    <ServiceVisualIcon name={iconForAudienceTitle(item.title)} />
-                  </span>
                   <h3 className="text-base font-bold text-zinc-900">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-zinc-600">{item.description}</p>
                 </article>
@@ -246,7 +197,7 @@ export function ServiceStorySection({
               {seoBlock.bullets.map((bullet) => (
                 <li
                   key={bullet}
-                  className="rounded-2xl border border-emerald-900/10 bg-emerald-50/70 px-4 py-3 text-sm font-medium leading-relaxed text-emerald-950"
+                  className="gg-surface-card rounded-2xl border border-emerald-900/10 bg-emerald-50/70 px-4 py-3 text-sm font-medium leading-relaxed text-emerald-950"
                 >
                   {bullet}
                 </li>

@@ -29,12 +29,11 @@ export default async function UeberUnsPage() {
       <InnerPageHero
         eyebrow="Über uns"
         heroTitle={{
-          prefix: "Ihr Partner für",
+          prefix: "Ihr Dienstleister für",
           accent: "Immobilienbetreuung",
         }}
         description="Zuverlässig, termingerecht und mit Leidenschaft für Details – in Gerbstedt und ganz Sachsen-Anhalt."
         tone="dark"
-        ambientScene="values"
         actions={
           <>
             <CtaPrimary href="/kontakt">Kostenloses Angebot</CtaPrimary>

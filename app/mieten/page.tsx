@@ -15,7 +15,8 @@ import {
   rentalSeoDescription,
   rentalSeoKeywords,
 } from "@/lib/rental-seo";
-import { createPageMetadata, siteUrl } from "@/lib/seo";
+import { PageBreadcrumbs } from "@/components/page-breadcrumbs";
+import { buildBreadcrumbJsonLd, createPageMetadata, focusKeywords, siteUrl } from "@/lib/seo";
 import { getResolvedSiteMedia } from "@/lib/site-media.server";
 
 const rentalSteps = [
@@ -121,7 +122,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "Mietgeräte mieten · Gerbstedt",
     description: rentalSeoDescription(devices),
     path: "/mieten",
-    keywords: rentalSeoKeywords(devices),
+    keywords: focusKeywords(rentalSeoKeywords(devices)),
     ogImage: media["mieten.card"],
     ogImageAlt: "Gerätemietservice Green Guard GmbH",
   });
@@ -132,11 +133,24 @@ export default async function MietenPage() {
   const devices = await getRentalDevices();
   const heroImage = media["mieten.card"];
   const rentalJsonLd = buildRentalDevicesJsonLd(devices);
+  const breadcrumbLd = buildBreadcrumbJsonLd([
+    { name: "Startseite", item: siteUrl },
+    { name: "Geräte mieten", item: `${siteUrl}/mieten` },
+  ]);
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(rentalJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <InnerPageRoot>
+        <PageBreadcrumbs
+          variant="dark"
+          className="mx-auto max-w-6xl px-4 pb-2 pt-1 sm:px-6"
+          items={[
+            { label: "Startseite", href: "/" },
+            { label: "Geräte mieten" },
+          ]}
+        />
         <InnerPageHero
         eyebrow="Gerätemietservice · Gerbstedt"
         heroTitle={{
@@ -146,7 +160,6 @@ export default async function MietenPage() {
         }}
         description="Sie benötigen ein Gerät nur für einen bestimmten Einsatz? Green Guard GmbH stellt gepflegte Profi-Geräte bereit, erklärt die Nutzung verständlich und hilft bei der Auswahl."
         tone="dark"
-        ambientScene="caretaker"
         actions={
           <>
             <CtaPrimary href="/kontakt">Mietanfrage stellen</CtaPrimary>
@@ -171,7 +184,7 @@ export default async function MietenPage() {
         }
         />
 
-        <InnerPageBand ambientScene="services">
+        <InnerPageBand>
         <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start lg:gap-14">
           <div>
             <p className="inline-flex rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-emerald-900 shadow-sm ring-1 ring-emerald-200/90">
@@ -352,7 +365,7 @@ export default async function MietenPage() {
         </div>
         </section>
 
-        <InnerPageBand ambientScene="caretaker" className="border-t border-zinc-200/70">
+        <InnerPageBand className="border-t border-zinc-200/70">
         <div className="grid gap-8 rounded-3xl border border-zinc-200/80 bg-white/90 p-6 shadow-lg shadow-zinc-900/5 ring-1 ring-white sm:p-8 lg:grid-cols-[1fr_0.9fr] lg:gap-12">
           <div>
             <p className="inline-flex rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-emerald-900 shadow-sm ring-1 ring-emerald-200/90">
@@ -367,7 +380,7 @@ export default async function MietenPage() {
             </p>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {rentalAudiences.map((item) => (
-                <li key={item} className="rounded-2xl border border-zinc-200 bg-zinc-50/80 p-4 text-sm font-medium text-zinc-700">
+                <li key={item} className="gg-surface-card rounded-2xl border border-zinc-200 bg-zinc-50/80 p-4 text-sm font-medium text-zinc-700">
                   {item}
                 </li>
               ))}
@@ -384,15 +397,17 @@ export default async function MietenPage() {
         </div>
         </InnerPageBand>
 
-        <InnerPageBand ambientScene="services" className="border-t border-zinc-200/70">
+        <InnerPageBand className="border-t border-zinc-200/70">
           <LocalAreasSection />
         </InnerPageBand>
 
-        <section className="mx-auto max-w-4xl px-4 py-14 sm:px-6 sm:py-16">
-          <div className="rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-md shadow-zinc-900/5 sm:p-8">
-            <FaqStartpageTeaser />
+        <InnerPageBand footerBlend className="border-t border-zinc-200/70">
+          <div className="mx-auto max-w-4xl">
+            <div className="rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-md shadow-zinc-900/5 sm:p-8">
+              <FaqStartpageTeaser />
+            </div>
           </div>
-        </section>
+        </InnerPageBand>
       </InnerPageRoot>
     </>
   );

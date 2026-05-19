@@ -67,7 +67,7 @@ function ContactRow({
 
 export function ContactCtaBand() {
   return (
-    <section className="relative overflow-hidden border-t border-zinc-800/80 bg-zinc-950 py-14 sm:py-16 md:py-20">
+    <section className="gg-section-to-footer gg-section-to-footer--dark relative z-[1] mb-0 overflow-hidden border-t border-zinc-800/80 bg-gradient-to-b from-zinc-950 via-zinc-950 to-[#2b2b2b] py-14 sm:py-16 md:py-20 md:pb-[calc(1.25rem+var(--gg-footer-seam-dark))]">
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#70a340]/30 to-transparent"
         aria-hidden

@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import { HomeAbout } from "@/components/home-about";
 import { HomeEinsatzgebiet } from "@/components/home-einsatzgebiet";
 import { HomeFaq } from "@/components/home-faq";
-import { HomeGoogleReviews } from "@/components/home-google-reviews";
 import { HomeHero } from "@/components/home-hero";
 import { HomeLeistungenGrid } from "@/components/home-leistungen-grid";
 import { HomePreFooterCta } from "@/components/home-pre-footer-cta";
 import { RevealOnScroll } from "@/components/reveal-on-scroll";
 import { coreLocalSeoKeywords } from "@/lib/local-seo";
-import { createPageMetadata, homeDescription } from "@/lib/seo";
+import { createPageMetadata, focusKeywords, homeDescription } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { getResolvedSiteMedia } from "@/lib/site-media.server";
 import {
@@ -23,13 +22,11 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "Facility Management, Grünpflege & Winterdienst Sachsen-Anhalt",
     description: homeDescription,
     path: "/",
-    keywords: [
-      ...coreLocalSeoKeywords,
+    keywords: focusKeywords(coreLocalSeoKeywords, [
       "Facility Management Hettstedt",
       "Grünpflege Eisleben",
       "Objektbetreuung Mansfeld-Südharz",
-      "Gartenpflege Sachsen-Anhalt",
-    ],
+    ]),
     ogImage: media.heroSide,
     ogImageWidth: 1600,
     ogImageHeight: 1000,
@@ -45,7 +42,45 @@ export default async function HomePage() {
 
   return (
     <>
-      <HomeHero heroSideSrc={media.heroSide} />
+      <HomeHero
+        heroSideSrc={media.heroSide}
+        heroServices={[
+          { title: "Grünanlagenpflege", href: "/dienstleistungen/gruenanlage" },
+          { title: "Hausmeisterservice", href: "/dienstleistungen/hausmeisterservice" },
+          { title: "Winterdienst", href: "/dienstleistungen/winterdienst" },
+          { title: "Gebäudereinigung", href: "/dienstleistungen/reinigung" },
+        ]}
+        galleryImages={[
+          {
+            id: "gruen",
+            src: media["service.gruenanlage"],
+            alt: "Grünanlagenpflege",
+            serviceTitle: "Grünanlagenpflege",
+            serviceHref: "/dienstleistungen/gruenanlage",
+          },
+          {
+            id: "haus",
+            src: media["service.hausmeisterservice"],
+            alt: "Hausmeisterservice",
+            serviceTitle: "Hausmeisterservice",
+            serviceHref: "/dienstleistungen/hausmeisterservice",
+          },
+          {
+            id: "winter",
+            src: media["service.winterdienst"],
+            alt: "Winterdienst",
+            serviceTitle: "Winterdienst",
+            serviceHref: "/dienstleistungen/winterdienst",
+          },
+          {
+            id: "reinigung",
+            src: media["service.reinigung"],
+            alt: "Gebäudereinigung",
+            serviceTitle: "Gebäudereinigung",
+            serviceHref: "/dienstleistungen/reinigung",
+          },
+        ]}
+      />
       <RevealOnScroll>
         <HomeLeistungenGrid servicesResolved={servicesResolved} mietenCard={mietenCard} />
       </RevealOnScroll>
@@ -53,16 +88,13 @@ export default async function HomePage() {
         <HomeAbout collage={collage} />
       </RevealOnScroll>
       <RevealOnScroll>
-        <HomeGoogleReviews />
-      </RevealOnScroll>
-      <RevealOnScroll>
         <HomeFaq />
       </RevealOnScroll>
       <RevealOnScroll>
         <HomeEinsatzgebiet />
       </RevealOnScroll>
-      <RevealOnScroll>
-        <HomePreFooterCta />
+      <RevealOnScroll className="[&_section]:mb-0">
+        <HomePreFooterCta heroSideSrc={media.heroSide} />
       </RevealOnScroll>
     </>
   );

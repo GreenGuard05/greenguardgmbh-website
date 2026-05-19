@@ -1,34 +1,17 @@
 import Link from "next/link";
+import { ContactCtaBackdrop } from "@/components/contact-cta-backdrop";
 import { CtaPrimary } from "@/components/cta-primary";
-import { HomeSectionAmbient, type HomeAmbientScene } from "@/components/home-section-ambient";
+import { PhonePillLink } from "@/components/phone-pill-link";
 import { ServiceTrustStats } from "@/components/service-trust-stats";
 import type { ServicePageCta } from "@/lib/service-pages";
-import { site } from "@/lib/site";
 
-function PhoneIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} width="18" height="18" viewBox="0 0 24 24" aria-hidden>
-      <path
-        fill="currentColor"
-        d="M6.6 10.8c1.6 3 4.6 5.9 7.6 7.6l2.5-2.5c.4-.4 1-.5 1.4-.2 1.2.6 2.5.9 3.9.9.8 0 1.4.6 1.4 1.4V20c0 .8-.6 1.4-1.4 1.4C9.9 21.4 2.6 14.1 2.6 4.4 2.6 3.6 3.2 3 4 3h2.5c.8 0 1.4.6 1.4 1.4 0 1.4.3 2.7.9 3.9.2.4.1 1-.2 1.4L6.6 10.8z"
-      />
-    </svg>
-  );
-}
-
-export function ServiceCtaBand({
-  cta,
-  ambientScene = "services",
-}: {
-  cta: ServicePageCta;
-  ambientScene?: HomeAmbientScene;
-}) {
+export function ServiceCtaBand({ cta }: { cta: ServicePageCta }) {
   const badge = cta.badge ?? "Jetzt anfragen";
 
   return (
-    <section className="relative overflow-hidden border-t border-white/[0.08] bg-[#0d110d] pb-14 pt-16 text-center sm:pb-16 sm:pt-20 md:pb-20 md:pt-24">
+    <section className="gg-section-to-footer gg-section-to-footer--dark relative z-[1] mb-0 overflow-hidden border-t border-white/[0.08] bg-gradient-to-b from-[#0d110d] via-[#121812] to-[#2b2b2b] pb-14 pt-16 text-center sm:pb-16 sm:pt-20 md:pb-[calc(1.25rem+var(--gg-footer-seam-dark))] md:pt-24">
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0a0e0a] via-[#121812] to-[#0a0f0a]"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0a0e0a] via-[#121812] to-[#2b2b2b]"
         aria-hidden
       />
       <div
@@ -39,7 +22,11 @@ export function ServiceCtaBand({
         className="pointer-events-none absolute -right-16 top-[15%] h-56 w-56 rounded-full bg-[#70a340]/8 blur-3xl"
         aria-hidden
       />
-      <HomeSectionAmbient scene={ambientScene} tone="dark" />
+      <div
+        className="pointer-events-none absolute -left-20 bottom-[18%] h-64 w-64 rounded-full bg-[#a8e055]/6 blur-3xl"
+        aria-hidden
+      />
+      <ContactCtaBackdrop variant="dark" />
       <div className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6">
         <p className="inline-flex rounded-full border border-white/15 bg-white/[0.08] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[#c8e6a0] shadow-sm backdrop-blur-sm">
           {badge}
@@ -53,17 +40,11 @@ export function ServiceCtaBand({
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3 sm:mt-10">
           <CtaPrimary href="/kontakt">{cta.buttonLabel}</CtaPrimary>
-          <a
-            href={`tel:${site.phoneTel}`}
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.08] px-6 py-3.5 text-sm font-semibold text-white shadow-md shadow-black/20 transition hover:border-white/25 hover:bg-white/[0.12]"
-          >
-            <PhoneIcon className="text-[#a8e055]" />
-            {site.phone}
-          </a>
+          <PhonePillLink variant="dark" />
         </div>
       </div>
       <div className="relative z-10 mx-auto mt-12 max-w-6xl px-4 sm:mt-14 sm:px-6">
-        <ServiceTrustStats variant="dark" />
+        <ServiceTrustStats className="border-white/10 bg-black/40 shadow-black/40" />
       </div>
       <div className="relative z-10 mx-auto mt-10 max-w-6xl border-t border-white/[0.08] px-4 pt-10 sm:mt-12 sm:px-6 sm:pt-12">
         <Link

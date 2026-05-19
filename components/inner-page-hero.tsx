@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
-import { HomeSectionAmbient, type HomeAmbientScene } from "@/components/home-section-ambient";
-import { site } from "@/lib/site";
+import { PhonePillLink } from "@/components/phone-pill-link";
 
 export type ServiceHeroTitle = {
   prefix?: string;
@@ -12,40 +11,17 @@ export function InnerPageRoot({ children }: { children: ReactNode }) {
   return <div className="bg-background pt-24">{children}</div>;
 }
 
-function PhoneIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} width="18" height="18" viewBox="0 0 24 24" aria-hidden>
-      <path
-        fill="currentColor"
-        d="M6.6 10.8c1.6 3 4.6 5.9 7.6 7.6l2.5-2.5c.4-.4 1-.5 1.4-.2 1.2.6 2.5.9 3.9.9.8 0 1.4.6 1.4 1.4V20c0 .8-.6 1.4-1.4 1.4C9.9 21.4 2.6 14.1 2.6 4.4 2.6 3.6 3.2 3 4 3h2.5c.8 0 1.4.6 1.4 1.4 0 1.4.3 2.7.9 3.9.2.4.1 1-.2 1.4L6.6 10.8z"
-      />
-    </svg>
-  );
-}
-
 /** Sekundär-CTA wie auf der Startseite (weiße Pill, grünes Icon) */
 export function InnerPagePhoneLink({
   className = "",
   variant = "light",
+  size = "default",
 }: {
   className?: string;
   variant?: "light" | "dark";
+  size?: "default" | "compact";
 }) {
-  const styles =
-    variant === "dark"
-      ? "border-white/15 bg-white/[0.08] text-white shadow-md shadow-black/25 hover:border-white/25 hover:bg-white/[0.12]"
-      : "border-zinc-200/90 bg-white text-zinc-900 shadow-md shadow-zinc-900/5 hover:border-emerald-900/15 hover:shadow-lg";
-
-  return (
-    <a
-      href={`tel:${site.phoneTel}`}
-      aria-label={`Jetzt Green Guard GmbH unter ${site.phone} anrufen`}
-      className={`inline-flex items-center gap-2 rounded-full border px-6 py-3.5 text-sm font-semibold transition ${styles} ${className}`.trim()}
-    >
-      <PhoneIcon className={variant === "dark" ? "text-[#a8e055]" : "text-[#70a340]"} />
-      {site.phone}
-    </a>
-  );
+  return <PhonePillLink className={className} variant={variant} size={size} />;
 }
 
 type InnerPageHeroProps = {
@@ -55,7 +31,6 @@ type InnerPageHeroProps = {
   description?: ReactNode;
   actions?: ReactNode;
   aside?: ReactNode;
-  ambientScene?: HomeAmbientScene;
   tone?: "light" | "dark";
 };
 
@@ -117,7 +92,6 @@ export function InnerPageHero({
   description,
   actions,
   aside,
-  ambientScene = "services",
   tone = "light",
 }: InnerPageHeroProps) {
   const isDark = tone === "dark";
@@ -146,7 +120,6 @@ export function InnerPageHero({
         className={`pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent ${isDark ? "via-[#70a340]/35" : "via-[#70a340]/20"} to-transparent`}
         aria-hidden
       />
-      <HomeSectionAmbient scene={ambientScene} tone={tone} />
       <div className="pointer-events-none relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
         <div
           className={`pointer-events-auto grid gap-10 ${aside ? "lg:grid-cols-2 lg:items-center lg:gap-14" : ""}`}
@@ -183,28 +156,40 @@ export function InnerPageHero({
 type InnerPageBandProps = {
   children: ReactNode;
   className?: string;
-  ambientScene?: HomeAmbientScene;
+  /** Sanfter Übergang in den Footer (helle Seiten, z. B. Mieten, Einsatzgebiet) */
+  footerBlend?: boolean;
 };
 
 /** Heller Inhalts-Bereich mit oberem Rand wie Startseiten-Sektionen */
 export function InnerPageBand({
   children,
   className = "",
-  ambientScene,
+  footerBlend = false,
 }: InnerPageBandProps) {
   return (
     <section
-      className={`relative overflow-hidden border-t border-zinc-200/60 py-14 sm:py-16 md:py-20 ${className}`.trim()}
+      className={[
+        "relative isolate border-t border-zinc-200/60 py-14 sm:py-16 md:py-20",
+        footerBlend
+          ? "gg-section-to-footer gg-section-to-footer--light z-[1] mb-0 overflow-hidden pb-[calc(3.5rem+var(--gg-footer-seam-light))] md:pb-[calc(4rem+var(--gg-footer-seam-light))]"
+          : "overflow-visible",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-zinc-50/40 to-[#f0f4ee]/80"
+        className={
+          footerBlend
+            ? "pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-white via-zinc-50/50 to-white"
+            : "pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-white via-zinc-50/40 to-[#f0f4ee]/80"
+        }
         aria-hidden
       />
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#70a340]/15 to-transparent"
         aria-hidden
       />
-      {ambientScene ? <HomeSectionAmbient scene={ambientScene} /> : null}
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">{children}</div>
     </section>
   );

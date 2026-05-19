@@ -1,0 +1,223 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+
+export type OverlappingImageItem = {
+  id: string;
+  src: string;
+  alt: string;
+  serviceTitle: string;
+  serviceHref: string;
+};
+
+const ROTATIONS = [-8, -3, 3, 8];
+const MAX_IMAGES = 4;
+
+type OverlappingImageRowProps = {
+  images: OverlappingImageItem[];
+  className?: string;
+  /** Kompaktere Darstellung unter dem Hero-Text auf Mobil */
+  compact?: boolean;
+};
+
+export function OverlappingImageRow({
+  images,
+  className = "",
+  compact = false,
+}: OverlappingImageRowProps) {
+  const gallery = useMemo(() => images.slice(0, MAX_IMAGES), [images]);
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [expanded, setExpanded] = useState(false);
+  const [highlightedId, setHighlightedId] = useState<string | null>(null);
+
+  const activeId = hoveredId ?? (expanded ? highlightedId : null);
+
+  const closePanel = useCallback(() => {
+    setExpanded(false);
+    setHighlightedId(null);
+    setHoveredId(null);
+  }, []);
+
+  useEffect(() => {
+    if (!expanded) return;
+
+    const onPointerDown = (event: PointerEvent) => {
+      const root = rootRef.current;
+      if (!root?.contains(event.target as Node)) {
+        closePanel();
+      }
+    };
+
+    const onScroll = () => {
+      closePanel();
+    };
+
+    document.addEventListener("pointerdown", onPointerDown);
+    window.addEventListener("scroll", onScroll, { passive: true, capture: true });
+
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      window.removeEventListener("scroll", onScroll, true);
+    };
+  }, [expanded, closePanel]);
+
+  const handleImageClick = useCallback(
+    (id: string) => {
+      if (expanded && highlightedId === id) {
+        closePanel();
+        return;
+      }
+      setExpanded(true);
+      setHighlightedId(id);
+    },
+    [expanded, highlightedId, closePanel],
+  );
+
+  if (gallery.length === 0) return null;
+
+  /** Feste Proportionen – kein schmales Hochformat, das Fotos „quetscht“ */
+  const cardSize = compact
+    ? "h-[10.25rem] w-[7.75rem] max-sm:h-auto max-sm:w-[min(23vw,5.65rem)] max-sm:aspect-[3/4] sm:h-[8.5rem] sm:w-[6.25rem] sm:aspect-auto"
+    : "h-[11.5rem] w-[8.25rem] sm:h-[13rem] sm:w-[9.5rem] lg:h-[14.25rem] lg:w-[10.5rem]";
+  const overlap = compact ? "-ml-6 max-sm:-ml-5 sm:-ml-6" : "-ml-8 sm:-ml-9 lg:-ml-10";
+  const imageSizes = compact
+    ? "(max-width: 639px) 23vw, 124px"
+    : "(max-width: 1024px) 152px, 168px";
+
+  return (
+    <div
+      ref={rootRef}
+      className={`relative flex w-full min-w-0 flex-col items-center max-sm:py-1 sm:py-2 ${expanded && compact ? "min-h-[16rem] max-sm:min-h-[17rem] sm:min-h-0" : ""} ${className}`}
+      onMouseLeave={() => setHoveredId(null)}
+    >
+      <div
+        className={`absolute left-1/2 z-50 w-[min(calc(100vw-2rem),20rem)] -translate-x-1/2 sm:w-[22rem] lg:w-[24rem] ${
+          compact
+            ? "bottom-full mb-2 max-h-[min(52vh,18rem)] overflow-y-auto overscroll-contain"
+            : "bottom-full mb-3"
+        } ${
+          expanded ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        } transition-opacity duration-300`}
+        aria-hidden={!expanded}
+      >
+        <p
+          className={`mb-2 text-center text-[10px] font-bold uppercase tracking-[0.2em] text-[#a8e055] transition-all duration-300 ${
+            expanded ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
+          }`}
+        >
+          Unsere Leistungen
+        </p>
+        <ul
+          className="flex flex-col gap-2 sm:gap-2.5"
+          role="list"
+          aria-label="Dienstleistungen von Green Guard GmbH"
+        >
+          {gallery.map((item, index) => {
+            const isHighlighted = highlightedId === item.id;
+            const floatClass =
+              index % 2 === 0 ? "gg-service-float" : "gg-service-float-alt";
+
+            return (
+              <li
+                key={item.id}
+                className={`gg-service-pop-in ${expanded ? "" : "!animate-none opacity-0"}`}
+                style={{ animationDelay: expanded ? `${index * 70}ms` : undefined }}
+              >
+                <Link
+                  href={item.serviceHref}
+                  className={`group block rounded-xl border px-4 py-2.5 text-center text-sm font-semibold shadow-lg backdrop-blur-md transition-[border-color,background-color,transform,box-shadow] duration-300 motion-reduce:transition-none sm:px-5 sm:py-3 sm:text-base ${
+                    isHighlighted
+                      ? "border-[#a8e055]/80 bg-[#70a340]/95 text-white shadow-[0_12px_32px_-8px_rgba(112,163,64,0.55)]"
+                      : "border-white/25 bg-zinc-950/88 text-white hover:border-[#70a340]/50 hover:bg-zinc-900/95"
+                  } ${expanded ? floatClass : ""}`}
+                  style={{ animationDelay: expanded ? `${index * 0.35}s` : undefined }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <span className="block leading-snug">{item.serviceTitle}</span>
+                  <span
+                    className={`mt-0.5 block text-[10px] font-medium uppercase tracking-wider transition-opacity ${
+                      isHighlighted ? "text-[#e8ffdc]/90" : "text-zinc-400 group-hover:text-zinc-300"
+                    }`}
+                  >
+                    Mehr erfahren →
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      <div
+        className="flex w-full max-w-full flex-nowrap items-end justify-center overflow-visible"
+        role="group"
+        aria-label="Leistungsbilder – antippen, um unsere Dienstleistungen anzuzeigen"
+      >
+        {gallery.map((image, index) => {
+          const isActive = activeId === image.id;
+          const isDimmed = activeId != null && !isActive;
+          const rotation = ROTATIONS[index] ?? 0;
+
+          return (
+            <button
+              key={image.id}
+              type="button"
+              aria-expanded={expanded && highlightedId === image.id}
+              aria-label={`${image.serviceTitle}: Leistungen anzeigen`}
+              className={`relative shrink-0 ${cardSize} ${index === 0 ? "" : overlap} cursor-pointer overflow-hidden rounded-2xl bg-zinc-900 shadow-2xl ring-2 transition-[transform,opacity,box-shadow] duration-300 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a8e055] motion-reduce:transition-none ${
+                isActive
+                  ? "ring-[#a8e055]/90 shadow-[0_28px_50px_-12px_rgba(112,163,64,0.55)]"
+                  : "ring-white/25 hover:ring-white/60"
+              } ${isDimmed ? "opacity-60" : "opacity-100"}`}
+              style={{
+                zIndex: isActive ? 40 : 10 + index,
+                transform: isActive
+                  ? compact
+                    ? "translateY(-0.5rem) scale(1.06) rotate(0deg)"
+                    : "translateY(-1.75rem) scale(1.1) rotate(0deg)"
+                  : `translateY(0) scale(${isDimmed ? 0.92 : 1}) rotate(${rotation}deg)`,
+              }}
+              onMouseEnter={() => setHoveredId(image.id)}
+              onFocus={() => setHoveredId(image.id)}
+              onBlur={() => setHoveredId(null)}
+              onClick={() => handleImageClick(image.id)}
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                className="object-cover object-center"
+                sizes={imageSizes}
+                draggable={false}
+              />
+              <span
+                className={`pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent px-2 pb-2 pt-8 text-center text-[9px] font-semibold uppercase tracking-wide text-white/90 transition-opacity duration-300 sm:text-[10px] ${
+                  isActive ? "opacity-100" : "opacity-0"
+                }`}
+                aria-hidden
+              >
+                {image.serviceTitle}
+              </span>
+              <span
+                className={`pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent transition-opacity duration-300 ${
+                  isActive ? "opacity-90" : "opacity-30"
+                }`}
+                aria-hidden
+              />
+            </button>
+          );
+        })}
+      </div>
+
+      {!expanded ? (
+        <p className="mt-2 max-sm:mt-2.5 text-center text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-400/95 max-sm:text-[11px] max-sm:tracking-[0.22em]">
+          Antippen für Leistungen
+        </p>
+      ) : null}
+    </div>
+  );
+}

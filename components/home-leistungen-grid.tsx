@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CtaOutlineLink } from "@/components/cta-outline-link";
-import { HomeSectionAmbient } from "@/components/home-section-ambient";
 import type { ServiceDetail } from "@/lib/services";
 import { servicesForHomeGridFrom } from "@/lib/services";
 
@@ -14,46 +13,53 @@ export type MietenHomeCardResolved = {
   image: string;
 };
 
+const cardAccent =
+  "relative overflow-hidden before:absolute before:inset-y-3 before:left-0 before:z-10 before:w-1 before:rounded-full before:bg-[#70a340]";
+
 function cardPills(tags: string[]) {
   return tags.slice(0, 3);
+}
+
+function ServiceTag({ children }: { children: string }) {
+  return (
+    <li className="rounded-full border border-[#70a340]/20 bg-[#eef6e6]/90 px-2.5 py-1 text-xs font-medium text-emerald-950">
+      {children}
+    </li>
+  );
 }
 
 function FeaturedCard({ service }: { service: ServiceDetail }) {
   const pills = cardPills(service.tags);
   const intro =
     service.slug === "gruenanlage"
-      ? "Professionelle Pflege von Grünflächen, Rasenmähen, Heckenschnitt und Baumpflege für Wohn- und Gewerbeobjekte."
+      ? "Professionelle Pflege von Grünflächen, Rasenmähen, Heckenschnitt und Baumpflege – für Privat- & Geschäftskunden."
       : service.intro;
 
   return (
     <Link
       href={service.href}
-      className="group relative col-span-1 min-h-[380px] overflow-hidden rounded-2xl shadow-2xl shadow-zinc-900/15 ring-1 ring-white/15 transition duration-300 ease-out will-change-transform hover:-translate-y-1 hover:shadow-[0_28px_50px_-12px_rgba(0,0,0,0.45)] motion-reduce:transform-none motion-reduce:hover:translate-y-0 lg:col-span-2 lg:min-h-[420px]"
+      className={`group ${cardAccent} col-span-1 min-h-[340px] overflow-hidden rounded-xl border border-zinc-900/10 shadow-xl shadow-zinc-900/12 ring-1 ring-[#70a340]/20 transition duration-300 ease-out hover:-translate-y-0.5 hover:shadow-2xl motion-reduce:transform-none motion-reduce:hover:translate-y-0 sm:min-h-[360px] lg:col-span-2 lg:min-h-[400px]`}
     >
       <Image
         src={service.image}
-        alt=""
+        alt={`${service.title} – Green Guard GmbH`}
         fill
         className="object-cover transition duration-500 group-hover:scale-[1.02]"
         sizes="(max-width: 1024px) 100vw, 66vw"
         priority
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#a8e055]">
+      <div className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/40 to-black/10" />
+      <div className="absolute inset-x-0 bottom-0 p-6 pl-5 sm:p-8 sm:pl-7">
+        <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#a8e055] sm:text-xs">
           {service.eyebrow}
         </p>
-        <h3 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
-          {service.title}
-        </h3>
-        <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/90 sm:text-base">
-          {intro}
-        </p>
+        <h3 className="mt-2 text-2xl font-bold text-white sm:text-3xl">{service.title}</h3>
+        <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/90 sm:text-base">{intro}</p>
         <ul className="mt-4 flex flex-wrap gap-2">
           {pills.map((tag) => (
             <li
               key={tag}
-              className="rounded-full bg-black/45 px-3 py-1 text-xs font-medium text-white ring-1 ring-white/10 backdrop-blur-sm"
+              className="rounded-full bg-black/45 px-3 py-1 text-xs font-medium text-white ring-1 ring-white/15 backdrop-blur-sm"
             >
               {tag}
             </li>
@@ -72,35 +78,28 @@ function StandardCard({ service }: { service: ServiceDetail }) {
   return (
     <Link
       href={service.href}
-      className="group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-zinc-200/80 bg-white shadow-md shadow-zinc-900/5 ring-1 ring-white transition duration-300 ease-out will-change-transform hover:-translate-y-0.5 hover:border-emerald-900/15 hover:shadow-lg motion-reduce:transform-none motion-reduce:hover:translate-y-0"
+      className={`group ${cardAccent} flex min-w-0 flex-col overflow-hidden rounded-xl border border-zinc-200/90 bg-white shadow-md shadow-zinc-900/5 ring-1 ring-zinc-100/90 transition duration-300 ease-out hover:-translate-y-0.5 hover:border-[#70a340]/25 hover:shadow-lg motion-reduce:transform-none motion-reduce:hover:translate-y-0`}
     >
-      <div className="relative h-36 shrink-0 sm:h-44 md:h-48">
+      <div className="relative h-36 shrink-0 sm:h-40 md:h-44">
         <Image
           src={service.image}
-          alt=""
+          alt={`${service.title} – Green Guard GmbH`}
           fill
           className="object-cover transition duration-500 group-hover:scale-[1.03]"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />
         {service.imageBadge ? (
-          <span className="absolute left-4 top-4 rounded-full bg-black/55 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white backdrop-blur-sm">
+          <span className="absolute left-4 top-4 rounded-full bg-zinc-950/65 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white backdrop-blur-sm ring-1 ring-white/10">
             {service.imageBadge}
           </span>
         ) : null}
       </div>
-      <div className="flex flex-1 flex-col p-5">
+      <div className="flex flex-1 flex-col p-5 pl-4 sm:pl-5">
         <h3 className="text-lg font-bold text-zinc-900">{service.title}</h3>
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-600">
-          {service.intro}
-        </p>
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-600">{service.intro}</p>
         <ul className="mt-4 flex flex-wrap gap-2">
           {pills.map((tag) => (
-            <li
-              key={tag}
-              className="rounded-full border border-zinc-200 bg-white px-2.5 py-1 text-xs font-medium text-zinc-700"
-            >
-              {tag}
-            </li>
+            <ServiceTag key={tag}>{tag}</ServiceTag>
           ))}
         </ul>
         <span className="mt-4 text-sm font-semibold text-[#70a340] transition group-hover:text-[#386622]">
@@ -111,38 +110,31 @@ function StandardCard({ service }: { service: ServiceDetail }) {
   );
 }
 
-function MietenCard({ card, className = "" }: { card: MietenHomeCardResolved; className?: string }) {
+function MietenCard({ card }: { card: MietenHomeCardResolved }) {
   const pills = card.tags;
   return (
     <Link
       href={card.href}
-      className={`group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-zinc-200/80 bg-white shadow-md shadow-zinc-900/5 ring-1 ring-white transition duration-300 ease-out will-change-transform hover:-translate-y-0.5 hover:border-emerald-900/15 hover:shadow-lg motion-reduce:transform-none motion-reduce:hover:translate-y-0 lg:max-w-md lg:justify-self-start ${className}`}
+      className={`group ${cardAccent} flex min-w-0 flex-col overflow-hidden rounded-xl border border-zinc-200/90 bg-white shadow-md shadow-zinc-900/5 ring-1 ring-zinc-100/90 transition duration-300 ease-out hover:-translate-y-0.5 hover:border-[#70a340]/25 hover:shadow-lg motion-reduce:transform-none motion-reduce:hover:translate-y-0`}
     >
-      <div className="relative h-36 shrink-0 sm:h-44 md:h-48">
+      <div className="relative h-36 shrink-0 sm:h-40 md:h-44">
         <Image
           src={card.image}
-          alt=""
+          alt={`${card.title} – Gerätemiete Green Guard GmbH`}
           fill
           className="object-cover transition duration-500 group-hover:scale-[1.03]"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />
-        <span className="absolute left-4 top-4 rounded-full bg-black/55 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white backdrop-blur-sm">
+        <span className="absolute left-4 top-4 rounded-full bg-zinc-950/65 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white backdrop-blur-sm ring-1 ring-white/10">
           {card.eyebrow}
         </span>
       </div>
-      <div className="flex flex-1 flex-col p-5">
+      <div className="flex flex-1 flex-col p-5 pl-4 sm:pl-5">
         <h3 className="text-lg font-bold text-zinc-900">{card.title}</h3>
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-600">
-          {card.intro}
-        </p>
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-600">{card.intro}</p>
         <ul className="mt-4 flex flex-wrap gap-2">
           {pills.map((tag) => (
-            <li
-              key={tag}
-              className="rounded-full border border-zinc-200 bg-white px-2.5 py-1 text-xs font-medium text-zinc-700"
-            >
-              {tag}
-            </li>
+            <ServiceTag key={tag}>{tag}</ServiceTag>
           ))}
         </ul>
         <span className="mt-4 text-sm font-semibold text-[#70a340] transition group-hover:text-[#386622]">
@@ -163,42 +155,66 @@ export function HomeLeistungenGrid({
   const { gruen, haus, row2a, strauch } = servicesForHomeGridFrom(servicesResolved);
 
   return (
-    <section className="relative overflow-hidden border-t border-zinc-200/70 py-20 sm:py-24 md:py-28">
+    <section className="relative isolate overflow-visible border-t border-zinc-200/70 py-10 max-sm:py-8 sm:py-20 md:py-24">
+      <div className="pointer-events-none absolute inset-0 z-0 bg-white" aria-hidden />
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-zinc-100/95 via-white to-zinc-50/90"
+        className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-white via-[#fafcf8] to-[#f4f9ef]/90"
         aria-hidden
       />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#70a340]/25 to-transparent" aria-hidden />
-      <HomeSectionAmbient scene="services" />
+      <div
+        className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_55%_45%_at_92%_18%,rgba(168,224,85,0.14),transparent_50%),radial-gradient(ellipse_50%_40%_at_8%_78%,rgba(112,163,64,0.12),transparent_48%),radial-gradient(ellipse_40%_35%_at_42%_12%,rgba(134,197,94,0.08),transparent_45%)]"
+        aria-hidden
+      />
+      <div className="pointer-events-none absolute inset-0 z-0 gg-about-dots opacity-[0.38]" aria-hidden />
+      <div
+        className="gg-float-soft pointer-events-none absolute -right-12 top-[10%] z-0 h-[22rem] w-[22rem] rounded-full bg-[#70a340]/12 blur-3xl motion-reduce:animate-none"
+        aria-hidden
+      />
+      <div
+        className="gg-float-soft pointer-events-none absolute -left-16 bottom-[8%] z-0 h-64 w-64 rounded-full bg-[#a8e055]/10 blur-3xl motion-reduce:animate-none"
+        style={{ animationDelay: "2s" }}
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute right-[18%] bottom-[20%] z-0 h-40 w-40 rounded-full bg-emerald-300/10 blur-2xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#70a340]/25 to-transparent"
+        aria-hidden
+      />
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
           <div className="max-w-2xl">
-            <p className="inline-flex rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-emerald-900 shadow-sm ring-1 ring-emerald-200/90">
-              Facility Management Sachsen-Anhalt
+            <p className="inline-flex rounded-full border border-[#70a340]/25 bg-[#eef6e6] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-emerald-900">
+              Facility Management · Sachsen-Anhalt
             </p>
-            <h2 className="mt-5 text-3xl font-bold leading-[1.12] tracking-tight text-zinc-900 sm:text-4xl md:text-[2.5rem]">
+            <h2 className="mt-3 text-3xl font-bold leading-[1.12] tracking-tight text-zinc-900 max-sm:text-[1.45rem] sm:mt-4 sm:text-4xl md:text-[2.35rem]">
               Alle Leistungen
               <br />
-              <span className="font-semibold text-zinc-500">aus einer Hand.</span>
+              <span className="gg-heading-accent gg-heading-motion font-semibold">aus einer Hand.</span>
             </h2>
+            <p className="mt-3 text-sm leading-relaxed text-zinc-600 sm:text-base">
+              Für Privat- & Geschäftskunden – von der Grünpflege bis zum Winterdienst.
+            </p>
           </div>
-          <p className="max-w-md text-sm leading-relaxed text-zinc-600 lg:max-w-sm lg:text-right lg:text-base">
-            Von Gerbstedt bis Halle (Saale) – wir betreuen Ihre Immobilien zuverlässig,
-            termingerecht und mit klarer Ansprechpartner-Struktur.
+          <p className="max-w-md text-sm leading-relaxed text-zinc-600 lg:max-w-sm lg:pb-1 lg:text-right lg:text-base">
+            Von Gerbstedt bis Halle (Saale) – zuverlässig, termingerecht und mit einem festen
+            Ansprechpartner für Ihr Objekt.
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 sm:gap-6 lg:mt-14 lg:grid-cols-3 lg:gap-6">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:gap-5 lg:mt-12 lg:grid-cols-3 lg:gap-6">
           <FeaturedCard service={gruen} />
           <StandardCard service={haus} />
         </div>
 
-        <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-6 lg:grid-cols-3 lg:gap-6">
+        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-6 lg:grid-cols-4 lg:gap-6">
           {row2a.map((s) => (
             <StandardCard key={s.slug} service={s} />
           ))}
           <StandardCard service={strauch} />
-          <MietenCard card={mietenCard} className="lg:col-span-3" />
+          <MietenCard card={mietenCard} />
         </div>
 
         <div className="mt-10 flex justify-center sm:mt-12">

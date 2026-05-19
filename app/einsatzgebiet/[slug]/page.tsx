@@ -5,7 +5,8 @@ import { CtaPrimary } from "@/components/cta-primary";
 import { InnerPageBand, InnerPageHero, InnerPagePhoneLink, InnerPageRoot } from "@/components/inner-page-hero";
 import { buildAreaKeywords, getLocalArea, localAreas } from "@/lib/local-seo";
 import { services } from "@/lib/services";
-import { buildFaqJsonLd, createPageMetadata, siteUrl } from "@/lib/seo";
+import { PageBreadcrumbs } from "@/components/page-breadcrumbs";
+import { buildBreadcrumbJsonLd, buildFaqJsonLd, createPageMetadata, focusKeywords, siteUrl } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -23,10 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `Einsatzgebiet ${area.name}`,
     description: area.metaDescription,
     path: `/einsatzgebiet/${area.slug}`,
-    keywords: [
-      ...buildAreaKeywords(area.name),
-      ...services.flatMap((service) => [`${service.title} ${area.name}`, `${service.title} in ${area.name}`]),
-    ],
+    keywords: focusKeywords(buildAreaKeywords(area.name)),
   });
 }
 
@@ -69,14 +67,30 @@ export default async function EinsatzgebietDetailPage({ params }: Props) {
   const area = getLocalArea(slug);
   if (!area) notFound();
 
+  const pageUrl = `${siteUrl}/einsatzgebiet/${area.slug}`;
   const areaJsonLd = buildAreaJsonLd(area);
   const faqJsonLd = buildFaqJsonLd(area.faqs);
+  const breadcrumbLd = buildBreadcrumbJsonLd([
+    { name: "Startseite", item: siteUrl },
+    { name: "Einsatzgebiet", item: `${siteUrl}/einsatzgebiet` },
+    { name: area.name, item: pageUrl },
+  ]);
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(areaJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <InnerPageRoot>
+        <PageBreadcrumbs
+          variant="dark"
+          className="mx-auto max-w-6xl px-4 pb-2 pt-1 sm:px-6"
+          items={[
+            { label: "Startseite", href: "/" },
+            { label: "Einsatzgebiet", href: "/einsatzgebiet" },
+            { label: area.name },
+          ]}
+        />
         <InnerPageHero
           eyebrow={`Einsatzgebiet · ${area.name}`}
           heroTitle={{
@@ -86,7 +100,6 @@ export default async function EinsatzgebietDetailPage({ params }: Props) {
           }}
           description={area.lead}
           tone="dark"
-          ambientScene="services"
           actions={
             <>
               <CtaPrimary href="/kontakt">Anfrage für diesen Ort stellen</CtaPrimary>
@@ -95,7 +108,7 @@ export default async function EinsatzgebietDetailPage({ params }: Props) {
           }
         />
 
-        <InnerPageBand ambientScene="services">
+        <InnerPageBand>
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-14">
             <div>
               <Link
@@ -110,7 +123,7 @@ export default async function EinsatzgebietDetailPage({ params }: Props) {
               <p className="mt-4 text-sm leading-relaxed text-zinc-600 sm:text-base">{area.text}</p>
               <ul className="mt-6 grid gap-3">
                 {area.focus.map((item) => (
-                  <li key={item} className="rounded-2xl border border-zinc-200 bg-white p-4 text-sm font-medium text-zinc-700 shadow-sm">
+                  <li key={item} className="gg-surface-card rounded-2xl border border-zinc-200 bg-white p-4 text-sm font-medium text-zinc-700 shadow-sm">
                     {item}
                   </li>
                 ))}
@@ -137,7 +150,7 @@ export default async function EinsatzgebietDetailPage({ params }: Props) {
           </div>
         </InnerPageBand>
 
-        <InnerPageBand ambientScene="caretaker" className="border-t border-zinc-200/70">
+        <InnerPageBand className="border-t border-zinc-200/70">
           <div className="rounded-3xl border border-zinc-200/80 bg-white/90 p-6 shadow-lg shadow-zinc-900/5 ring-1 ring-white sm:p-8">
             <p className="inline-flex rounded-full bg-[#eef6e6] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-emerald-900 ring-1 ring-emerald-200/80">
               Leistungen
@@ -150,7 +163,7 @@ export default async function EinsatzgebietDetailPage({ params }: Props) {
                 <Link
                   key={service.slug}
                   href={service.href}
-                  className="rounded-2xl border border-zinc-200 bg-zinc-50/80 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-200 hover:bg-white hover:shadow-md motion-reduce:hover:translate-y-0"
+                  className="gg-surface-card rounded-2xl border border-zinc-200 bg-zinc-50/80 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-200 hover:bg-white hover:shadow-md motion-reduce:hover:translate-y-0 sm:p-6"
                 >
                   <span className="text-base font-bold text-zinc-900">
                     {service.title} {area.name}
@@ -162,7 +175,7 @@ export default async function EinsatzgebietDetailPage({ params }: Props) {
           </div>
         </InnerPageBand>
 
-        <InnerPageBand ambientScene="services" className="border-t border-zinc-200/70">
+        <InnerPageBand footerBlend className="border-t border-zinc-200/70">
           <div className="rounded-3xl border border-zinc-200/80 bg-white/90 p-6 shadow-lg shadow-zinc-900/5 ring-1 ring-white sm:p-8">
             <p className="inline-flex rounded-full bg-[#eef6e6] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-emerald-900 ring-1 ring-emerald-200/80">
               FAQ
@@ -172,10 +185,10 @@ export default async function EinsatzgebietDetailPage({ params }: Props) {
             </h2>
             <div className="mt-7 grid gap-3">
               {area.faqs.map((faq) => (
-                <details key={faq.question} className="group rounded-2xl border border-zinc-200 bg-zinc-50/80 p-4 open:bg-white open:shadow-sm">
+                <details key={faq.question} className="gg-surface-card group rounded-2xl border border-zinc-200 bg-zinc-50/80 p-4 open:bg-white open:shadow-sm">
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-bold text-zinc-900">
-                    {faq.question}
-                    <span className="rounded-full bg-white px-2 py-1 text-xs text-zinc-500 ring-1 ring-zinc-200 transition group-open:rotate-180">
+                    <span className="min-w-0 flex-1 pr-2">{faq.question}</span>
+                    <span className="shrink-0 rounded-full bg-white px-2 py-1 text-xs text-zinc-500 ring-1 ring-zinc-200 transition group-open:rotate-180">
                       ↓
                     </span>
                   </summary>

@@ -61,6 +61,78 @@ const cardToneClassName =
 const mutedToneClassName =
   "flex w-full max-w-[min(100%,19rem)] shrink-0 items-center gap-2.5 rounded-xl border border-white/[0.08] bg-white/[0.06] px-3 py-2.5 shadow-none backdrop-blur-sm transition hover:border-white/[0.14] hover:bg-white/[0.1] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#70a340] sm:gap-3 sm:px-3.5 sm:py-3 lg:max-w-[17.5rem]";
 
+const requestCardSizes = {
+  default:
+    "gap-3.5 rounded-2xl px-4 py-4 sm:gap-4 sm:px-5 sm:py-4",
+  compact: "gap-2.5 rounded-xl px-3 py-2.5 sm:gap-3 sm:px-3.5 sm:py-3",
+} as const;
+
+const requestCardToneClassName =
+  "flex w-full items-start border border-zinc-200/90 bg-white/95 text-left shadow-md shadow-zinc-900/5 backdrop-blur-sm transition hover:border-[#4285F4]/25 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4285F4]";
+
+/**
+ * Einladung zur Google-Bewertung – professioneller Text, klar als Google erkennbar.
+ */
+export function GoogleReviewRequestCard({
+  className = "",
+  size = "default",
+}: {
+  className?: string;
+  size?: keyof typeof requestCardSizes;
+}) {
+  const compact = size === "compact";
+  const profileUrl = site.googleBusinessProfileUrl;
+  const count = googleReviewCount;
+  const avg = "5,0";
+
+  return (
+    <a
+      href={profileUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${requestCardToneClassName} ${requestCardSizes[size]} ${className}`.trim()}
+      aria-label={`Bewertung auf Google abgeben: ${count} Rezensionen, Note ${avg}`}
+    >
+      <span className="flex shrink-0 items-center justify-center pt-0.5" aria-hidden>
+        <GoogleGIcon className={compact ? "h-5 w-5" : undefined} />
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-0.5">
+          <span
+            className={`font-bold uppercase tracking-[0.14em] text-[#1a73e8] ${compact ? "text-[9px]" : "text-[10px]"}`}
+          >
+            Google-Bewertung
+          </span>
+          <span className="inline-flex items-center gap-1">
+            <StarRow size="sm" />
+            <span
+              className={`font-bold tabular-nums text-zinc-800 ${compact ? "text-[10px]" : "text-xs"}`}
+            >
+              {avg}
+            </span>
+          </span>
+        </span>
+        <p
+          className={`leading-snug text-zinc-600 ${compact ? "mt-1.5 text-[11px] leading-relaxed" : "mt-2 text-sm leading-relaxed"}`}
+        >
+          Sie sind bereits Kunde oder haben unsere Dienstleistung in Anspruch genommen?
+        </p>
+        <p
+          className={`font-semibold leading-snug text-zinc-900 ${compact ? "mt-0.5 text-xs" : "mt-1 text-sm sm:text-[15px]"}`}
+        >
+          Wir würden uns über eine Bewertung freuen.
+        </p>
+        <span
+          className={`inline-flex flex-wrap items-center gap-1.5 font-semibold text-[#1a73e8] ${compact ? "mt-1.5 text-[10px]" : "mt-3 text-xs"}`}
+        >
+          <span>Jetzt auf Google bewerten</span>
+          <ExternalLinkIcon className={compact ? "h-3 w-3 opacity-80" : "h-3.5 w-3.5 opacity-80"} />
+        </span>
+      </span>
+    </a>
+  );
+}
+
 /**
  * Link zum Google-Unternehmensprofil mit Logo, Sternen, Note und Rezensionszahl –
  * `tone="card"` wie auf der Startseite; `tone="muted"` für den dunklen Footer.

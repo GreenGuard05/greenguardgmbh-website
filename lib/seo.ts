@@ -1,6 +1,23 @@
 import type { Metadata } from "next";
 import { localAreaNames } from "@/lib/local-seo";
+import { googleAggregateRating } from "@/lib/reviews";
 import { site } from "@/lib/site";
+
+/** Meta-Keywords auf das Wesentliche begrenzen (Google wertet sie kaum, hält HTML schlank) */
+export function focusKeywords(...groups: readonly (readonly string[])[]): string[] {
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const group of groups) {
+    for (const kw of group) {
+      const key = kw.trim();
+      if (!key || seen.has(key)) continue;
+      seen.add(key);
+      out.push(key);
+      if (out.length >= 12) return out;
+    }
+  }
+  return out;
+}
 
 /**
  * Kanonische Basis-URL (metadataBase, Sitemap, JSON-LD).
@@ -9,7 +26,7 @@ import { site } from "@/lib/site";
 export const siteUrl = "https://greenguard-msh.de" as const;
 
 /** Öffentliches Marken-Icon für strukturierte Daten */
-export const siteIconUrl = `${siteUrl}/branding/green-guard-favicon.png` as const;
+export const siteIconUrl = `${siteUrl}/branding/green-guard-favicon.svg` as const;
 
 /** Standard-Meta-Description für die Startseite / Fallback (~155 Zeichen, snippet-tauglich) */
 export const homeDescription =
@@ -134,8 +151,59 @@ export function buildLocalBusinessJsonLd(heroImageUrl: string) {
         name,
       })),
     ],
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: site.geo.latitude,
+      longitude: site.geo.longitude,
+    },
+    hasMap: site.googleBusinessProfileUrl,
+    openingHoursSpecification: site.openingHours.map((slot) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [...slot.dayOfWeek],
+      opens: slot.opens,
+      closes: slot.closes,
+    })),
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: googleAggregateRating.ratingValue,
+      bestRating: googleAggregateRating.bestRating,
+      worstRating: googleAggregateRating.worstRating,
+      ratingCount: googleAggregateRating.reviewCount,
+    },
     priceRange: "$$",
     sameAs: [site.googleBusinessProfileUrl, site.instagramUrl],
+  } as const;
+}
+
+export type BreadcrumbJsonLdItem = { name: string; item?: string };
+
+/** BreadcrumbList für Unterseiten (HTML + JSON-LD) */
+export function buildBreadcrumbJsonLd(items: BreadcrumbJsonLdItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((entry, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: entry.name,
+      ...(entry.item ? { item: entry.item } : {}),
+    })),
+  } as const;
+}
+
+/** Kontaktseite als ContactPage verknüpft mit LocalBusiness */
+export function buildContactPageJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": `${siteUrl}/kontakt#webpage`,
+    url: `${siteUrl}/kontakt`,
+    name: `Kontakt – ${site.name}`,
+    description: pageDescriptions.kontakt,
+    inLanguage: "de-DE",
+    isPartOf: { "@id": `${siteUrl}/#website` },
+    about: { "@id": `${siteUrl}/#localbusiness` },
+    mainEntity: { "@id": `${siteUrl}/#localbusiness` },
   } as const;
 }
 
@@ -162,15 +230,11 @@ export function buildStructuredDataGraph(heroImageUrl: string) {
 
 /** BreadcrumbList für Leistungsunterseiten */
 export function buildServiceBreadcrumbJsonLd(serviceTitle: string, pageUrl: string) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Startseite", item: siteUrl },
-      { "@type": "ListItem", position: 2, name: "Dienstleistungen", item: `${siteUrl}/dienstleistungen` },
-      { "@type": "ListItem", position: 3, name: serviceTitle, item: pageUrl },
-    ],
-  } as const;
+  return buildBreadcrumbJsonLd([
+    { name: "Startseite", item: siteUrl },
+    { name: "Dienstleistungen", item: `${siteUrl}/dienstleistungen` },
+    { name: serviceTitle, item: pageUrl },
+  ]);
 }
 
 export function buildServiceJsonLd(opts: {

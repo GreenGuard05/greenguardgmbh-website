@@ -2,11 +2,26 @@ export const site = {
   name: "Green Guard GmbH",
   /** Claim wie auf dem Logo (einheitlich für UI, Alt-Texte, Meta) */
   brandSlogan: "Ihr Grün in besten Händen.",
+  managingDirector: "Justin Zweidorf",
+  managingDirectorTitle: "Geschäftsführer",
   tagline: "Facility Management Gerbstedt & Sachsen-Anhalt",
   phone: "01573 2633670",
   phoneTel: "+4915732633670",
   email: "info@greenguard-msh.de",
   addressLines: ["Alte Dorfstraße 8", "06347 Gerbstedt", "Sachsen-Anhalt"],
+  /** Standort für Karten & Schema.org (Geokoordinaten Firmensitz) */
+  geo: { latitude: 51.8083, longitude: 11.4972 },
+  /**
+   * Grobe Erreichbarkeit für strukturierte Daten – bitte an reale Öffnungszeiten anpassen.
+   * Mo–Fr 7–17 Uhr als Orientierung; Winterdienst/Einsätze können abweichen.
+   */
+  openingHours: [
+    {
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"] as const,
+      opens: "07:00",
+      closes: "17:00",
+    },
+  ],
   region: "Gerbstedt · Sachsen-Anhalt",
   /** Uppercase line for hero badge (matches live wording) */
   regionBadge: "Gerbstedt · Sachsen-Anhalt",
@@ -32,6 +47,7 @@ export type NavItem = { href: string; label: string };
 export const mainNav: NavItem[] = [
   { href: "/", label: "Startseite" },
   { href: "/dienstleistungen", label: "Dienstleistungen" },
+  { href: "/einsatzgebiet", label: "Einsatzgebiet" },
   { href: "/mieten", label: "Geräte mieten" },
   { href: "/ueber-uns", label: "Über uns" },
   { href: "/kontakt", label: "Kontakt" },

@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { CtaPrimary } from "@/components/cta-primary";
+import { PageBreadcrumbs } from "@/components/page-breadcrumbs";
 import { InnerPageBand, InnerPageHero, InnerPagePhoneLink, InnerPageRoot } from "@/components/inner-page-hero";
 import { LocalAreasSection } from "@/components/local-areas-section";
 import { ServiceCtaBand } from "@/components/service-cta-band";
 import { ServiceFaqSection } from "@/components/service-faq-section";
 import { ServiceScopeSection } from "@/components/service-scope-section";
 import { ServiceStorySection } from "@/components/service-story-section";
-import { buildLocalKeywordCombinations } from "@/lib/local-seo";
 import { getServicePageContent } from "@/lib/service-pages";
 import { serviceFaqs } from "@/lib/service-faqs";
 import { getService, services } from "@/lib/services";
@@ -17,6 +17,7 @@ import {
   buildServiceBreadcrumbJsonLd,
   buildServiceJsonLd,
   createPageMetadata,
+  focusKeywords,
   serviceSeoDescriptions,
   siteUrl,
 } from "@/lib/seo";
@@ -46,13 +47,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${service.title} · Gerbstedt`,
     description,
     path,
-    keywords: [
-      service.title,
-      `${service.title} Gerbstedt`,
-      `${service.title} Mansfeld-Südharz`,
-      ...service.tags,
-      ...buildLocalKeywordCombinations(service.title),
-    ],
+    keywords: focusKeywords(
+      [service.title, `${service.title} Gerbstedt`, `${service.title} Sachsen-Anhalt`],
+      [...service.tags],
+    ),
     ogImage,
     ogImageWidth: 1600,
     ogImageHeight: 1066,
@@ -92,12 +90,20 @@ export default async function ServicePage({ params }: Props) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       ) : null}
       <InnerPageRoot>
+        <PageBreadcrumbs
+          variant="dark"
+          className="mx-auto max-w-6xl px-4 pb-2 pt-1 sm:px-6"
+          items={[
+            { label: "Startseite", href: "/" },
+            { label: "Dienstleistungen", href: "/dienstleistungen" },
+            { label: service.title },
+          ]}
+        />
         <InnerPageHero
           eyebrow={service.eyebrow}
           heroTitle={page.heroTitle}
           description={page.heroDescription}
           tone="dark"
-          ambientScene={page.ambientScene ?? "services"}
           actions={
             <>
               <CtaPrimary href="/kontakt">{heroPrimaryLabel}</CtaPrimary>
@@ -129,16 +135,15 @@ export default async function ServicePage({ params }: Props) {
           audiences={page.audiences}
           process={page.process}
           seoBlock={page.seoBlock}
-          ambientScene={page.ambientScene}
         />
-        <ServiceScopeSection scope={page.scope} ambientScene={page.ambientScene} />
-        <InnerPageBand ambientScene={page.ambientScene}>
+        <ServiceScopeSection scope={page.scope} />
+        <InnerPageBand>
           <ServiceFaqSection title={service.title} faqs={faqs} />
         </InnerPageBand>
-        <InnerPageBand ambientScene="services" className="border-t border-zinc-200/70">
+        <InnerPageBand className="border-t border-zinc-200/70">
           <LocalAreasSection />
         </InnerPageBand>
-        <ServiceCtaBand cta={page.cta} ambientScene={page.ambientScene} />
+        <ServiceCtaBand cta={page.cta} />
       </InnerPageRoot>
     </>
   );

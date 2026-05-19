@@ -416,7 +416,7 @@ function HomeWorkbenchBody({
               </h1>
 
               <p className="gg-text-hero-muted mt-6 max-w-lg text-base leading-relaxed sm:text-lg">
-                {site.name} – Ihr verlässlicher Partner für Grünanlagenpflege, Hausmeisterservice und Winterdienst in ganz
+                {site.name} – Ihr verlässlicher Dienstleister für Grünanlagenpflege, Hausmeisterservice und Winterdienst in ganz
                 Sachsen-Anhalt.
               </p>
 
@@ -657,7 +657,7 @@ function HomeWorkbenchBody({
               Über uns
             </p>
             <h2 className="mt-5 text-3xl font-bold leading-[1.12] tracking-tight sm:text-4xl md:text-[2.5rem]">
-              <span className="gg-text-heading-section">Ihr verlässlicher Partner für</span>
+              <span className="gg-text-heading-section">Ihr verlässlicher Dienstleister für</span>
               <br />
               <span className="gg-text-green-forest">Immobilienbetreuung</span>
             </h2>
@@ -731,7 +731,7 @@ function UeberUnsWorkbenchBody({
                   Über uns
                 </p>
                 <h1 className="mt-5 text-3xl font-bold leading-[1.08] tracking-tight text-zinc-900 sm:text-4xl md:text-[2.65rem]">
-                  <span className="gg-text-heading-section">Ihr Partner für</span>{" "}
+                  <span className="gg-text-heading-section">Ihr Dienstleister für</span>{" "}
                   <span className="gg-text-green-forest">Immobilienbetreuung</span>
                 </h1>
                 <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">

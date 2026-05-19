@@ -21,9 +21,11 @@ const initialFormState: ContactFormState = { ok: true, message: "" };
 export function ContactForm({
   initialService = "",
   initialDevice = "",
+  initialMessage = "",
 }: {
   initialService?: string;
   initialDevice?: string;
+  initialMessage?: string;
 }) {
   const formRef = useRef<HTMLFormElement>(null);
   const statusRef = useRef<HTMLParagraphElement>(null);
@@ -35,7 +37,10 @@ export function ContactForm({
   const [device, setDevice] = useState(initialDevice);
   const [formStartedAt, setFormStartedAt] = useState(() => Date.now());
   const [message, setMessage] = useState(
-    initialDevice ? `Ich interessiere mich für folgendes Mietgerät: ${initialDevice}\n\nGewünschter Zeitraum:\nEinsatzort:\n` : "",
+    initialMessage ||
+      (initialDevice
+        ? `Ich interessiere mich für folgendes Mietgerät: ${initialDevice}\n\nGewünschter Zeitraum:\nEinsatzort:\n`
+        : ""),
   );
   const [state, formAction, pending] = useActionState(async (prev: ContactFormState, formData: FormData) => {
     const result = await sendContactRequest(prev, formData);

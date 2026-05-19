@@ -3,8 +3,9 @@ import Link from "next/link";
 import { CtaPrimary } from "@/components/cta-primary";
 import { InnerPageBand, InnerPageHero, InnerPagePhoneLink, InnerPageRoot } from "@/components/inner-page-hero";
 import { LocalAreasSection } from "@/components/local-areas-section";
-import { buildAreaKeywords, coreLocalSeoKeywords, localAreas } from "@/lib/local-seo";
-import { createPageMetadata } from "@/lib/seo";
+import { PageBreadcrumbs } from "@/components/page-breadcrumbs";
+import { coreLocalSeoKeywords, localAreas } from "@/lib/local-seo";
+import { buildBreadcrumbJsonLd, createPageMetadata, focusKeywords, siteUrl } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   return createPageMetadata({
@@ -12,14 +13,33 @@ export async function generateMetadata(): Promise<Metadata> {
     description:
       "Einsatzgebiet der Green Guard GmbH: Facility Management, Grünanlagenpflege, Hausmeisterservice, Winterdienst und Reinigung in Gerbstedt, Hettstedt, Eisleben, Halle (Saale) und Mansfeld-Südharz.",
     path: "/einsatzgebiet",
-    keywords: [...coreLocalSeoKeywords, ...localAreas.flatMap((area) => buildAreaKeywords(area.name))],
+    keywords: focusKeywords(coreLocalSeoKeywords, [
+      "Einsatzgebiet Sachsen-Anhalt",
+      "Facility Management Mansfeld-Südharz",
+      "Grünpflege Halle (Saale)",
+    ]),
   });
 }
 
 export default function EinsatzgebietPage() {
+  const breadcrumbLd = buildBreadcrumbJsonLd([
+    { name: "Startseite", item: siteUrl },
+    { name: "Einsatzgebiet", item: `${siteUrl}/einsatzgebiet` },
+  ]);
+
   return (
-    <InnerPageRoot>
-      <InnerPageHero
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <InnerPageRoot>
+        <PageBreadcrumbs
+          variant="dark"
+          className="mx-auto max-w-6xl px-4 pb-2 pt-1 sm:px-6"
+          items={[
+            { label: "Startseite", href: "/" },
+            { label: "Einsatzgebiet" },
+          ]}
+        />
+        <InnerPageHero
         eyebrow="Einsatzgebiet · Sachsen-Anhalt"
         heroTitle={{
           prefix: "Regional erreichbar",
@@ -28,7 +48,6 @@ export default function EinsatzgebietPage() {
         }}
         description="Green Guard GmbH betreut private Grundstücke, Wohnanlagen, Verwaltungen und Gewerbeflächen in klar abgestimmten Einsatzgebieten. Wählen Sie den passenden Ort und sehen Sie, welche Leistungen dort sinnvoll geplant werden können."
         tone="dark"
-        ambientScene="services"
         actions={
           <>
             <CtaPrimary href="/kontakt">Einsatz anfragen</CtaPrimary>
@@ -37,11 +56,11 @@ export default function EinsatzgebietPage() {
         }
       />
 
-      <InnerPageBand ambientScene="services">
+      <InnerPageBand>
         <LocalAreasSection />
       </InnerPageBand>
 
-      <InnerPageBand ambientScene="caretaker" className="border-t border-zinc-200/70">
+      <InnerPageBand footerBlend className="border-t border-zinc-200/70">
         <div className="rounded-3xl border border-zinc-200/80 bg-white/90 p-6 shadow-lg shadow-zinc-900/5 ring-1 ring-white sm:p-8">
           <p className="inline-flex rounded-full bg-[#eef6e6] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-emerald-900 ring-1 ring-emerald-200/80">
             Orte & Regionen
@@ -58,7 +77,7 @@ export default function EinsatzgebietPage() {
               <Link
                 key={area.slug}
                 href={`/einsatzgebiet/${area.slug}`}
-                className="rounded-2xl border border-zinc-200 bg-zinc-50/80 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-200 hover:bg-white hover:shadow-md motion-reduce:hover:translate-y-0"
+                className="gg-surface-card rounded-2xl border border-zinc-200 bg-zinc-50/80 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-200 hover:bg-white hover:shadow-md motion-reduce:hover:translate-y-0 sm:p-6"
               >
                 <span className="text-base font-bold text-zinc-900">{area.name}</span>
                 <span className="mt-2 block text-sm leading-relaxed text-zinc-600">{area.headline}</span>
@@ -67,6 +86,7 @@ export default function EinsatzgebietPage() {
           </div>
         </div>
       </InnerPageBand>
-    </InnerPageRoot>
+      </InnerPageRoot>
+    </>
   );
 }
