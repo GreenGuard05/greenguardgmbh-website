@@ -59,8 +59,8 @@ export function HomeHero({
   const { hintOpacity, hintLift } = useScrollHint();
 
   return (
-    <section className="relative max-sm:min-h-0 min-h-[100svh] overflow-x-hidden bg-black text-white">
-      <div className="pointer-events-none absolute inset-0 z-0">
+    <section className="relative max-sm:min-h-0 min-h-[100svh] bg-black text-white">
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-x-hidden">
         <Image
           src={heroSideSrc}
           alt=""
