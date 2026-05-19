@@ -99,7 +99,7 @@ export function HomeHero({
             </h1>
 
             <HeroBrandQuote
-              className="relative z-20 mt-3 w-full max-sm:mt-2 max-sm:scale-[0.92] max-sm:origin-top-left sm:mt-6 lg:mt-7 lg:max-w-[min(100%,58rem)]"
+              className="relative z-20 mt-3 w-full max-sm:mt-2 sm:mt-6 lg:mt-7 lg:max-w-[min(100%,58rem)]"
               showRegionLine={false}
             />
 

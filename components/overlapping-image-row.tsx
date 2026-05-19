@@ -84,9 +84,10 @@ export function OverlappingImageRow({
     ? "h-[10.25rem] w-[7.75rem] max-sm:h-auto max-sm:w-[min(23vw,5.65rem)] max-sm:aspect-[3/4] sm:h-[8.5rem] sm:w-[6.25rem] sm:aspect-auto"
     : "h-[11.5rem] w-[8.25rem] sm:h-[13rem] sm:w-[9.5rem] lg:h-[14.25rem] lg:w-[10.5rem]";
   const overlap = compact ? "-ml-6 max-sm:-ml-5 sm:-ml-6" : "-ml-8 sm:-ml-9 lg:-ml-10";
+  /** Mind. ~2–3× Kartenbreite für scharfe Darstellung auf Retina-Handys */
   const imageSizes = compact
-    ? "(max-width: 639px) 23vw, 124px"
-    : "(max-width: 1024px) 152px, 168px";
+    ? "(max-width: 639px) 384px, 200px"
+    : "(max-width: 1024px) 320px, 400px";
 
   return (
     <div
@@ -168,7 +169,7 @@ export function OverlappingImageRow({
               type="button"
               aria-expanded={expanded && highlightedId === image.id}
               aria-label={`${image.serviceTitle}: Leistungen anzeigen`}
-              className={`relative shrink-0 ${cardSize} ${index === 0 ? "" : overlap} cursor-pointer overflow-hidden rounded-2xl bg-zinc-900 shadow-2xl ring-2 transition-[transform,opacity,box-shadow] duration-300 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a8e055] motion-reduce:transition-none ${
+              className={`relative shrink-0 ${cardSize} ${index === 0 ? "" : overlap} cursor-pointer overflow-hidden rounded-2xl bg-zinc-900 shadow-2xl ring-2 transition-[transform,opacity,box-shadow] duration-300 ease-out [backface-visibility:hidden] [transform-style:preserve-3d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a8e055] motion-reduce:transition-none ${
                 isActive
                   ? "ring-[#a8e055]/90 shadow-[0_28px_50px_-12px_rgba(112,163,64,0.55)]"
                   : "ring-white/25 hover:ring-white/60"
@@ -177,9 +178,9 @@ export function OverlappingImageRow({
                 zIndex: isActive ? 40 : 10 + index,
                 transform: isActive
                   ? compact
-                    ? "translateY(-0.5rem) scale(1.06) rotate(0deg)"
-                    : "translateY(-1.75rem) scale(1.1) rotate(0deg)"
-                  : `translateY(0) scale(${isDimmed ? 0.92 : 1}) rotate(${rotation}deg)`,
+                    ? "translate3d(0,-0.5rem,0) scale(1.06) rotate(0deg)"
+                    : "translate3d(0,-1.75rem,0) scale(1.1) rotate(0deg)"
+                  : `translate3d(0,0,0) scale(${isDimmed ? 0.92 : 1}) rotate(${rotation}deg)`,
               }}
               onMouseEnter={() => setHoveredId(image.id)}
               onFocus={() => setHoveredId(image.id)}
@@ -190,7 +191,9 @@ export function OverlappingImageRow({
                 src={image.src}
                 alt={image.alt}
                 fill
-                className="object-cover object-center"
+                quality={90}
+                priority={compact && index < 2}
+                className="object-cover object-center [transform:translateZ(0)]"
                 sizes={imageSizes}
                 draggable={false}
               />
