@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { germanUppercase } from "@/lib/german-text";
 import type { ServiceDetail } from "@/lib/services";
 
 export function ServiceCard({ service }: { service: ServiceDetail }) {
@@ -19,14 +20,14 @@ export function ServiceCard({ service }: { service: ServiceDetail }) {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 45vw, 220px"
         />
         {service.imageBadge ? (
-          <span className="absolute left-3 top-3 rounded-full bg-black/55 px-2.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-white backdrop-blur-sm sm:left-3 sm:top-3">
-            {service.imageBadge}
+          <span className="absolute left-3 top-3 rounded-full bg-black/55 px-2.5 py-0.5 text-[9px] font-semibold tracking-wide text-white backdrop-blur-sm sm:left-3 sm:top-3">
+            {germanUppercase(service.imageBadge)}
           </span>
         ) : null}
       </div>
       <div className="flex min-w-0 flex-1 flex-col p-4 sm:justify-center sm:py-4 sm:pl-4 sm:pr-5">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-zinc-500">
-          {service.eyebrow}
+        <p className="text-[10px] font-semibold tracking-[0.12em] text-zinc-500">
+          {germanUppercase(service.eyebrow)}
         </p>
         <h2 className="mt-0.5 text-base font-bold leading-snug text-zinc-900 sm:text-[1.05rem]">
           {service.title}

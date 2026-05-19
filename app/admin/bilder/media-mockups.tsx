@@ -2,6 +2,7 @@
 
 import { createContext, useContext, type PointerEvent, type ReactNode } from "react";
 import { ChipCheckIcon } from "@/components/chip-check-icon";
+import { germanUppercase } from "@/lib/german-text";
 import { googleReviewCount } from "@/lib/reviews";
 import { servicesForHomeGridFrom, type ServiceDetail } from "@/lib/services";
 import { site } from "@/lib/site";
@@ -283,8 +284,8 @@ function ServiceLeistungSlot({
             <div className="absolute inset-0 bg-zinc-200" aria-hidden />
           )}
           {service.imageBadge ? (
-            <span className="pointer-events-none absolute left-4 top-4 rounded-full bg-black/55 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white backdrop-blur-sm">
-              {service.imageBadge}
+            <span className="pointer-events-none absolute left-4 top-4 rounded-full bg-black/55 px-3 py-1 text-[10px] font-semibold tracking-wide text-white backdrop-blur-sm">
+              {germanUppercase(service.imageBadge)}
             </span>
           ) : null}
         </div>
@@ -927,8 +928,8 @@ function LeistungenWorkbenchBody({
                             <div className="absolute inset-0 bg-zinc-200" aria-hidden />
                           )}
                           {s.imageBadge ? (
-                            <span className="pointer-events-none absolute left-4 top-4 rounded-full bg-black/55 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white backdrop-blur-sm">
-                              {s.imageBadge}
+                            <span className="pointer-events-none absolute left-4 top-4 rounded-full bg-black/55 px-3 py-1 text-[10px] font-semibold tracking-wide text-white backdrop-blur-sm">
+                              {germanUppercase(s.imageBadge)}
                             </span>
                           ) : null}
                         </div>

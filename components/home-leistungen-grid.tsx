@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CtaOutlineLink } from "@/components/cta-outline-link";
+import { germanUppercase } from "@/lib/german-text";
 import type { ServiceDetail } from "@/lib/services";
 import { servicesForHomeGridFrom } from "@/lib/services";
 
@@ -89,8 +90,8 @@ function StandardCard({ service }: { service: ServiceDetail }) {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />
         {service.imageBadge ? (
-          <span className="absolute left-4 top-4 rounded-full bg-zinc-950/65 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white backdrop-blur-sm ring-1 ring-white/10">
-            {service.imageBadge}
+          <span className="absolute left-4 top-4 rounded-full bg-zinc-950/65 px-3 py-1 text-[10px] font-semibold tracking-wide text-white backdrop-blur-sm ring-1 ring-white/10">
+            {germanUppercase(service.imageBadge)}
           </span>
         ) : null}
       </div>
@@ -125,8 +126,8 @@ function MietenCard({ card }: { card: MietenHomeCardResolved }) {
           className="object-cover transition duration-500 group-hover:scale-[1.03]"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />
-        <span className="absolute left-4 top-4 rounded-full bg-zinc-950/65 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white backdrop-blur-sm ring-1 ring-white/10">
-          {card.eyebrow}
+        <span className="absolute left-4 top-4 rounded-full bg-zinc-950/65 px-3 py-1 text-[10px] font-semibold tracking-wide text-white backdrop-blur-sm ring-1 ring-white/10">
+          {germanUppercase(card.eyebrow)}
         </span>
       </div>
       <div className="flex flex-1 flex-col p-5 pl-4 sm:pl-5">

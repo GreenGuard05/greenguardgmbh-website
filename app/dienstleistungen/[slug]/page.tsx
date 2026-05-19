@@ -9,6 +9,7 @@ import { ServiceCtaBand } from "@/components/service-cta-band";
 import { ServiceFaqSection } from "@/components/service-faq-section";
 import { ServiceScopeSection } from "@/components/service-scope-section";
 import { ServiceStorySection } from "@/components/service-story-section";
+import { germanUppercase } from "@/lib/german-text";
 import { getServicePageContent } from "@/lib/service-pages";
 import { serviceFaqs } from "@/lib/service-faqs";
 import { getService, services } from "@/lib/services";
@@ -122,8 +123,8 @@ export default async function ServicePage({ params }: Props) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" aria-hidden />
               {service.imageBadge ? (
-                <span className="absolute left-4 top-4 rounded-full border border-white/10 bg-black/55 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white backdrop-blur-sm">
-                  {service.imageBadge}
+                <span className="absolute left-4 top-4 rounded-full border border-white/10 bg-black/55 px-3 py-1 text-[10px] font-semibold tracking-wide text-white backdrop-blur-sm">
+                  {germanUppercase(service.imageBadge)}
                 </span>
               ) : null}
             </div>
