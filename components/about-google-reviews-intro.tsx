@@ -10,6 +10,7 @@ import { GoogleReviewCard } from "@/components/google-review-card";
 import { HomeSectionAmbient } from "@/components/home-section-ambient";
 import {
   googleReviewCount,
+  googleReviewDisplayText,
   googleReviews,
   heroGoogleReviews,
   type GoogleReview,
@@ -51,7 +52,7 @@ function ReviewSpeechBubble({
         </span>
       </div>
       <p className="text-sm leading-relaxed text-zinc-800 sm:text-[15px]">
-        &bdquo;{excerpt(review.text)}&ldquo;
+        &bdquo;{excerpt(googleReviewDisplayText(review))}&ldquo;
       </p>
       <p className="mt-2.5 text-xs font-semibold text-zinc-600">
         {review.name}

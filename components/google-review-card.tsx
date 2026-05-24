@@ -1,5 +1,5 @@
 import { StarRow } from "@/components/google-business-reviews-link";
-import type { GoogleReview } from "@/lib/reviews";
+import { googleReviewDisplayText, type GoogleReview } from "@/lib/reviews";
 
 const GOOGLE_COLORS = {
   g1: "#4285F4",
@@ -23,13 +23,9 @@ function GoogleWordmark({ className = "text-sm" }: { className?: string }) {
   );
 }
 
-export function GoogleReviewCard({
-  name,
-  initial,
-  avatarClass,
-  date,
-  text,
-}: GoogleReview) {
+export function GoogleReviewCard(review: GoogleReview) {
+  const { name, initial, avatarClass, date, ratingOnly } = review;
+  const quote = googleReviewDisplayText(review);
   return (
     <article className="group flex h-full flex-col rounded-2xl border border-zinc-200/70 bg-white/95 p-5 shadow-md shadow-zinc-900/5 backdrop-blur-sm transition duration-200 ease-out hover:-translate-y-0.5 hover:border-emerald-900/12 hover:shadow-lg motion-reduce:hover:translate-y-0 motion-reduce:hover:shadow-md sm:p-6">
       <div className="flex gap-3">
@@ -51,7 +47,11 @@ export function GoogleReviewCard({
         <span className="sr-only">5 von 5 Sternen</span>
         <span className="text-xs text-zinc-500">{date}</span>
       </div>
-      <p className="mt-3 flex-1 text-[13px] leading-relaxed text-zinc-600 sm:text-sm">{text}</p>
+      <p
+        className={`mt-3 flex-1 text-[13px] leading-relaxed sm:text-sm ${ratingOnly ? "italic text-zinc-500" : "text-zinc-600"}`}
+      >
+        {quote}
+      </p>
     </article>
   );
 }

@@ -38,7 +38,11 @@ function ReviewChip({ review }: { review: GoogleReview }) {
       </span>
       <span className="hidden h-3 w-px bg-white/20 sm:block" aria-hidden />
       <span className="max-w-[11rem] truncate text-[10px] text-zinc-300/95 sm:max-w-[14rem] sm:text-[11px]">
-        „{truncateQuote(review.text)}“
+        {review.ratingOnly ? (
+          "5 von 5 Sternen"
+        ) : (
+          <>„{truncateQuote(review.text)}“</>
+        )}
       </span>
     </Link>
   );

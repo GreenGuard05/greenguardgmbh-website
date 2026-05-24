@@ -4,15 +4,60 @@ export type GoogleReview = {
   avatarClass: string;
   date: string;
   text: string;
+  /** Nur Sterne auf Google, ohne geschriebenen Kommentar */
+  ratingOnly?: boolean;
 };
 
+export function googleReviewDisplayText(review: GoogleReview): string {
+  if (review.ratingOnly) {
+    return "5 von 5 Sternen auf Google – ohne geschriebenen Kommentar.";
+  }
+  return review.text;
+}
+
+/** Alle 10 Rezensionen laut Google-Unternehmensprofil (Stand Mai 2026) */
 export const googleReviews: GoogleReview[] = [
+  {
+    name: "Google-Nutzer",
+    initial: "G",
+    avatarClass: "bg-zinc-600",
+    date: "vor kurzem",
+    text: "Wir sind sehr zufrieden mit der Arbeit. Die Hecke und der Rasen wurden sauber, ordentlich und schnell geschnitten. Sehr zuverlässiger und freundlicher Kontakt.",
+  },
   {
     name: "Dagmar Ludwig",
     initial: "D",
     avatarClass: "bg-orange-500",
-    date: "vor 9 Monaten",
-    text: "Schnell, zuverlässig, freundlich und die Kommunikation stimmt! Was für ein Fund. Super Arbeit und ich kann das Team nur empfehlen!",
+    date: "vor 11 Monaten",
+    text: "Schnell, zuverlässig, freundlich und die Kommunikation stimmt! Was für ein Fund. Wir haben telefoniert, das Team ist aufgetaucht und hat geliefert. Super Arbeit und ich kann das Team nur empfehlen!",
+  },
+  {
+    name: "Nico Angermann",
+    initial: "N",
+    avatarClass: "bg-slate-500",
+    date: "vor 11 Monaten",
+    text: "Danke fürs Hecke schneiden. Super Arbeit schnell ausgeführt und ohne lange Wartezeit. TOP LEISTUNG",
+  },
+  {
+    name: "Bianca Schnall",
+    initial: "B",
+    avatarClass: "bg-violet-600",
+    date: "vor 11 Monaten",
+    text: "Immer freundliche Mitarbeiter… zuverlässiges Team… immer zur Stelle… verdienen eigentlich 10 Sterne. Die Nummer 1 zum Weiterempfehlen.",
+  },
+  {
+    name: "MarsMensch",
+    initial: "M",
+    avatarClass: "bg-lime-600",
+    date: "vor 11 Monaten",
+    text: "Wir freuen uns sehr, dass wir von einem Bekannten dieses zuverlässige und freundliche Team empfohlen bekommen haben. Alle Arbeiten im Garten, von Rasenschnitt bis zur Pflege, wurden perfekt erledigt.",
+  },
+  {
+    name: "Danny Thamm",
+    initial: "D",
+    avatarClass: "bg-teal-600",
+    date: "vor einem Jahr",
+    text: "Das Team arbeitet zuverlässig, ist immer pünktlich und erledigt alle Aufgaben mit großer Sorgfalt. Besonders schätze ich die schnelle Reaktionszeit.",
   },
   {
     name: "Philipp Boiko",
@@ -29,39 +74,19 @@ export const googleReviews: GoogleReview[] = [
     text: "Für mich das beste Unternehmen für Grünpflege im Umkreis. Man merkt, dass hier die Arbeit nicht nur Beruf sondern auch Berufung ist.",
   },
   {
-    name: "Danny Thamm",
-    initial: "D",
-    avatarClass: "bg-teal-600",
-    date: "vor 11 Monaten",
-    text: "Das Team arbeitet zuverlässig, ist immer pünktlich und erledigt alle Aufgaben mit großer Sorgfalt. Besonders schätze ich die schnelle Reaktionszeit.",
-  },
-  {
-    name: "Nico Angermann",
-    initial: "N",
-    avatarClass: "bg-slate-500",
-    date: "vor 9 Monaten",
-    text: "Danke fürs Hecke schneiden. Super Arbeit schnell ausgeführt und ohne lange Wartezeit. TOP LEISTUNG",
-  },
-  {
-    name: "Bianca Schnall",
-    initial: "B",
-    avatarClass: "bg-violet-600",
-    date: "vor 9 Monaten",
-    text: "Immer freundliche Mitarbeiter… zuverlässiges Team… immer zur Stelle… verdienen eigentlich 10 Sterne. Die Nummer 1 zum Weiterempfehlen.",
-  },
-  {
-    name: "MarsMensch",
-    initial: "M",
-    avatarClass: "bg-lime-600",
-    date: "vor 10 Monaten",
-    text: "Wir freuen uns sehr, dass wir von einem Bekannten dieses zuverlässige und freundliche Team empfohlen bekommen haben. Alle Arbeiten im Garten wurden perfekt erledigt.",
-  },
-  {
     name: "Stefan",
     initial: "S",
     avatarClass: "bg-amber-500",
     date: "vor einem Jahr",
     text: "Unschlagbar bei Angelegenheiten rund um die Grünpflege. Unkomplizierte Kommunikation, professionelle, saubere Arbeit.",
+  },
+  {
+    name: "Andrea Henschel",
+    initial: "A",
+    avatarClass: "bg-rose-600",
+    date: "vor einem Jahr",
+    text: "",
+    ratingOnly: true,
   },
 ];
 
