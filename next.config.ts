@@ -9,6 +9,12 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1"],
   async redirects() {
     return [
+      /** Viele Browser fragen /favicon.ico automatisch an → gleiches Marken-PNG wie im Tab (48px) */
+      {
+        source: "/favicon.ico",
+        destination: "/branding/green-guard-favicon-48.png",
+        permanent: false,
+      },
       /** www → kanonische Domain ohne www (HTTPS setzt i. d. R. das Hosting) */
       {
         source: "/:path*",

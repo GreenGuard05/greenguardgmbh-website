@@ -25,12 +25,13 @@ export function focusKeywords(...groups: readonly (readonly string[])[]): string
  */
 export const siteUrl = "https://greenguard-msh.de" as const;
 
-/** Selbst gehostetes OG-Bild (app/opengraph-image.tsx) – für Social-Previews bei externen Stock-URLs */
-const SOCIAL_PREVIEW_IMAGE_PATH = "/opengraph-image" as const;
+/** Statisches OG-Bild (WhatsApp/Meta – echte Datei, kein dynamisches Render) */
+export const SOCIAL_PREVIEW_IMAGE_PATH = "/branding/green-guard-og-preview.png" as const;
+export const socialPreviewImageSize = { width: 1024, height: 1024 } as const;
 
 /**
  * WhatsApp/Meta laden viele externe Bild-URLs (Pexels, Unsplash, …) für Link-Vorschauen nicht zuverlässig.
- * Nur greenguard-msh.de oder relative Pfade → unverändert; sonst Fallback auf selbst gehostetes OG.
+ * Nur greenguard-msh.de oder relative Pfade → unverändert; sonst Fallback auf selbst gehostetes Marken-PNG.
  */
 export function socialPreviewOgImageUrl(ogImage?: string): string | undefined {
   if (ogImage == null || ogImage.trim() === "") return undefined;
@@ -41,7 +42,7 @@ export function socialPreviewOgImageUrl(ogImage?: string): string | undefined {
   return u;
 }
 
-/** Öffentliches Marken-Icon für strukturierte Daten */
+/** Öffentliches Marken-Icon (JSON-LD logo) – Vektor-Favicon, scharf in jeder Größe */
 export const siteIconUrl = `${siteUrl}/branding/green-guard-favicon.svg` as const;
 
 /** Standard-Meta-Description für die Startseite / Fallback (~155 Zeichen, snippet-tauglich) */
@@ -97,14 +98,14 @@ export function createPageMetadata(opts: {
   const pageUrl = path === "/" ? siteUrl : absoluteUrl;
   const ogTitle = `${opts.title} | ${site.name}`;
   const resolvedOg = socialPreviewOgImageUrl(opts.ogImage);
-  const useGeneratedOg = resolvedOg === SOCIAL_PREVIEW_IMAGE_PATH;
+  const useBrandedFallback = resolvedOg === SOCIAL_PREVIEW_IMAGE_PATH;
   const images =
     resolvedOg != null && resolvedOg !== ""
       ? [
           {
             url: resolvedOg,
-            width: useGeneratedOg ? 1200 : (opts.ogImageWidth ?? 1200),
-            height: useGeneratedOg ? 630 : (opts.ogImageHeight ?? 630),
+            width: useBrandedFallback ? socialPreviewImageSize.width : (opts.ogImageWidth ?? 1200),
+            height: useBrandedFallback ? socialPreviewImageSize.height : (opts.ogImageHeight ?? 630),
             alt: opts.ogImageAlt ?? opts.title,
           },
         ]

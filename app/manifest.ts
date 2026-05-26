@@ -18,15 +18,21 @@ export default function manifest(): MetadataRoute.Manifest {
     categories: ["business", "utilities"],
     icons: [
       {
-        src: "/icon.svg",
+        src: "/branding/green-guard-favicon.svg",
         sizes: "any",
         type: "image/svg+xml",
         purpose: "any",
       },
       {
-        src: "/branding/green-guard-favicon.svg",
-        sizes: "any",
-        type: "image/svg+xml",
+        src: "/branding/green-guard-favicon-48.png",
+        sizes: "48x48",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/branding/green-guard-pwa-192.png",
+        sizes: "192x192",
+        type: "image/png",
         purpose: "maskable",
       },
     ],

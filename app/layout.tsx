@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { OrganizationJsonLd } from "@/components/organization-json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { homeDescription, siteUrl } from "@/lib/seo";
+import { homeDescription, siteUrl, SOCIAL_PREVIEW_IMAGE_PATH, socialPreviewImageSize } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -40,11 +40,23 @@ export async function generateMetadata(): Promise<Metadata> {
     publisher: site.name,
     category: "business",
     icons: {
+      /**
+       * SVG zuerst: im Tab gestochen scharf, ein Datei-Motiv für alle Zoomstufen.
+       * PNG danach für ältere Clients; WhatsApp/OG bleiben PNG (`green-guard-og-preview.png`).
+       * /favicon.ico → 48px-PNG (next.config).
+       */
       icon: [
-        { url: "/branding/green-guard-favicon.svg", type: "image/svg+xml" },
-        { url: "/icon.svg", type: "image/svg+xml" },
+        { url: "/branding/green-guard-favicon.svg", type: "image/svg+xml", sizes: "any" },
+        { url: "/branding/green-guard-favicon-48.png", sizes: "48x48", type: "image/png" },
+        { url: "/branding/green-guard-favicon.png", sizes: "32x32", type: "image/png" },
       ],
-      apple: [{ url: "/branding/green-guard-favicon.svg", type: "image/svg+xml" }],
+      apple: [
+        {
+          url: "/branding/green-guard-apple-icon.png",
+          sizes: "180x180",
+          type: "image/png",
+        },
+      ],
     },
     ...(googleVerification
       ? { verification: { google: googleVerification } }
@@ -67,12 +79,20 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: site.name,
       title: `${site.name} | ${site.tagline}`,
       description: homeDescription,
-      /* Vorschaubild: app/opengraph-image.tsx (selbst gehostet – WhatsApp/Facebook laden keine Pexels-URLs zuverlässig) */
+      images: [
+        {
+          url: SOCIAL_PREVIEW_IMAGE_PATH,
+          width: socialPreviewImageSize.width,
+          height: socialPreviewImageSize.height,
+          alt: `${site.name} – ${site.brandSlogan}`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: `${site.name} | ${site.tagline}`,
       description: homeDescription,
+      images: [SOCIAL_PREVIEW_IMAGE_PATH],
     },
     formatDetection: {
       telephone: true,
