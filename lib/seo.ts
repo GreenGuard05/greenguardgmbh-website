@@ -25,6 +25,22 @@ export function focusKeywords(...groups: readonly (readonly string[])[]): string
  */
 export const siteUrl = "https://greenguard-msh.de" as const;
 
+/** Selbst gehostetes OG-Bild (app/opengraph-image.tsx) – für Social-Previews bei externen Stock-URLs */
+const SOCIAL_PREVIEW_IMAGE_PATH = "/opengraph-image" as const;
+
+/**
+ * WhatsApp/Meta laden viele externe Bild-URLs (Pexels, Unsplash, …) für Link-Vorschauen nicht zuverlässig.
+ * Nur greenguard-msh.de oder relative Pfade → unverändert; sonst Fallback auf selbst gehostetes OG.
+ */
+export function socialPreviewOgImageUrl(ogImage?: string): string | undefined {
+  if (ogImage == null || ogImage.trim() === "") return undefined;
+  const u = ogImage.trim();
+  if (u.startsWith("/")) return u;
+  if (u.startsWith(siteUrl)) return u;
+  if (/^https?:\/\//i.test(u)) return SOCIAL_PREVIEW_IMAGE_PATH;
+  return u;
+}
+
 /** Öffentliches Marken-Icon für strukturierte Daten */
 export const siteIconUrl = `${siteUrl}/branding/green-guard-favicon.svg` as const;
 
@@ -80,13 +96,15 @@ export function createPageMetadata(opts: {
   const absoluteUrl = `${siteUrl}${path === "/" ? "" : path}`;
   const pageUrl = path === "/" ? siteUrl : absoluteUrl;
   const ogTitle = `${opts.title} | ${site.name}`;
+  const resolvedOg = socialPreviewOgImageUrl(opts.ogImage);
+  const useGeneratedOg = resolvedOg === SOCIAL_PREVIEW_IMAGE_PATH;
   const images =
-    opts.ogImage != null && opts.ogImage !== ""
+    resolvedOg != null && resolvedOg !== ""
       ? [
           {
-            url: opts.ogImage,
-            width: opts.ogImageWidth ?? 1200,
-            height: opts.ogImageHeight ?? 630,
+            url: resolvedOg,
+            width: useGeneratedOg ? 1200 : (opts.ogImageWidth ?? 1200),
+            height: useGeneratedOg ? 630 : (opts.ogImageHeight ?? 630),
             alt: opts.ogImageAlt ?? opts.title,
           },
         ]
@@ -110,7 +128,7 @@ export function createPageMetadata(opts: {
       card: images ? "summary_large_image" : "summary",
       title: ogTitle,
       description: opts.description,
-      ...(opts.ogImage ? { images: [opts.ogImage] } : {}),
+      ...(resolvedOg ? { images: [resolvedOg] } : {}),
     },
     robots: { index: true, follow: true },
   };

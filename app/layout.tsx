@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { OrganizationJsonLd } from "@/components/organization-json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { getResolvedSiteMedia } from "@/lib/site-media.server";
 import { homeDescription, siteUrl } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -26,7 +25,6 @@ export const viewport: Viewport = {
 };
 
 export async function generateMetadata(): Promise<Metadata> {
-  const media = await getResolvedSiteMedia();
   const googleVerification = process.env.GOOGLE_SITE_VERIFICATION?.trim();
 
   return {
@@ -69,20 +67,12 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: site.name,
       title: `${site.name} | ${site.tagline}`,
       description: homeDescription,
-      images: [
-        {
-          url: media.heroSide,
-          width: 1600,
-          height: 1000,
-          alt: `${site.name} – ${site.brandSlogan}`,
-        },
-      ],
+      /* Vorschaubild: app/opengraph-image.tsx (selbst gehostet – WhatsApp/Facebook laden keine Pexels-URLs zuverlässig) */
     },
     twitter: {
       card: "summary_large_image",
       title: `${site.name} | ${site.tagline}`,
       description: homeDescription,
-      images: [media.heroSide],
     },
     formatDetection: {
       telephone: true,
