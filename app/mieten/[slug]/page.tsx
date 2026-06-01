@@ -5,16 +5,19 @@ import { notFound } from "next/navigation";
 import { CtaPrimary } from "@/components/cta-primary";
 import { InnerPageBand, InnerPageHero, InnerPagePhoneLink, InnerPageRoot } from "@/components/inner-page-hero";
 import { LocalAreasSection } from "@/components/local-areas-section";
+import { ServiceFaqSection } from "@/components/service-faq-section";
 import { getRentalDevices } from "@/lib/rental-devices.server";
+import { rentalFaqs } from "@/lib/rental-faqs";
 import {
   absoluteImageUrl,
   buildRentalProductJsonLd,
   rentalContactHref,
+  rentalDeviceKeywordList,
   rentalDeviceSeoDescription,
-  rentalSeoKeywords,
+  rentalDeviceSeoTitle,
 } from "@/lib/rental-seo";
 import { PageBreadcrumbs } from "@/components/page-breadcrumbs";
-import { buildBreadcrumbJsonLd, createPageMetadata, focusKeywords, siteUrl } from "@/lib/seo";
+import { buildBreadcrumbJsonLd, buildFaqJsonLd, createPageMetadata, focusKeywords, siteUrl } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -35,20 +38,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const devices = await getRentalDevices();
 
   return createPageMetadata({
-    title: `${device.name} mieten · Gerbstedt`,
+    title: rentalDeviceSeoTitle(device),
     description: rentalDeviceSeoDescription(device),
     path: `/mieten/${device.id}`,
-    keywords: focusKeywords(
-      [
-        device.name,
-        `${device.name} mieten`,
-        `${device.name} Gerbstedt`,
-        `${device.name} Sachsen-Anhalt`,
-      ],
-      rentalSeoKeywords(devices).slice(0, 4),
-    ),
+    keywords: focusKeywords(rentalDeviceKeywordList(device, devices)),
     ogImage: absoluteImageUrl(device.image),
-    ogImageAlt: `${device.name} mieten bei Green Guard GmbH`,
+    ogImageAlt: `${device.name} mieten bei Green Guard GmbH – Gerbstedt & Mansfeld-Südharz`,
   });
 }
 
@@ -76,6 +71,8 @@ export default async function RentalDevicePage({ params }: Props) {
   if (!device) notFound();
 
   const productJsonLd = buildRentalProductJsonLd(device);
+  const faqs = rentalFaqs[device.id] ?? [];
+  const faqJsonLd = faqs.length ? buildFaqJsonLd(faqs) : null;
   const pageUrl = `${siteUrl}/mieten/${device.id}`;
   const breadcrumbLd = buildBreadcrumbJsonLd([
     { name: "Startseite", item: siteUrl },
@@ -87,6 +84,9 @@ export default async function RentalDevicePage({ params }: Props) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      {faqJsonLd ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      ) : null}
       <InnerPageRoot>
         <PageBreadcrumbs
           variant="dark"
@@ -191,6 +191,23 @@ export default async function RentalDevicePage({ params }: Props) {
             </div>
           </div>
         </InnerPageBand>
+
+        {faqs.length ? (
+          <InnerPageBand className="border-t border-zinc-200/70">
+            <ServiceFaqSection title={device.name} faqs={faqs} />
+            {device.id === "ferrari-rc-70hy-maehraupe" ? (
+              <p className="mt-6 text-center text-sm text-zinc-600">
+                Für gewerbliche Einsätze unter PV-Modulen:{" "}
+                <Link
+                  href="/dienstleistungen/solarparkpflege"
+                  className="font-semibold text-emerald-800 underline decoration-emerald-300 underline-offset-4 hover:text-emerald-950"
+                >
+                  Solarparkpflege von Green Guard GmbH
+                </Link>
+              </p>
+            ) : null}
+          </InnerPageBand>
+        ) : null}
 
         <InnerPageBand footerBlend className="border-t border-zinc-200/70">
           <LocalAreasSection />

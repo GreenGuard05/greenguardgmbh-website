@@ -22,6 +22,22 @@ export const aboutCollageImages = {
 
 export const services: ServiceDetail[] = [
   {
+    slug: "solarparkpflege",
+    title: "Solarparkpflege",
+    eyebrow: "PV-Flächen · Grünunterhalt",
+    intro:
+      "Grünunterhalt unter und zwischen Modulreihen mit ferngesteuerter Mähraupe und Profi-Technik – für sichere Freiflächen und planbare Pflegeintervalle.",
+    tags: [
+      "Grünflächen unter Modulen",
+      "Ferngesteuerte Mähraupe",
+      "Böschungen & Randbereiche",
+      "Wartungsverträge",
+    ],
+    href: "/dienstleistungen/solarparkpflege",
+    image: "/images/service-solarparkpflege.png",
+    imageBadge: "PV & Grün",
+  },
+  {
     slug: "gruenanlage",
     title: "Grünanlagenpflege",
     eyebrow: "Rasen · Hecken · Bäume",

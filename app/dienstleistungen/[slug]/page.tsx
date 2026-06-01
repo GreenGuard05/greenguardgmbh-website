@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CtaPrimary } from "@/components/cta-primary";
 import { PageBreadcrumbs } from "@/components/page-breadcrumbs";
@@ -140,6 +141,17 @@ export default async function ServicePage({ params }: Props) {
         <ServiceScopeSection scope={page.scope} />
         <InnerPageBand>
           <ServiceFaqSection title={service.title} faqs={faqs} />
+          {slug === "solarparkpflege" ? (
+            <p className="mt-6 text-center text-sm text-zinc-600">
+              Technik im Einsatz:{" "}
+              <Link
+                href="/mieten/ferrari-rc-70hy-maehraupe"
+                className="font-semibold text-emerald-800 underline decoration-emerald-300 underline-offset-4 hover:text-emerald-950"
+              >
+                Ferrari RC-70HY Pro Mähraupe mieten
+              </Link>
+            </p>
+          ) : null}
         </InnerPageBand>
         <InnerPageBand className="border-t border-zinc-200/70">
           <LocalAreasSection />

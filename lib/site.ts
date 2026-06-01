@@ -56,6 +56,7 @@ export const mainNav: NavItem[] = [
 /** Order wie auf der Live-Seite im Dropdown */
 export const serviceLinks: NavItem[] = [
   { href: "/dienstleistungen/gruenanlage", label: "Grünanlagenpflege" },
+  { href: "/dienstleistungen/solarparkpflege", label: "Solarparkpflege" },
   { href: "/dienstleistungen/strauchpflege", label: "Strauch- & Buschpflege" },
   { href: "/dienstleistungen/hausmeisterservice", label: "Hausmeisterservice" },
   { href: "/dienstleistungen/winterdienst", label: "Winterdienst" },

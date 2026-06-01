@@ -168,6 +168,144 @@ const pages: Record<string, ServicePageContent> = {
     },
     ambientScene: "greensCare",
   },
+  solarparkpflege: {
+    heroTitle: {
+      prefix: "Professionelle",
+      accent: "Solarparkpflege",
+      suffix: "für PV-Freiflächen.",
+    },
+    heroDescription:
+      "Grünunterhalt unter Modulreihen, an Böschungen und in Randbereichen – mit ferngesteuerter Mähraupe und erfahrenem Team für planbare Pflege und sichere Anlagen.",
+    heroPrimaryLabel: "Solarparkpflege anfragen",
+    story: {
+      eyebrow: "PV & Grünflächen",
+      heading: "Gepflegte Freiflächen schützen Ertrag, Wege und Technik.",
+      headingAccent: "Ertrag, Wege und Technik",
+      lead:
+        "Wildwuchs und hohes Gras auf Solarparks beeinträchtigen nicht nur das Erscheinungsbild, sondern auch Kontrollgänge, Zäune und die Umgebung der Module. Regelmäßige Pflege hält Flächen nutzbar und reduziert Risiken durch Verschattung oder verborgene Schäden.",
+      paragraphs: [
+        "Green Guard GmbH bietet Solarparkpflege für Freiflächen-PV-Anlagen in Gerbstedt, Mansfeld-Südharz und Sachsen-Anhalt. Wir kombinieren Erfahrung in Grünpflege mit moderner Technik – unter anderem der ferngesteuerten Ferrari RC-70HY Pro Mähraupe mit 70 cm Schnittbreite und Hangtauglichkeit bis 45°.",
+        "So lassen sich Reihenabstände, Böschungen und schwer zugängliche Bereiche effizient bearbeiten. Auf Wunsch planen wir feste Intervalle, dokumentieren Einsätze und stimmen uns mit Betreibern, Hausverwaltungen oder Projektgesellschaften ab – von der Erstbegehung bis zum Wartungsvertrag.",
+      ],
+      cards: [
+        {
+          title: "Technik für enge Flächen",
+          description:
+            "Ferngesteuerte Mähraupe und Profi-Equipment für Arbeiten zwischen Modulreihen und in Hanglagen.",
+        },
+        {
+          title: "Planbare Intervalle",
+          description:
+            "Pflege nach Vegetationsphase – abgestimmt auf Ertrag, Sicherheit und Ihre Betriebsabläufe.",
+        },
+        {
+          title: "Regional & erreichbar",
+          description:
+            "Kurze Wege aus Gerbstedt, feste Ansprechpartner und schnelle Abstimmung vor Ort.",
+        },
+      ],
+    },
+    scope: {
+      eyebrow: "Leistungsumfang",
+      heading: "Grünunterhalt für Solarparks und Freiflächenanlagen.",
+      headingAccent: "Solarparks und Freiflächenanlagen",
+      intro:
+        "Von der Pflege zwischen Modulreihen bis zur Böschungs- und Randpflege: Wir halten Ihre PV-Flächen in einem Zustand, der Betrieb und Kontrolle erleichtert.",
+      columns: [
+        [
+          "Grünflächenpflege unter & zwischen Modulen",
+          "Mäharbeiten in Reihenabständen",
+          "Rand- & Zaunstreifenpflege",
+          "Böschungs- & Hangpflege",
+        ],
+        [
+          "Kontrollwege & Zufahrten freihalten",
+          "Wildwuchs- & Hochgrasmanagement",
+          "Saisonale Pflegeintervalle",
+          "Wartungsverträge für Betreiber",
+        ],
+      ],
+      highlights: [
+        {
+          icon: "tools",
+          title: "Ferngesteuerte Mähraupe",
+          description:
+            "RC-70HY Pro mit 70 cm Schnittbreite – ideal für enge Abstände und Neigungen bis 45°.",
+        },
+        {
+          icon: "calendar",
+          title: "Feste Pflegepläne",
+          description:
+            "Intervalle nach Vegetation und Anforderung – transparent geplant und umgesetzt.",
+        },
+        {
+          icon: "location",
+          title: "Sachsen-Anhalt",
+          description:
+            "Einsätze in Gerbstedt, Mansfeld-Südharz und Umgebung – weitere Standorte nach Absprache.",
+        },
+      ],
+    },
+    audiences: [
+      {
+        title: "PV-Betreiber & Projektgesellschaften",
+        description:
+          "Für Freiflächenanlagen mit Bedarf an zuverlässigem Grünunterhalt und dokumentierten Pflegeeinsätzen.",
+      },
+      {
+        title: "Hausverwaltungen & Asset Manager",
+        description:
+          "Für Anlagen mit mehreren Flächen, bei denen ein fester Ansprechpartner und klare Abläufe wichtig sind.",
+      },
+      {
+        title: "Gewerbe & Kommunen",
+        description:
+          "Für öffentliche oder gewerbliche PV-Flächen mit hohen Anforderungen an Sicherheit und Erscheinungsbild.",
+      },
+    ],
+    process: [
+      {
+        title: "Anlage begehen",
+        description:
+          "Wir prüfen Flächen, Reihenabstände, Hanglagen, Zufahrten und gewünschte Pflegeziele vor Ort.",
+      },
+      {
+        title: "Konzept & Intervall",
+        description:
+          "Sie erhalten einen Vorschlag für Schnitthöhen, Einsatzhäufigkeit und Technik – inklusive Mähraupe wo sinnvoll.",
+      },
+      {
+        title: "Pflege umsetzen",
+        description:
+          "Unser Team arbeitet termingerecht, sicher und mit Blick auf Module, Kabeltrassen und Umgebung.",
+      },
+      {
+        title: "Fortführung & Vertrag",
+        description:
+          "Bei Bedarf übernehmen wir die laufende Betreuung als Wartungsvertrag mit planbaren Terminen.",
+      },
+    ],
+    seoBlock: {
+      eyebrow: "Solarparkpflege Sachsen-Anhalt",
+      heading: "Solarparkpflege für Betreiber und Freiflächen-PV.",
+      headingAccent: "Betreiber und Freiflächen-PV",
+      text:
+        "Green Guard GmbH ist Ansprechpartner für Solarparkpflege in Gerbstedt, Grünunterhalt unter PV-Modulen in Mansfeld-Südharz und Böschungspflege an Freiflächenanlagen in Sachsen-Anhalt. Mit ferngesteuerter Mähraupe und Grünpflege-Know-how halten wir Ihre Anlage nutzbar und gepflegt.",
+      bullets: [
+        "Grünflächenpflege unter und zwischen Modulreihen",
+        "Böschungs-, Rand- und Kontrollwegpflege",
+        "Wartungsverträge und saisonale Pflegeintervalle",
+      ],
+    },
+    cta: {
+      badge: "Unverbindlich · 24h Antwort",
+      headingLead: "Jetzt Solarparkpflege",
+      headingAccent: "anfragen",
+      subline: "Erstbegehung und Angebot – Antwort innerhalb von 24 Stunden.",
+      buttonLabel: "Angebot anfordern",
+    },
+    ambientScene: "greensCare",
+  },
   hausmeisterservice: {
     heroTitle: {
       prefix: "Zuverlässiger",

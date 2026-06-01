@@ -4,6 +4,38 @@ export type ServiceFaq = {
 };
 
 export const serviceFaqs: Record<string, ServiceFaq[]> = {
+  solarparkpflege: [
+    {
+      question: "Was versteht Green Guard GmbH unter Solarparkpflege?",
+      answer:
+        "Solarparkpflege umfasst den fachgerechten Grünunterhalt auf und um Freiflächen-PV-Anlagen: Mähen zwischen Modulreihen, Pflege von Rand- und Böschungsbereichen sowie die Sicherung von Zufahrten und Kontrollwegen – abgestimmt auf Ihre Anlage und Vegetationsphase.",
+    },
+    {
+      question: "Warum ist Grünunterhalt bei Solarparks wichtig?",
+      answer:
+        "Hohes Gras und Wildwuchs können Verschattung, Schäden an Kabeln oder Zäunen und erschwerte Kontrollgänge verursachen. Regelmäßige Pflege unterstützt Ertrag, Sicherheit und einen gepflegten Gesamteindruck der Anlage.",
+    },
+    {
+      question: "Welche Technik setzt Green Guard GmbH ein?",
+      answer:
+        "Für anspruchsvolle Flächen nutzen wir unter anderem die ferngesteuerte Ferrari RC-70HY Pro Mähraupe mit 70 cm Schnittbreite und Hangtauglichkeit bis 45°. So lassen sich enge Reihenabstände und Böschungen effizient und kontrolliert bearbeiten.",
+    },
+    {
+      question: "In welcher Region bieten Sie Solarparkpflege an?",
+      answer:
+        "Schwerpunkt ist Gerbstedt, Mansfeld-Südharz und Sachsen-Anhalt. Weitere Einsatzorte für Freiflächenanlagen stimmen wir nach Lage, Größe und Terminplanung individuell ab.",
+    },
+    {
+      question: "Sind Wartungsverträge für PV-Betreiber möglich?",
+      answer:
+        "Ja. Für Betreiber, Hausverwaltungen und Projektgesellschaften planen wir feste Pflegeintervalle, dokumentierte Einsätze und einen festen Ansprechpartner – von der Erstbegehung bis zur laufenden Betreuung.",
+    },
+    {
+      question: "Kann ich die Mähraupe auch selbst mieten?",
+      answer:
+        "Ja. Die Ferrari RC-70HY Pro Mähraupe können Sie zusätzlich im Gerätemietservice mieten – inklusive Einweisung. Details zu Preis, Kaution und Verfügbarkeit finden Sie unter Geräte mieten.",
+    },
+  ],
   gruenanlage: [
     {
       question: "Übernimmt Green Guard GmbH regelmäßige Grünanlagenpflege in Gerbstedt und Umgebung?",

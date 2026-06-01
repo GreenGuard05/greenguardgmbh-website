@@ -98,7 +98,7 @@
     "details": "13-PS-Loncin-Viertakter mit Autochoke, Öl- und Benzinförderpumpe für zuverlässigen Betrieb am Hang sowie automatischer Sicherheitsabschaltung bei extremen Neigungen. Schnitthöhe per Fernbedienung von 30–120 mm, Tempomat, Frontbeleuchtung und integrierter Stundenzähler. Saubere und gepflegte Maschine. Einweisung bei Abholung möglich, Lieferung nach Absprache. Verschleißpauschale inkl. Messer separat.",
     "facts": ["70 cm Schnittbreite · bis 45° hangtauglich", "Fernbedienung bis 200 m · Hybrid-Antrieb", "Bis 1.931 m²/h · Schnitthöhe 30–120 mm"],
     "price": "150 EUR / 24h (max. 8 Betriebsstunden) · 39,90 EUR Verschleißpauschale inkl. Messer",
-    "deposit": "400 EUR Kaution (bar bei Abholung)",
+    "deposit": "400 EUR Kaution",
     "fuel": "Super E5",
     "suitableFor": [
       "Hochgras & verwilderte Flächen",
@@ -106,7 +106,8 @@
       "Wiesen & Brachflächen",
       "schwer zugängliche Bereiche",
       "große Grundstücke",
-      "professionelle Grünpflege & Landschaftspflege"
+      "professionelle Grünpflege & Landschaftspflege",
+      "Solarparkpflege & PV-Freiflächen"
     ],
     "notSuitableFor": [
       "Steine & Hindernisse im Mähbereich",

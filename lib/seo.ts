@@ -55,13 +55,13 @@ export const homeDescription =
  */
 export const pageDescriptions = {
   dienstleistungen:
-    "Dienstleistungen von Green Guard GmbH Gerbstedt: Grünanlagenpflege, Hausmeister, Winterdienst, Reinigung & Strauchpflege – ein Ansprechpartner für Mansfeld-Südharz.",
+    "Dienstleistungen von Green Guard GmbH Gerbstedt: Grünanlagenpflege, Solarparkpflege, Hausmeister, Winterdienst, Reinigung & Strauchpflege – Mansfeld-Südharz.",
+  mieten:
+    "Geräte mieten bei Green Guard GmbH in Gerbstedt: Ferrari Mähraupe, Häcksler, Leitern, Mäher und Reinigungsmaschinen – geprüftes Equipment mit Einweisung.",
   kontakt:
-    "Kostenlose Erstberatung in Gerbstedt: Grünpflege, Winterdienst, Objektbetreuung oder Reinigung – schreiben Sie Green Guard GmbH, wir melden uns zeitnah.",
+    "Kostenlose Erstberatung in Gerbstedt: Grünpflege, Solarparkpflege, Winterdienst, Objektbetreuung oder Reinigung – Green Guard GmbH meldet sich zeitnah.",
   ueberUns:
     "Team & Geschichte: Green Guard GmbH betreut Immobilien und Außenanlagen seit über 15 Jahren in Sachsen-Anhalt – Werte, Arbeitsweise und Einblicke in unsere Arbeit vor Ort.",
-  mieten:
-    "Geräte mieten bei Green Guard GmbH in Gerbstedt: Häcksler, Leitern, Mäher und Reinigungsmaschinen – geprüftes Equipment, Einweisung und faire Miettage.",
   impressum:
     "Impressum der Green Guard GmbH, Gerbstedt: Angaben nach TMG, HRB 35595 (Amtsgericht Stendal), Vertretung und Verantwortlicher für den Inhalt dieser Website.",
   datenschutz:
@@ -70,6 +70,8 @@ export const pageDescriptions = {
 
 /** Handgeschriebene Snippets je Leistungsseite (eindeutig für Sitelinks & organische Ergebnisse) */
 export const serviceSeoDescriptions: Record<string, string> = {
+  solarparkpflege:
+    "Solarparkpflege in Sachsen-Anhalt: Grünunterhalt unter PV-Modulen mit ferngesteuerter Mähraupe – Böschungen, Randbereiche & Wartungsverträge von Green Guard GmbH Gerbstedt.",
   gruenanlage:
     "Grünanlagenpflege in Gerbstedt & Sachsen-Anhalt: Rasen, Hecken, Bäume und Gehölze für Wohn- und Gewerbeobjekte – Green Guard GmbH plant verlässliche Pflegeintervalle.",
   hausmeisterservice:

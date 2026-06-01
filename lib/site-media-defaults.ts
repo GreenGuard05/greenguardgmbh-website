@@ -6,6 +6,7 @@ export const SITE_MEDIA_KEYS = [
   "about.lawn",
   "about.mower",
   "service.gruenanlage",
+  "service.solarparkpflege",
   "service.hausmeisterservice",
   "service.winterdienst",
   "service.reinigung",
@@ -32,6 +33,7 @@ export const SITE_MEDIA_EDITOR_GROUPS: { title: string; keys: readonly SiteMedia
     title: "Leistungsseiten",
     keys: [
       "service.gruenanlage",
+      "service.solarparkpflege",
       "service.hausmeisterservice",
       "service.winterdienst",
       "service.reinigung",
@@ -53,6 +55,7 @@ export const SITE_MEDIA_HINTS: Record<SiteMediaKey, string> = {
   "about.mower":
     "Kachel „Rasenmäher“ im Grün-Block – Startseite und „Über uns“.",
   "service.gruenanlage": "Leistungsseite „Grünanlagenpflege“: großes Kopfbild.",
+  "service.solarparkpflege": "Leistungsseite „Solarparkpflege“: großes Kopfbild.",
   "service.hausmeisterservice": "Leistungsseite „Hausmeisterservice“: großes Kopfbild.",
   "service.winterdienst": "Leistungsseite „Winterdienst“: großes Kopfbild.",
   "service.reinigung": "Leistungsseite „Gebäudereinigung“: großes Kopfbild.",
@@ -70,6 +73,7 @@ export const SITE_MEDIA_PREVIEW_FRAME: Record<SiteMediaKey, SiteMediaPreviewFram
   "about.lawn": "tile",
   "about.mower": "tile",
   "service.gruenanlage": "serviceHero",
+  "service.solarparkpflege": "serviceHero",
   "service.hausmeisterservice": "serviceHero",
   "service.winterdienst": "serviceHero",
   "service.reinigung": "serviceHero",
@@ -85,6 +89,7 @@ export const SITE_MEDIA_LABELS: Record<SiteMediaKey, string> = {
   "about.lawn": "Über uns – Kachel Rasen",
   "about.mower": "Über uns – Kachel Rasenmäher",
   "service.gruenanlage": "Leistung – Grünanlagenpflege",
+  "service.solarparkpflege": "Leistung – Solarparkpflege",
   "service.hausmeisterservice": "Leistung – Hausmeisterservice",
   "service.winterdienst": "Leistung – Winterdienst",
   "service.reinigung": "Leistung – Gebäudereinigung",
@@ -105,6 +110,7 @@ export const SITE_MEDIA_DEFAULTS: Record<SiteMediaKey, string> = {
     "https://images.pexels.com/photos/4503267/pexels-photo-4503267.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "service.gruenanlage":
     "https://images.pexels.com/photos/5163430/pexels-photo-5163430.jpeg?auto=compress&cs=tinysrgb&w=1600",
+  "service.solarparkpflege": "/images/service-solarparkpflege.png",
   "service.hausmeisterservice":
     "https://images.pexels.com/photos/20077008/pexels-photo-20077008.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "service.winterdienst":
