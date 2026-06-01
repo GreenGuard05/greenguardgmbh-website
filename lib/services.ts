@@ -136,24 +136,37 @@ export function getService(slug: string) {
   return services.find((s) => s.slug === slug);
 }
 
-/** Reihenfolge Startseiten-Grid: großes Kachel zuerst, dann Hausmeister, dann Rest */
-export function servicesForHomeGrid() {
-  const gruen = services.find((s) => s.slug === "gruenanlage")!;
-  const haus = services.find((s) => s.slug === "hausmeisterservice")!;
-  const rest = services.filter(
-    (s) => s.slug !== "gruenanlage" && s.slug !== "hausmeisterservice",
-  );
-  const strauch = rest.find((s) => s.slug === "strauchpflege")!;
-  const row2a = rest.filter((s) => s.slug !== "strauchpflege");
-  return { gruen, haus, row2a, strauch };
+export type HomeServicesGrid = {
+  gruen: ServiceDetail;
+  haus: ServiceDetail;
+  solarpark: ServiceDetail;
+  boeschung: ServiceDetail;
+  rowClassic: ServiceDetail[];
+  strauch: ServiceDetail;
+};
+
+function pickHomeServicesGrid(list: ServiceDetail[]): HomeServicesGrid {
+  const find = (slug: string) => {
+    const service = list.find((s) => s.slug === slug);
+    if (!service) throw new Error(`Service "${slug}" fehlt für Startseiten-Grid.`);
+    return service;
+  };
+  return {
+    gruen: find("gruenanlage"),
+    haus: find("hausmeisterservice"),
+    solarpark: find("solarparkpflege"),
+    boeschung: find("boeschungspflege"),
+    rowClassic: [find("winterdienst"), find("reinigung")],
+    strauch: find("strauchpflege"),
+  };
+}
+
+/** Reihenfolge Startseiten-Grid: Grünanlage + Hausmeister, dann Solarpark & Böschung, dann Klassiker */
+export function servicesForHomeGrid(): HomeServicesGrid {
+  return pickHomeServicesGrid(services);
 }
 
 /** Gleiche Raster-Logik mit bereits aufgelösten Bild-URLs (z. B. nach getResolvedSiteMedia) */
-export function servicesForHomeGridFrom(list: ServiceDetail[]) {
-  const gruen = list.find((s) => s.slug === "gruenanlage")!;
-  const haus = list.find((s) => s.slug === "hausmeisterservice")!;
-  const rest = list.filter((s) => s.slug !== "gruenanlage" && s.slug !== "hausmeisterservice");
-  const strauch = rest.find((s) => s.slug === "strauchpflege")!;
-  const row2a = rest.filter((s) => s.slug !== "strauchpflege");
-  return { gruen, haus, row2a, strauch };
+export function servicesForHomeGridFrom(list: ServiceDetail[]): HomeServicesGrid {
+  return pickHomeServicesGrid(list);
 }

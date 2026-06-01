@@ -18,7 +18,7 @@ export const homeFaqItems: FaqItem[] = [
     id: "leistungen",
     question: "Welche Leistungen bietet ihr aus einer Hand an?",
     answer:
-      "Zu unserem Kerngeschäft zählen unter anderem Grünanlagenpflege, Hausmeisterservice, Winterdienst, Gebäudereinigung, Strauch- & Buschpflege sowie der Gerätemietservice. Gerne stellen wir Ihnen ein Paket zusammen, das zu Ihrer Immobilie passt.",
+      "Zu unserem Kerngeschäft zählen unter anderem Grünanlagenpflege, Solarparkpflege, Böschungs- & Hangpflege, Hausmeisterservice, Winterdienst, Gebäudereinigung, Strauch- & Buschpflege sowie der Gerätemietservice. Gerne stellen wir Ihnen ein Paket zusammen, das zu Ihrer Immobilie passt.",
   },
   {
     id: "angebot-rueckmeldung",

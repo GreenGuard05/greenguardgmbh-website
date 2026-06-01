@@ -153,7 +153,8 @@ export function HomeLeistungenGrid({
   servicesResolved: ServiceDetail[];
   mietenCard: MietenHomeCardResolved;
 }) {
-  const { gruen, haus, row2a, strauch } = servicesForHomeGridFrom(servicesResolved);
+  const { gruen, haus, solarpark, boeschung, rowClassic, strauch } =
+    servicesForHomeGridFrom(servicesResolved);
 
   return (
     <section className="relative isolate overflow-visible border-t border-zinc-200/70 py-10 max-sm:py-8 sm:py-20 md:py-24">
@@ -196,7 +197,8 @@ export function HomeLeistungenGrid({
               <span className="gg-heading-accent gg-heading-motion font-semibold">aus einer Hand.</span>
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-zinc-600 sm:text-base">
-              Für Privat- & Geschäftskunden – von der Grünpflege bis zum Winterdienst.
+              Für Privat- & Geschäftskunden – von Grünpflege und Solarparkpflege bis Böschungsmähen
+              und Winterdienst.
             </p>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-zinc-600 lg:max-w-sm lg:pb-1 lg:text-right lg:text-base">
@@ -210,8 +212,13 @@ export function HomeLeistungenGrid({
           <StandardCard service={haus} />
         </div>
 
+        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-6 lg:gap-6">
+          <StandardCard service={solarpark} />
+          <StandardCard service={boeschung} />
+        </div>
+
         <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-6 lg:grid-cols-4 lg:gap-6">
-          {row2a.map((s) => (
+          {rowClassic.map((s) => (
             <StandardCard key={s.slug} service={s} />
           ))}
           <StandardCard service={strauch} />

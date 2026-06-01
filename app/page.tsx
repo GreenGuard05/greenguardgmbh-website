@@ -44,42 +44,22 @@ export default async function HomePage() {
     <>
       <HomeHero
         heroSideSrc={media.heroSide}
-        heroServices={[
-          { title: "Grünanlagenpflege", href: "/dienstleistungen/gruenanlage" },
-          { title: "Hausmeisterservice", href: "/dienstleistungen/hausmeisterservice" },
-          { title: "Winterdienst", href: "/dienstleistungen/winterdienst" },
-          { title: "Gebäudereinigung", href: "/dienstleistungen/reinigung" },
-        ]}
-        galleryImages={[
-          {
-            id: "gruen",
-            src: media["service.gruenanlage"],
-            alt: "Grünanlagenpflege",
-            serviceTitle: "Grünanlagenpflege",
-            serviceHref: "/dienstleistungen/gruenanlage",
-          },
-          {
-            id: "haus",
-            src: media["service.hausmeisterservice"],
-            alt: "Hausmeisterservice",
-            serviceTitle: "Hausmeisterservice",
-            serviceHref: "/dienstleistungen/hausmeisterservice",
-          },
-          {
-            id: "winter",
-            src: media["service.winterdienst"],
-            alt: "Winterdienst",
-            serviceTitle: "Winterdienst",
-            serviceHref: "/dienstleistungen/winterdienst",
-          },
-          {
-            id: "reinigung",
-            src: media["service.reinigung"],
-            alt: "Gebäudereinigung",
-            serviceTitle: "Gebäudereinigung",
-            serviceHref: "/dienstleistungen/reinigung",
-          },
-        ]}
+        heroServices={servicesResolved.map((s) => ({
+          title: s.title,
+          href: s.href,
+        }))}
+        galleryImages={(
+          ["gruenanlage", "solarparkpflege", "boeschungspflege", "hausmeisterservice"] as const
+        ).map((slug) => {
+          const service = servicesResolved.find((s) => s.slug === slug)!;
+          return {
+            id: slug,
+            src: service.image,
+            alt: service.title,
+            serviceTitle: service.title,
+            serviceHref: service.href,
+          };
+        })}
       />
       <RevealOnScroll>
         <HomeLeistungenGrid servicesResolved={servicesResolved} mietenCard={mietenCard} />

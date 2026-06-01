@@ -363,7 +363,7 @@ function HomeWorkbenchBody({
 }) {
   const rev = useWorkbenchPreviewRev();
   const resolved = servicesWithMedia(previews);
-  const { row2a, strauch, gruen, haus } = servicesForHomeGridFrom(resolved);
+  const { gruen, haus, solarpark, boeschung, rowClassic, strauch } = servicesForHomeGridFrom(resolved);
   const mietenCard = mietenHomeCardWithMedia(previews);
   const mietenSrc = workbenchImageUrl(previews["mieten.card"], rev);
 
@@ -417,8 +417,8 @@ function HomeWorkbenchBody({
               </h1>
 
               <p className="gg-text-hero-muted mt-6 max-w-lg text-base leading-relaxed sm:text-lg">
-                {site.name} – Ihr verlässlicher Dienstleister für Grünanlagenpflege, Hausmeisterservice und Winterdienst in ganz
-                Sachsen-Anhalt.
+                {site.name} – Grünanlagenpflege, Solarparkpflege, Böschungs- & Hangpflege, Hausmeisterservice,
+                Winterdienst und mehr in ganz Sachsen-Anhalt.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-2">
@@ -512,8 +512,29 @@ function HomeWorkbenchBody({
             />
           </div>
 
-          <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-6 lg:grid-cols-3 lg:gap-6">
-            {row2a.map((s) => {
+          <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-6 lg:gap-6">
+            <ServiceLeistungSlot
+              mediaKey="service.solarparkpflege"
+              service={solarpark}
+              previews={previews}
+              activeKey={activeKey}
+              onHover={onHover}
+              variant="standard"
+              className=""
+            />
+            <ServiceLeistungSlot
+              mediaKey="service.boeschungspflege"
+              service={boeschung}
+              previews={previews}
+              activeKey={activeKey}
+              onHover={onHover}
+              variant="standard"
+              className=""
+            />
+          </div>
+
+          <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-6 lg:grid-cols-4 lg:gap-6">
+            {rowClassic.map((s) => {
               const k = `service.${s.slug}` as SiteMediaKey;
               return (
                 <ServiceLeistungSlot
@@ -543,7 +564,7 @@ function HomeWorkbenchBody({
               activeKey={activeKey}
               onHover={onHover}
               baukasten
-              className="group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-zinc-200/80 bg-white shadow-md shadow-zinc-900/5 ring-1 ring-white lg:col-span-3 lg:max-w-md lg:justify-self-start"
+              className="group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-zinc-200/80 bg-white shadow-md shadow-zinc-900/5 ring-1 ring-white"
             >
               <div className="relative h-44 shrink-0 sm:h-48">
                 {mietenSrc ? (

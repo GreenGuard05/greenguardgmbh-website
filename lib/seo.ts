@@ -47,7 +47,7 @@ export const siteIconUrl = `${siteUrl}/branding/green-guard-favicon.svg` as cons
 
 /** Standard-Meta-Description für die Startseite / Fallback (~155 Zeichen, snippet-tauglich) */
 export const homeDescription =
-  "Ihr Grün in besten Händen: Green Guard GmbH Gerbstedt – Facility Management & Grünpflege in Sachsen-Anhalt. Hausmeister, Winterdienst, Reinigung, Strauchpflege, Gerätemiete.";
+  "Green Guard GmbH Gerbstedt: Grünpflege, Solarparkpflege, Böschungs- & Hangpflege, Hausmeister, Winterdienst, Reinigung, Strauchpflege & Gerätemiete in Sachsen-Anhalt.";
 
 /**
  * Einzigartige Meta-Descriptions (ca. 150–165 Zeichen).

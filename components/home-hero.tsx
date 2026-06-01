@@ -104,8 +104,8 @@ export function HomeHero({
             />
 
             <p className="gg-text-hero-muted mt-3 max-w-lg text-base leading-relaxed max-sm:hidden sm:mt-6 sm:text-lg">
-              {site.name} – Ihr verlässlicher Dienstleister für Grünanlagenpflege,
-              Hausmeisterservice und Winterdienst in ganz Sachsen-Anhalt.
+              {site.name} – Grünanlagenpflege, Solarparkpflege, Böschungs- & Hangpflege,
+              Hausmeisterservice, Winterdienst und mehr in ganz Sachsen-Anhalt.
             </p>
 
             <div className="mt-5 hidden flex-wrap gap-2.5 pb-0 sm:flex sm:mt-10 sm:gap-3 sm:pb-4">
