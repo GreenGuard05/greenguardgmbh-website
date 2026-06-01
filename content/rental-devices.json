@@ -89,5 +89,29 @@
       "Stein- & Industrieböden"
     ],
     "notSuitableFor": ["empfindliche Böden ohne Prüfung", "Teppichflächen", "Außenflächen mit grobem Schmutz"]
+  },
+  {
+    "id": "ferrari-rc-70hy-maehraupe",
+    "name": "Ferrari RC-70HY Pro Mähraupe (ferngesteuert)",
+    "image": "/images/rental/ferrari-rc-70hy-maehraupe.png",
+    "description": "Ferngesteuerte Profi-Mähraupe für Hochgras, Steilhänge bis 45° und schwer zugängliche Flächen. 70 cm Schnittbreite, Hybrid-Antrieb und Fernbedienung bis 200 m – ideal, wenn herkömmliche Mäher an ihre Grenzen stoßen.",
+    "details": "13-PS-Loncin-Viertakter mit Autochoke, Öl- und Benzinförderpumpe für zuverlässigen Betrieb am Hang sowie automatischer Sicherheitsabschaltung bei extremen Neigungen. Schnitthöhe per Fernbedienung von 30–120 mm, Tempomat, Frontbeleuchtung und integrierter Stundenzähler. Saubere und gepflegte Maschine. Einweisung bei Abholung möglich, Lieferung nach Absprache. Verschleißpauschale inkl. Messer separat.",
+    "facts": ["70 cm Schnittbreite · bis 45° hangtauglich", "Fernbedienung bis 200 m · Hybrid-Antrieb", "Bis 1.931 m²/h · Schnitthöhe 30–120 mm"],
+    "price": "150 EUR / 24h (max. 8 Betriebsstunden) · 39,90 EUR Verschleißpauschale inkl. Messer",
+    "deposit": "400 EUR Kaution (bar bei Abholung)",
+    "fuel": "Super E5",
+    "suitableFor": [
+      "Hochgras & verwilderte Flächen",
+      "Steilhänge & Böschungen bis 45°",
+      "Wiesen & Brachflächen",
+      "schwer zugängliche Bereiche",
+      "große Grundstücke",
+      "professionelle Grünpflege & Landschaftspflege"
+    ],
+    "notSuitableFor": [
+      "Steine & Hindernisse im Mähbereich",
+      "Flächen ohne vorherige Sichtprüfung",
+      "unsachgemäße Nutzung"
+    ]
   }
 ]
