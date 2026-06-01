@@ -110,9 +110,9 @@ export default function DatenschutzPage() {
               Pexels Photo-ID 15751134
             </a>
             ). Das Kopfbild der Leistungsseite „Böschungs- & Hangpflege“ wird ebenfalls von{" "}
-            <strong>images.pexels.com</strong> geladen (
-            <a href="https://www.pexels.com/photo/2086037/" target="_blank" rel="noopener noreferrer">
-              Pexels Photo-ID 2086037
+            <strong>images.pexels.com</strong> geladen (Foto von Art Merikotka,{" "}
+            <a href="https://www.pexels.com/photo/20394372/" target="_blank" rel="noopener noreferrer">
+              Pexels Photo-ID 20394372
             </a>
             ).
           </p>

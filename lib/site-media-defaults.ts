@@ -118,7 +118,7 @@ export const SITE_MEDIA_DEFAULTS: Record<SiteMediaKey, string> = {
   "service.solarparkpflege":
     "https://images.pexels.com/photos/15751134/pexels-photo-15751134.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "service.boeschungspflege":
-    "https://images.pexels.com/photos/2086037/pexels-photo-2086037.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "https://images.pexels.com/photos/20394372/pexels-photo-20394372.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "service.hausmeisterservice":
     "https://images.pexels.com/photos/20077008/pexels-photo-20077008.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "service.winterdienst":
