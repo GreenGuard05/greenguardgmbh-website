@@ -55,7 +55,7 @@ export const homeDescription =
  */
 export const pageDescriptions = {
   dienstleistungen:
-    "Dienstleistungen von Green Guard GmbH Gerbstedt: Grünanlagenpflege, Solarparkpflege, Hausmeister, Winterdienst, Reinigung & Strauchpflege – Mansfeld-Südharz.",
+    "Dienstleistungen von Green Guard GmbH Gerbstedt: Grünanlagenpflege, Solarparkpflege, Böschungs- & Hangpflege, Hausmeister, Winterdienst, Reinigung & Strauchpflege.",
   mieten:
     "Geräte mieten bei Green Guard GmbH in Gerbstedt: Ferrari Mähraupe, Häcksler, Leitern, Mäher und Reinigungsmaschinen – geprüftes Equipment mit Einweisung.",
   kontakt:
@@ -71,17 +71,19 @@ export const pageDescriptions = {
 /** Handgeschriebene Snippets je Leistungsseite (eindeutig für Sitelinks & organische Ergebnisse) */
 export const serviceSeoDescriptions: Record<string, string> = {
   solarparkpflege:
-    "Solarparkpflege in Sachsen-Anhalt: Grünunterhalt unter PV-Modulen mit ferngesteuerter Mähraupe – Böschungen, Randbereiche & Wartungsverträge von Green Guard GmbH Gerbstedt.",
+    "Solarparkpflege in Sachsen-Anhalt: Grünunterhalt unter PV-Modulen mit Mähraupe, Hochgrasmäher & Aufsitzmäher – Gerbstedt, Halle (Saale), Mansfeld-Südharz & Region.",
+  boeschungspflege:
+    "Böschungsmähen & Hangpflege in Gerbstedt, Halle (Saale) & Mansfeld-Südharz: Steilhänge, Bahn, Straße, Brücken, Rückhalte- & Überlaufbecken – Mähraupe statt Freischneider.",
   gruenanlage:
-    "Grünanlagenpflege in Gerbstedt & Sachsen-Anhalt: Rasen, Hecken, Bäume und Gehölze für Wohn- und Gewerbeobjekte – Green Guard GmbH plant verlässliche Pflegeintervalle.",
+    "Grünanlagenpflege in Gerbstedt, Halle (Saale) & Mansfeld-Südharz: Rasen, Hecken, Bäume und Gehölze – planbare Pflegeintervalle von Green Guard GmbH.",
   hausmeisterservice:
-    "Hausmeisterservice Gerbstedt: Objektbetreuung, Kleinreparaturen und Objektkontrolle für Immobilien in Mansfeld-Südharz – ein fester Ansprechpartner bei der Green Guard GmbH.",
+    "Hausmeisterservice in Gerbstedt, Halle (Saale) & Region: Objektbetreuung, Kleinreparaturen und Kontrolle – ein Ansprechpartner von Green Guard GmbH.",
   winterdienst:
-    "Winterdienst Halle (Saale), Gerbstedt & Mansfeld-Südharz: Schneeräumung, Räumdienst und Streudienst für Wege, Zufahrten, Parkflächen und Objekte.",
+    "Winterdienst in Halle (Saale), Gerbstedt & Mansfeld-Südharz: Schnee räumen, streuen, dokumentieren – für Wege, Zufahrten und Parkflächen.",
   reinigung:
-    "Gebäudereinigung in Sachsen-Anhalt: Unterhalts- und Grundreinigung für Treppenhäuser, Büros und Außenanlagen – sauber und termingerecht von Green Guard GmbH.",
+    "Gebäudereinigung in Gerbstedt, Halle (Saale) & Sachsen-Anhalt: Unterhalts- und Grundreinigung für Treppenhäuser, Büros und Gewerbe.",
   strauchpflege:
-    "Strauch- und Buschpflege in Sachsen-Anhalt: Formschnitt, Rückschnitt und fachgerechte Entsorgung – Green Guard GmbH formt Gehölze passend zum Grundstück.",
+    "Strauch- & Buschpflege in Gerbstedt, Mansfeld-Südharz & Region: Formschnitt, Rückschnitt und Grünschnittentsorgung von Green Guard GmbH.",
 };
 
 /** Konsistente Meta-Tags inkl. Open Graph & Twitter (metadataBase ergänzt kanonische URLs) */

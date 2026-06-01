@@ -1,9 +1,53 @@
+import { serviceRegionalFaq, serviceRegionListText } from "@/lib/service-seo";
+
 export type ServiceFaq = {
   question: string;
   answer: string;
 };
 
 export const serviceFaqs: Record<string, ServiceFaq[]> = {
+  boeschungspflege: [
+    {
+      question: "Was ist Böschungs- und Hangpflege bei Green Guard GmbH?",
+      answer:
+        "Wir mähen und pflegen Böschungen, Hänge und schwer erreichbare Grünflächen dort, wo Arbeit mit dem Freischneider aus Sicherheitsgründen nicht ausreicht. Dafür setzen wir unter anderem ferngesteuerte Mähraupe, Hochgrasmäher und Aufsitzmäher ein – abgestimmt auf Neigung, Zugang und Vegetation.",
+    },
+    {
+      question: "An welchen Objekten arbeiten Sie?",
+      answer:
+        "Typische Einsätze betreffen Grünflächen an Schienen- und Bahntrassen, Autobahnen und Bundesstraßen, Brücken und Rampen, Rückhaltebecken, Überlaufbecken, Dämmen und weiteren Infrastrukturflächen mit erschwertem Zugang oder besonderen Sicherheitsanforderungen.",
+    },
+    {
+      question: "Warum nicht einfach mit dem Freischneider?",
+      answer:
+        "Auf steilen Böschungen oder unebenem Gelände fehlt oft die nötige Standfestigkeit. Unsere Technik – besonders die ferngesteuerte Mähraupe mit Hangtauglichkeit bis 45° – ermöglicht kontrolliertes Arbeiten aus sicherer Entfernung, ohne Mitarbeiter im direkten Hangbereich.",
+    },
+    {
+      question: "Welche Technik kommt zum Einsatz?",
+      answer:
+        "Je nach Fläche kombinieren wir ferngesteuerte Mähraupe, Hochgrasmäher und Aufsitzmäher. So sind enge Bereiche, hohes Gras und größere, befahrbare Strecken mit der passenden Maschine abgedeckt.",
+    },
+    {
+      question: "Bieten Sie Böschungsmähen in Sachsen-Anhalt an?",
+      answer: `Ja. Schwerpunkt ist Gerbstedt und Mansfeld-Südharz; Einsätze planen wir unter anderem in ${serviceRegionListText()}. Weitere Infrastruktur- und Sonderflächen stimmen wir nach Begehung, Zufahrt und Terminlage ab.`,
+    },
+    serviceRegionalFaq("Böschungs- und Hangpflege"),
+    {
+      question: "Böschungsmähen in Halle (Saale) – übernimmt Green Guard GmbH das?",
+      answer:
+        "Ja. Halle (Saale) gehört zu unseren Einsatzgebieten. Für Böschungen, Hanglagen und Infrastrukturgrün an Straßen, Gewässern oder technischen Anlagen prüfen wir Fläche, Sicherheit und passende Maschinen vor Ort.",
+    },
+    {
+      question: "Hangpflege und Böschungsmähen in Mansfeld-Südharz – ist das möglich?",
+      answer:
+        "Ja. Mansfeld-Südharz und Mansfeld sind feste Schwerpunkte unserer regionalen Arbeit. Gerade für Steilhänge und schwer erreichbare Strecken setzen wir auf ferngesteuerte Mähraupe und ergänzende Profi-Geräte.",
+    },
+    {
+      question: "Sind Wartungsverträge oder wiederkehrende Einsätze möglich?",
+      answer:
+        "Ja. Für Kommunen, Betreiber, Hausverwaltungen und Gewerbe planen wir feste Schnittintervalle nach Vegetationsphase – von der Erstbegehung bis zur laufenden Pflege.",
+    },
+  ],
   solarparkpflege: [
     {
       question: "Was versteht Green Guard GmbH unter Solarparkpflege?",
@@ -18,29 +62,29 @@ export const serviceFaqs: Record<string, ServiceFaq[]> = {
     {
       question: "Welche Technik setzt Green Guard GmbH ein?",
       answer:
-        "Für anspruchsvolle Flächen nutzen wir unter anderem die ferngesteuerte Ferrari RC-70HY Pro Mähraupe mit 70 cm Schnittbreite und Hangtauglichkeit bis 45°. So lassen sich enge Reihenabstände und Böschungen effizient und kontrolliert bearbeiten.",
+        "Je nach Anlage und Gelände setzen wir die passende Profi-Technik ein: ferngesteuerte Mähraupe für enge Reihenabstände und Hanglagen bis 45°, Hochgrasmäher für hohes Gras und Brachflächen sowie Aufsitzmäher für große, gut befahrbare Freiflächen. So ist jeder Einsatzbereich mit dem richtigen Gerät abgedeckt.",
     },
     {
-      question: "In welcher Region bieten Sie Solarparkpflege an?",
+      question: "Warum nicht nur eine Maschine für den ganzen Solarpark?",
       answer:
-        "Schwerpunkt ist Gerbstedt, Mansfeld-Südharz und Sachsen-Anhalt. Weitere Einsatzorte für Freiflächenanlagen stimmen wir nach Lage, Größe und Terminplanung individuell ab.",
+        "Modulreihen, Böschungen, Randstreifen und Zufahrten stellen unterschiedliche Anforderungen. Wir wählen die Kombination aus Geräten so, dass Pflege effizient, sicher und schonend für Anlage und Umgebung bleibt – ohne Kompromisse bei schwer zugänglichen Bereichen.",
     },
+    serviceRegionalFaq("Solarparkpflege"),
     {
       question: "Sind Wartungsverträge für PV-Betreiber möglich?",
       answer:
         "Ja. Für Betreiber, Hausverwaltungen und Projektgesellschaften planen wir feste Pflegeintervalle, dokumentierte Einsätze und einen festen Ansprechpartner – von der Erstbegehung bis zur laufenden Betreuung.",
     },
     {
-      question: "Kann ich die Mähraupe auch selbst mieten?",
+      question: "Kann ich Geräte für die Pflege auch selbst mieten?",
       answer:
-        "Ja. Die Ferrari RC-70HY Pro Mähraupe können Sie zusätzlich im Gerätemietservice mieten – inklusive Einweisung. Details zu Preis, Kaution und Verfügbarkeit finden Sie unter Geräte mieten.",
+        "Ja. Im Gerätemietservice stellen wir unter anderem die Ferrari RC-70HY Pro Mähraupe, Hochgrasmäher und weitere Profi-Geräte zur Verfügung – inklusive Einweisung. Details finden Sie unter Geräte mieten.",
     },
   ],
   gruenanlage: [
     {
       question: "Übernimmt Green Guard GmbH regelmäßige Grünanlagenpflege in Gerbstedt und Umgebung?",
-      answer:
-        "Ja. Wir betreuen Grünanlagen in Gerbstedt, Hettstedt, Eisleben, Mansfeld-Südharz und Umgebung regelmäßig nach abgestimmtem Pflegeintervall.",
+      answer: `Ja. Wir betreuen Grünanlagen regelmäßig nach abgestimmtem Pflegeintervall – unter anderem in ${serviceRegionListText()}.`,
     },
     {
       question: "Welche Arbeiten gehören zur Grünanlagenpflege?",
@@ -52,6 +96,7 @@ export const serviceFaqs: Record<string, ServiceFaq[]> = {
       answer:
         "Ja. Wir planen Pflegeintervalle besonders für Wohnanlagen, Gewerbeobjekte und Gemeinschaftsflächen, damit Außenanlagen dauerhaft ordentlich wirken.",
     },
+    serviceRegionalFaq("Grünanlagenpflege"),
   ],
   hausmeisterservice: [
     {
@@ -61,14 +106,14 @@ export const serviceFaqs: Record<string, ServiceFaq[]> = {
     },
     {
       question: "Arbeitet Green Guard GmbH mit Hausverwaltungen zusammen?",
-      answer:
-        "Ja. Hausverwaltungen profitieren von festen Ansprechpartnern, klaren Abläufen und regelmäßiger Betreuung für Immobilien in Gerbstedt und Mansfeld-Südharz.",
+      answer: `Ja. Hausverwaltungen profitieren von festen Ansprechpartnern, klaren Abläufen und regelmäßiger Betreuung – unter anderem in ${serviceRegionListText()}.`,
     },
     {
       question: "Sind kurzfristige Einsätze oder Notfälle möglich?",
       answer:
         "Je nach Auslastung sind kurzfristige Einsätze möglich. Dringende Anliegen werden priorisiert und persönlich abgestimmt.",
     },
+    serviceRegionalFaq("Hausmeisterservice"),
   ],
   winterdienst: [
     {
@@ -81,11 +126,7 @@ export const serviceFaqs: Record<string, ServiceFaq[]> = {
       answer:
         "Ja. Einsätze können nachvollziehbar dokumentiert werden, damit die Erfüllung der Verkehrssicherungspflicht besser belegbar bleibt.",
     },
-    {
-      question: "Für welche Orte ist Winterdienst möglich?",
-      answer:
-        "Ein Schwerpunkt liegt auf Halle (Saale), Gerbstedt, Mansfeld-Südharz und Umgebung. Weitere Orte werden nach Objekt, Route und Kapazität abgestimmt.",
-    },
+    serviceRegionalFaq("Winterdienst"),
     {
       question: "Übernimmt Green Guard GmbH Winterdienst in Halle (Saale)?",
       answer:
@@ -108,6 +149,7 @@ export const serviceFaqs: Record<string, ServiceFaq[]> = {
       answer:
         "Ja. Für Büros, Gewerbeflächen, Werkstätten und Verkaufsflächen stimmen wir Reinigungsumfang und Intervalle individuell ab.",
     },
+    serviceRegionalFaq("Gebäudereinigung"),
   ],
   strauchpflege: [
     {
@@ -125,5 +167,6 @@ export const serviceFaqs: Record<string, ServiceFaq[]> = {
       answer:
         "Ja. Formschnitt, Gestaltungsschnitt, Rückschnitt, Auslichten, Obstbaumschnitt und Rosenpflege können je nach Saison abgestimmt werden.",
     },
+    serviceRegionalFaq("Strauch- und Buschpflege"),
   ],
 };

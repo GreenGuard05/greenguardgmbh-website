@@ -96,7 +96,11 @@ export default function ImpressumPage() {
             >
               Pexels
             </a>{" "}
-            (Photo-ID 15751134).
+            (Photo-ID 15751134). Das Kopfbild der Leistungsseite „Böschungs- & Hangpflege“ stammt von{" "}
+            <a href="https://www.pexels.com/photo/2086037/" target="_blank" rel="noopener noreferrer">
+              Pexels
+            </a>{" "}
+            (Photo-ID 2086037).
           </p>
           <h3>Kartendarstellung (Einsatzgebiet)</h3>
           <p>

@@ -33,7 +33,7 @@ export const rentalFaqs: Record<string, RentalFaq[]> = {
     {
       question: "Nutzt Green Guard GmbH die Mähraupe auch für Solarparkpflege?",
       answer:
-        "Ja. Die RC-70HY Pro ist Teil unseres Einsatzkonzepts für Grünunterhalt unter und zwischen PV-Modulen sowie in Rand- und Böschungsbereichen von Freiflächenanlagen. Mehr dazu auf der Leistungsseite Solarparkpflege.",
+        "Ja – als Teil einer Profi-Flotte mit Hochgrasmähern, Aufsitzmähern und weiterem Equipment. Je nach Fläche wählen wir die passende Technik für Grünunterhalt unter PV-Modulen sowie Rand- und Böschungsbereiche. Mehr dazu auf der Leistungsseite Solarparkpflege.",
     },
   ],
 };

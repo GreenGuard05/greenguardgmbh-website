@@ -57,6 +57,7 @@ export const mainNav: NavItem[] = [
 export const serviceLinks: NavItem[] = [
   { href: "/dienstleistungen/gruenanlage", label: "Grünanlagenpflege" },
   { href: "/dienstleistungen/solarparkpflege", label: "Solarparkpflege" },
+  { href: "/dienstleistungen/boeschungspflege", label: "Böschungs- & Hangpflege" },
   { href: "/dienstleistungen/strauchpflege", label: "Strauch- & Buschpflege" },
   { href: "/dienstleistungen/hausmeisterservice", label: "Hausmeisterservice" },
   { href: "/dienstleistungen/winterdienst", label: "Winterdienst" },

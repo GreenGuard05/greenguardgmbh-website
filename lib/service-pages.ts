@@ -1,4 +1,5 @@
 import type { ServiceHeroTitle } from "@/components/inner-page-hero";
+import { serviceRegionalBullet, serviceRegionalSeoText, serviceRegionListText } from "@/lib/service-seo";
 import type {
   ServiceAudienceItem,
   ServiceProcessStep,
@@ -148,15 +149,18 @@ const pages: Record<string, ServicePageContent> = {
       },
     ],
     seoBlock: {
-      eyebrow: "Grünanlagenpflege Gerbstedt",
-      heading: "Grünanlagenpflege in Mansfeld-Südharz und Sachsen-Anhalt.",
-      headingAccent: "Mansfeld-Südharz",
-      text:
-        "Wer nach Grünanlagenpflege in Gerbstedt, Rasenmäharbeiten, Baumpflege oder Strauchpflege in Mansfeld-Südharz sucht, braucht einen Dienstleister, der zuverlässig erreichbar ist und Außenflächen ganzheitlich betrachtet. Green Guard GmbH verbindet regelmäßige Pflege mit ästhetischem Anspruch und sauberer Entsorgung.",
+      eyebrow: "Grünanlagenpflege · Sachsen-Anhalt",
+      heading: `Grünanlagenpflege in ${serviceRegionListText()}.`,
+      headingAccent: "Grünanlagenpflege",
+      text: serviceRegionalSeoText(
+        "Grünanlagenpflege und Gartenpflege",
+        "Rasenmäharbeiten, Heckenschnitt, Beetpflege, Baumpflege und Grünschnittentsorgung – mit festen Pflegeintervallen für Wohnanlagen, Gewerbe und private Grundstücke.",
+      ),
       bullets: [
         "Grünpflege für Wohnanlagen, Gewerbe und private Grundstücke",
         "Rasenmäharbeiten, Formschnitt, Beetpflege und Baumpflege aus einer Hand",
         "Laub- und Grünschnittentsorgung für saubere Außenbereiche",
+        serviceRegionalBullet("feste Pflegeintervalle nach Absprache"),
       ],
     },
     cta: {
@@ -175,7 +179,7 @@ const pages: Record<string, ServicePageContent> = {
       suffix: "für PV-Freiflächen.",
     },
     heroDescription:
-      "Grünunterhalt unter Modulreihen, an Böschungen und in Randbereichen – mit ferngesteuerter Mähraupe und erfahrenem Team für planbare Pflege und sichere Anlagen.",
+      "Grünunterhalt unter Modulreihen, an Böschungen und auf großen Freiflächen – mit erfahrenem Team und Profi-Technik von der Mähraupe über Hochgrasmäher bis zum Aufsitzmäher.",
     heroPrimaryLabel: "Solarparkpflege anfragen",
     story: {
       eyebrow: "PV & Grünflächen",
@@ -184,14 +188,14 @@ const pages: Record<string, ServicePageContent> = {
       lead:
         "Wildwuchs und hohes Gras auf Solarparks beeinträchtigen nicht nur das Erscheinungsbild, sondern auch Kontrollgänge, Zäune und die Umgebung der Module. Regelmäßige Pflege hält Flächen nutzbar und reduziert Risiken durch Verschattung oder verborgene Schäden.",
       paragraphs: [
-        "Green Guard GmbH bietet Solarparkpflege für Freiflächen-PV-Anlagen in Gerbstedt, Mansfeld-Südharz und Sachsen-Anhalt. Wir kombinieren Erfahrung in Grünpflege mit moderner Technik – unter anderem der ferngesteuerten Ferrari RC-70HY Pro Mähraupe mit 70 cm Schnittbreite und Hangtauglichkeit bis 45°.",
-        "So lassen sich Reihenabstände, Böschungen und schwer zugängliche Bereiche effizient bearbeiten. Auf Wunsch planen wir feste Intervalle, dokumentieren Einsätze und stimmen uns mit Betreibern, Hausverwaltungen oder Projektgesellschaften ab – von der Erstbegehung bis zum Wartungsvertrag.",
+        "Green Guard GmbH bietet Solarparkpflege für Freiflächen-PV-Anlagen in Gerbstedt, Mansfeld-Südharz und Sachsen-Anhalt. Wir sind mit einer durchdachten Profi-Flotte unterwegs – darunter die ferngesteuerte Ferrari RC-70HY Pro Mähraupe für enge Reihenabstände und Hanglagen, leistungsstarke Hochgrasmäher sowie Aufsitzmäher für große, gut befahrbare Flächen.",
+        "Welches Gerät zum Einsatz kommt, entscheiden wir nach Gelände, Vegetation und Sicherheitsanforderungen Ihrer Anlage. Auf Wunsch planen wir feste Intervalle, dokumentieren Einsätze und stimmen uns mit Betreibern, Hausverwaltungen oder Projektgesellschaften ab – von der Erstbegehung bis zum Wartungsvertrag.",
       ],
       cards: [
         {
-          title: "Technik für enge Flächen",
+          title: "Profi-Flotte im Einsatz",
           description:
-            "Ferngesteuerte Mähraupe und Profi-Equipment für Arbeiten zwischen Modulreihen und in Hanglagen.",
+            "Mähraupe, Hochgrasmäher, Aufsitzmäher und weiteres Equipment – jeweils dort, wo es die Fläche am besten verlangt.",
         },
         {
           title: "Planbare Intervalle",
@@ -221,6 +225,7 @@ const pages: Record<string, ServicePageContent> = {
         [
           "Kontrollwege & Zufahrten freihalten",
           "Wildwuchs- & Hochgrasmanagement",
+          "Einsatz Hochgrasmäher & Aufsitzmäher",
           "Saisonale Pflegeintervalle",
           "Wartungsverträge für Betreiber",
         ],
@@ -228,9 +233,9 @@ const pages: Record<string, ServicePageContent> = {
       highlights: [
         {
           icon: "tools",
-          title: "Ferngesteuerte Mähraupe",
+          title: "Technik nach Anforderung",
           description:
-            "RC-70HY Pro mit 70 cm Schnittbreite – ideal für enge Abstände und Neigungen bis 45°.",
+            "Mähraupe für enge Reihen und Hänge, Hochgrasmäher für hohes Gras, Aufsitzmäher für große Freiflächen.",
         },
         {
           icon: "calendar",
@@ -272,7 +277,7 @@ const pages: Record<string, ServicePageContent> = {
       {
         title: "Konzept & Intervall",
         description:
-          "Sie erhalten einen Vorschlag für Schnitthöhen, Einsatzhäufigkeit und Technik – inklusive Mähraupe wo sinnvoll.",
+          "Sie erhalten einen Vorschlag für Schnitthöhen, Einsatzhäufigkeit und die passende Gerätekombination für Ihre Flächen.",
       },
       {
         title: "Pflege umsetzen",
@@ -286,20 +291,162 @@ const pages: Record<string, ServicePageContent> = {
       },
     ],
     seoBlock: {
-      eyebrow: "Solarparkpflege Sachsen-Anhalt",
-      heading: "Solarparkpflege für Betreiber und Freiflächen-PV.",
-      headingAccent: "Betreiber und Freiflächen-PV",
-      text:
-        "Green Guard GmbH ist Ansprechpartner für Solarparkpflege in Gerbstedt, Grünunterhalt unter PV-Modulen in Mansfeld-Südharz und Böschungspflege an Freiflächenanlagen in Sachsen-Anhalt. Mit ferngesteuerter Mähraupe und Grünpflege-Know-how halten wir Ihre Anlage nutzbar und gepflegt.",
+      eyebrow: "Solarparkpflege · Sachsen-Anhalt",
+      heading: `Solarparkpflege in ${serviceRegionListText()}.`,
+      headingAccent: "Solarparkpflege",
+      text: serviceRegionalSeoText(
+        "Solarparkpflege und PV-Grünunterhalt",
+        "Mit ferngesteuerter Mähraupe, Hochgrasmäher, Aufsitzmäher und erfahrenem Team halten wir Freiflächenanlagen nutzbar und gepflegt – technisch bestens ausgestattet für jede Anforderung.",
+      ),
       bullets: [
         "Grünflächenpflege unter und zwischen Modulreihen",
-        "Böschungs-, Rand- und Kontrollwegpflege",
-        "Wartungsverträge und saisonale Pflegeintervalle",
+        "Profi-Technik: Mähraupe, Hochgrasmäher, Aufsitzmäher",
+        serviceRegionalBullet("Wartungsverträge nach Bedarf"),
       ],
     },
     cta: {
       badge: "Unverbindlich · 24h Antwort",
       headingLead: "Jetzt Solarparkpflege",
+      headingAccent: "anfragen",
+      subline: "Erstbegehung und Angebot – Antwort innerhalb von 24 Stunden.",
+      buttonLabel: "Angebot anfordern",
+    },
+    ambientScene: "greensCare",
+  },
+  boeschungspflege: {
+    heroTitle: {
+      prefix: "Sichere",
+      accent: "Böschungs- & Hangpflege",
+      suffix: "für schwieriges Gelände.",
+    },
+    heroDescription:
+      "Böschungsmähen und Hangpflege an Hängen und schwer erreichbaren Flächen – wenn der Freischneider an Standfestigkeit scheitert. Mit ferngesteuerter Mähraupe, Hochgrasmäher und Profi-Flotte.",
+    heroPrimaryLabel: "Böschungspflege anfragen",
+    story: {
+      eyebrow: "Infrastruktur & Sonderflächen",
+      heading: "Steile Böschungen brauchen Technik – nicht Risiko.",
+      headingAccent: "Technik – nicht Risiko",
+      lead:
+        "An Bahndämmen, Straßenbegleitgrün, Brückenrampen oder an Rückhalte- und Überlaufbecken reicht oft kein Freischneider mehr: zu steil, zu uneben, zu gefährlich. Dann zählt die richtige Maschine und ein Team, das solche Einsätze kennt.",
+      paragraphs: [
+        "Green Guard GmbH übernimmt Böschungs- und Hangpflege in Gerbstedt, Mansfeld-Südharz und Sachsen-Anhalt – dort, wo Zugang erschwert ist und Sicherheit Vorrang hat. Im Mittelpunkt steht unsere ferngesteuerte Mähraupe für Neigungen bis 45°, ergänzt durch Hochgrasmäher und Aufsitzmäher für passende Strecken.",
+        "Typische Einsatzorte sind Grünflächen entlang von Schienen und Bahnstrecken, Autobahnen und Bundesstraßen, Brücken und Rampen, Rückhaltebecken, Überlaufbecken sowie weitere Infrastrukturflächen. Wir begehen die Fläche, wählen die Technik und planen auf Wunsch feste Schnittintervalle oder Wartungsverträge.",
+      ],
+      cards: [
+        {
+          title: "Sicher statt riskant",
+          description:
+            "Fernsteuerung und Hangtechnik statt Arbeit im steilen Gelände mit Freischneider – kontrolliert und planbar.",
+        },
+        {
+          title: "Infrastruktur-Erfahrung",
+          description:
+            "Einsätze an Trassen, Straßen, Brücken und technischen Anlagen mit Blick auf Zugang und Vorgaben vor Ort.",
+        },
+        {
+          title: "Profi-Flotte",
+          description:
+            "Mähraupe, Hochgrasmäher und Aufsitzmäher – kombiniert nach Gelände und Vegetation.",
+        },
+      ],
+    },
+    scope: {
+      eyebrow: "Leistungsumfang",
+      heading: "Böschungsmähen und Hangpflege im Überblick.",
+      headingAccent: "Hangpflege",
+      intro:
+        "Von der steilen Böschung bis zur schwer erreichbaren Randfläche: Wir halten Grün unter Kontrolle – mit Technik, die für die jeweilige Lage gebaut ist.",
+      columns: [
+        [
+          "Böschungsmähen & Hangpflege",
+          "Schwer zugängliche Grünflächen",
+          "Hochgras- & Wildwuchsmanagement",
+          "Rand- und Streifenpflege",
+        ],
+        [
+          "Bahndamm- & Schienenbegleitgrün",
+          "Autobahn- & Bundesstraßenbegleitgrün",
+          "Brücken, Rampen, Rückhalte- & Überlaufbecken",
+          "Wartungsverträge & Intervalle",
+        ],
+      ],
+      highlights: [
+        {
+          icon: "tools",
+          title: "Hangtaugliche Technik",
+          description:
+            "Ferngesteuerte Mähraupe bis 45° Neigung – dort, wo Freischneider nicht sicher einsetzbar sind.",
+        },
+        {
+          icon: "emergency",
+          title: "Erschwerter Zugang",
+          description:
+            "Planung für enge Zufahrten, Sicherheitsabstände und koordinierte Einsätze vor Ort.",
+        },
+        {
+          icon: "calendar",
+          title: "Feste Termine",
+          description:
+            "Saisonale oder wiederkehrende Pflege – abgestimmt auf Vegetation und Betreiber.",
+        },
+      ],
+    },
+    audiences: [
+      {
+        title: "Kommunen & öffentliche Träger",
+        description:
+          "Für Grün an Straßen, Gewässern, Brücken und technischen Anlagen mit klaren Pflegeintervallen.",
+      },
+      {
+        title: "Infrastruktur- & Gewerbebetreiber",
+        description:
+          "Für Bahnbegleitgrün, Verkehrswege, Werksgelände und Flächen mit Sicherheitsvorgaben.",
+      },
+      {
+        title: "Hausverwaltungen & Dienstleister",
+        description:
+          "Wenn Sonderflächen regelmäßig gepflegt werden müssen und ein regionaler Partner gesucht wird.",
+      },
+    ],
+    process: [
+      {
+        title: "Fläche & Risiko prüfen",
+        description:
+          "Begehung von Neigung, Zugang, Vegetation und örtlichen Vorgaben – inklusive Abstimmung mit Ihnen vor Ort.",
+      },
+      {
+        title: "Technik wählen",
+        description:
+          "Mähraupe, Hochgrasmäher oder Aufsitzmäher – wir legen die sichere und effiziente Kombination fest.",
+      },
+      {
+        title: "Pflege ausführen",
+        description:
+          "Termingerechter Einsatz mit Blick auf Umgebung, Verkehr und Nachbarschaft zur Anlage.",
+      },
+      {
+        title: "Fortführung planen",
+        description:
+          "Bei Bedarf Wartungsvertrag oder feste Schnittrunden über die Saison.",
+      },
+    ],
+    seoBlock: {
+      eyebrow: "Böschungsmähen · Sachsen-Anhalt",
+      heading: `Böschungs- und Hangpflege in ${serviceRegionListText()}.`,
+      headingAccent: "Böschungs- und Hangpflege",
+      text: serviceRegionalSeoText(
+        "Böschungsmähen, Hangpflege und Grünpflege schwer zugänglicher Infrastrukturflächen",
+        "Typische Objekte: Schiene und Bahn, Autobahn und Bundesstraße, Brücken und Rampen, Rückhaltebecken und Überlaufbecken. Mit ferngesteuerter Mähraupe, Hochgrasmäher und Aufsitzmäher – dort, wo Freischneider an Standfestigkeit stoßen.",
+      ),
+      bullets: [
+        "Böschungs- und Hangpflege bis 45° mit ferngesteuerter Mähraupe",
+        "Einsätze an Bahn, Autobahn, Bundesstraße, Brücken, Rückhalte- & Überlaufbecken",
+        serviceRegionalBullet("Wartungsverträge nach Bedarf"),
+      ],
+    },
+    cta: {
+      badge: "Unverbindlich · 24h Antwort",
+      headingLead: "Jetzt Böschungs- & Hangpflege",
       headingAccent: "anfragen",
       subline: "Erstbegehung und Angebot – Antwort innerhalb von 24 Stunden.",
       buttonLabel: "Angebot anfordern",
@@ -411,15 +558,18 @@ const pages: Record<string, ServicePageContent> = {
       },
     ],
     seoBlock: {
-      eyebrow: "Hausmeisterservice Gerbstedt",
-      heading: "Hausmeisterservice für Immobilien in Gerbstedt und Sachsen-Anhalt.",
-      headingAccent: "Immobilien",
-      text:
-        "Unser Hausmeisterservice in Gerbstedt unterstützt Eigentümer, Hausverwaltungen und Gewerbekunden bei der laufenden Objektbetreuung. Von Kleinreparaturen über Reinigung bis zur Müllplatzpflege sorgt Green Guard GmbH dafür, dass Immobilien zuverlässig betreut werden.",
+      eyebrow: "Hausmeisterservice · Sachsen-Anhalt",
+      heading: `Hausmeisterservice in ${serviceRegionListText()}.`,
+      headingAccent: "Hausmeisterservice",
+      text: serviceRegionalSeoText(
+        "Hausmeisterservice und Objektbetreuung",
+        "Von Kleinreparaturen und Objektkontrolle über Reinigung und Müllplatzpflege bis zur Handwerkerkoordination – ein fester Ansprechpartner für Wohn- und Gewerbeimmobilien.",
+      ),
       bullets: [
         "Objektbetreuung und Kontrolle für Wohn- und Gewerbeimmobilien",
         "Kleinreparaturen, Instandhaltung und technische Kleinaufträge",
         "Rundumbetreuung mit Handwerkerkoordination und Bereitschaft",
+        serviceRegionalBullet(),
       ],
     },
     cta: {
@@ -538,15 +688,18 @@ const pages: Record<string, ServicePageContent> = {
       },
     ],
     seoBlock: {
-      eyebrow: "Winterdienst Halle (Saale) & Gerbstedt",
-      heading: "Winterdienst mit Räum- und Streudienst in Halle (Saale) und Mansfeld-Südharz.",
-      headingAccent: "Räum- und Streudienst",
-      text:
-        "Für Winterdienst in Halle (Saale), Schneeräumung in Gerbstedt, Räumdienst in Mansfeld-Südharz und zuverlässigen Streudienst in Sachsen-Anhalt ist eine klare Einsatzplanung entscheidend. Green Guard GmbH unterstützt bei Gehwegen, Zufahrten, Parkplätzen, Gewerbeflächen und der Dokumentation der Verkehrssicherungspflicht.",
+      eyebrow: "Winterdienst · Halle & Region",
+      heading: `Winterdienst in ${serviceRegionListText()}.`,
+      headingAccent: "Winterdienst",
+      text: serviceRegionalSeoText(
+        "Winterdienst mit Schneeräumung und Streudienst",
+        "Für Gehwege, Zufahrten und Parkplätze: Routenplanung, 24/7-Bereitschaft und Einsatzdokumentation zur Erfüllung der Verkehrssicherungspflicht – besonders für Verwaltungen und Gewerbeflächen.",
+      ),
       bullets: [
-        "Schneeräumung für Gehwege, Zufahrten und Parkplätze in Halle (Saale) und Umgebung",
+        "Schneeräumung für Gehwege, Zufahrten und Parkplätze",
         "Abstumpfender Streudienst, Räumdienst und Frostschutzbehandlung",
         "24/7 Bereitschaft, Routenplanung und Einsatzdokumentation",
+        serviceRegionalBullet("Saisonverträge und Einzeleinsätze"),
       ],
     },
     cta: {
@@ -663,15 +816,18 @@ const pages: Record<string, ServicePageContent> = {
       },
     ],
     seoBlock: {
-      eyebrow: "Gebäudereinigung Gerbstedt",
-      heading: "Gebäudereinigung für Wohnanlagen, Büros und Gewerbeobjekte.",
-      headingAccent: "Wohnanlagen, Büros und Gewerbeobjekte",
-      text:
-        "Green Guard GmbH ist Ansprechpartner für Gebäudereinigung in Gerbstedt, Treppenhausreinigung in Mansfeld-Südharz und Büroreinigung in Sachsen-Anhalt. Von Unterhaltsreinigung bis Sonderreinigung sorgen wir für saubere Flächen und planbare Abläufe.",
+      eyebrow: "Gebäudereinigung · Sachsen-Anhalt",
+      heading: `Gebäudereinigung in ${serviceRegionListText()}.`,
+      headingAccent: "Gebäudereinigung",
+      text: serviceRegionalSeoText(
+        "Gebäudereinigung und Treppenhausreinigung",
+        "Von Unterhaltsreinigung über Grund- und Sonderreinigung bis Baureinigung – saubere Flächen und planbare Intervalle für Wohnanlagen, Büros und Gewerbe.",
+      ),
       bullets: [
         "Unterhaltsreinigung, Treppenhausreinigung und Büroreinigung",
         "Grundreinigung, Sonderreinigung, Teppich- und Bodenreinigung",
         "Außenanlagen-, Fassaden-, Dachrinnen- und Baureinigung",
+        serviceRegionalBullet(),
       ],
     },
     cta: {
@@ -787,15 +943,18 @@ const pages: Record<string, ServicePageContent> = {
       },
     ],
     seoBlock: {
-      eyebrow: "Strauchpflege Gerbstedt",
-      heading: "Strauch- und Buschpflege für gepflegte Grundstücke.",
-      headingAccent: "gepflegte Grundstücke",
-      text:
-        "Für Strauchpflege in Gerbstedt, Formschnitt in Mansfeld-Südharz und fachgerechten Rückschnitt in Sachsen-Anhalt bietet Green Guard GmbH zuverlässige Pflege von Büschen, Rosen, Obstbäumen und Wildwuchsflächen.",
+      eyebrow: "Strauchpflege · Sachsen-Anhalt",
+      heading: `Strauch- und Buschpflege in ${serviceRegionListText()}.`,
+      headingAccent: "Strauch- und Buschpflege",
+      text: serviceRegionalSeoText(
+        "Strauch- und Buschpflege",
+        "Formschnitt, Rückschnitt, Obstbaumschnitt und Rosenpflege – inklusive fachgerechter Grünschnittentsorgung für private, gewerbliche und gemeinschaftliche Außenanlagen.",
+      ),
       bullets: [
         "Formschnitt, Gestaltungsschnitt, Rückschnitt und Auslichten",
         "Wildwuchs entfernen, Obstbaumschnitt und Rosenpflege",
         "Grünschnittentsorgung, Neuanpflanzung und Beratung",
+        serviceRegionalBullet(),
       ],
     },
     cta: {

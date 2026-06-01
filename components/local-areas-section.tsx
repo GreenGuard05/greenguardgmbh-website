@@ -1,7 +1,44 @@
 import Link from "next/link";
 import { localAreas } from "@/lib/local-seo";
+import { serviceAreaSectionLead } from "@/lib/service-seo";
 
-export function LocalAreasSection() {
+const serviceAreaFocus: Record<string, { label: string; focus: string }> = {
+  gruenanlage: {
+    label: "Grünanlagenpflege",
+    focus: "Für Wohnanlagen, Gewerbe und private Grundstücke planen wir Rasen, Hecken, Bäume und Beetpflege.",
+  },
+  hausmeisterservice: {
+    label: "Hausmeisterservice",
+    focus: "Objektbetreuung mit festem Ansprechpartner, Kleinreparaturen und Handwerkerkoordination.",
+  },
+  winterdienst: {
+    label: "Winterdienst",
+    focus: "Schneeräumung, Streudienst und dokumentierte Einsätze – Saisonvertrag oder Einzeleinsatz.",
+  },
+  reinigung: {
+    label: "Gebäudereinigung",
+    focus: "Unterhalts- und Treppenhausreinigung mit planbaren Intervallen für Wohnanlagen, Büros und Gewerbe.",
+  },
+  strauchpflege: {
+    label: "Strauch- und Buschpflege",
+    focus: "Formschnitt, Rückschnitt und fachgerechte Grünschnittentsorgung.",
+  },
+  solarparkpflege: {
+    label: "Solarparkpflege",
+    focus: "PV-Grünunterhalt – Technik, Intervalle und Anfahrt stimmen wir mit Ihnen ab.",
+  },
+  boeschungspflege: {
+    label: "Böschungs- und Hangpflege",
+    focus: "Einsätze an Bahn, Straße, Brücken sowie Rückhalte- und Überlaufbecken.",
+  },
+};
+
+export function LocalAreasSection({ serviceSlug }: { serviceSlug?: string }) {
+  const config = serviceSlug ? serviceAreaFocus[serviceSlug] : undefined;
+  const areaLead = config
+    ? serviceAreaSectionLead(config.label, config.focus)
+    : "Wählen Sie Ihr Einsatzgebiet aus und erfahren Sie, welche Leistungen wir dort sinnvoll planen können. Für größere Objekte stimmen wir Umfang, Rhythmus, Anfahrt und Ansprechpartner persönlich mit Ihnen ab.";
+
   return (
     <div className="rounded-3xl border border-zinc-200/80 bg-white/90 p-6 shadow-lg shadow-zinc-900/5 ring-1 ring-white sm:p-8">
       <div className="max-w-2xl">
@@ -12,10 +49,7 @@ export function LocalAreasSection() {
           Vor Ort für{" "}
           <span className="gg-heading-accent gg-heading-motion">Gerbstedt, Hettstedt, Eisleben, Halle (Saale) und Mansfeld-Südharz.</span>
         </h2>
-        <p className="mt-4 text-sm leading-relaxed text-zinc-600 sm:text-base">
-          Wählen Sie Ihr Einsatzgebiet aus und erfahren Sie, welche Leistungen wir dort sinnvoll planen können. Für
-          größere Objekte stimmen wir Umfang, Rhythmus, Anfahrt und Ansprechpartner persönlich mit Ihnen ab.
-        </p>
+        <p className="mt-4 text-sm leading-relaxed text-zinc-600 sm:text-base">{areaLead}</p>
       </div>
       <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {localAreas.map((area) => (

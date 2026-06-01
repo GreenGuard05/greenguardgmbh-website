@@ -42,6 +42,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: pageDescriptions.dienstleistungen,
     path: "/dienstleistungen",
     keywords: focusKeywords(coreLocalSeoKeywords, [
+      "Böschungsmähen Sachsen-Anhalt",
       "Solarparkpflege Sachsen-Anhalt",
       "Grünanlagenpflege Hettstedt",
       "Hausmeisterservice Gerbstedt",

@@ -6,7 +6,7 @@ export const localAreas = [
     text: "In Gerbstedt ist Green Guard GmbH vor Ort verwurzelt. Dadurch sind kurze Abstimmungen, schnelle Besichtigungen und verlässliche Einsätze für Grünpflege, Hausmeisterservice, Winterdienst, Reinigung und Mietgeräte möglich.",
     heroSuffix: "Facility Management direkt vor Ort.",
     metaDescription:
-      "Green Guard GmbH in Gerbstedt: Grünanlagenpflege, Hausmeisterservice, Winterdienst, Gebäudereinigung, Strauchpflege und Mietgeräte direkt aus der Region.",
+      "Green Guard GmbH in Gerbstedt: Böschungs- & Hangpflege, Solarparkpflege, Grünanlagenpflege, Hausmeisterservice, Winterdienst, Gebäudereinigung, Strauchpflege und Mietgeräte.",
     lead:
       "Gerbstedt ist unser Standort und damit der Mittelpunkt vieler Einsätze. Kurze Wege helfen bei Besichtigungen, Abstimmungen und wiederkehrenden Leistungen rund um Immobilien, Außenanlagen und Mietgeräte.",
     focus: [
@@ -50,7 +50,7 @@ export const localAreas = [
     text: "Für Hettstedt unterstützen wir Eigentümer, Hausverwaltungen und Gewerbekunden bei gepflegten Außenanlagen, Treppenhäusern, Parkflächen und laufender Objektbetreuung.",
     heroSuffix: "Objektpflege für Hettstedt.",
     metaDescription:
-      "Facility Management in Hettstedt: Green Guard GmbH unterstützt bei Grünanlagenpflege, Hausmeisterservice, Winterdienst, Gebäudereinigung und Objektbetreuung.",
+      "Facility Management in Hettstedt: Böschungs- & Hangpflege, Solarparkpflege, Grünanlagenpflege, Hausmeisterservice, Winterdienst und Gebäudereinigung von Green Guard GmbH.",
     lead:
       "In Hettstedt geht es häufig um planbare Objektpflege: Wohnanlagen, Gewerbeflächen, Parkplätze, Treppenhäuser und Außenbereiche sollen zuverlässig gepflegt bleiben.",
     focus: [
@@ -94,7 +94,7 @@ export const localAreas = [
     text: "Für Sangerhausen stimmen wir Grünanlagenpflege, Objektbetreuung, Winterdienst und Reinigung passend zu Grundstück, Wohnanlage oder Gewerbefläche ab.",
     heroSuffix: "Facility Management für Sangerhausen.",
     metaDescription:
-      "Green Guard GmbH für Sangerhausen: Grünanlagenpflege, Hausmeisterservice, Winterdienst, Gebäudereinigung und Strauchpflege für private und gewerbliche Objekte.",
+      "Green Guard GmbH für Sangerhausen: Böschungs- & Hangpflege, Solarparkpflege, Grünanlagenpflege, Hausmeisterservice, Winterdienst, Gebäudereinigung und Strauchpflege.",
     lead:
       "In Sangerhausen unterstützen wir Kunden, die regelmäßige Pflege, klare Absprachen und einen verlässlichen Ansprechpartner für Außenanlagen und Immobilien suchen.",
     focus: [
@@ -138,7 +138,7 @@ export const localAreas = [
     text: "Auch in Lutherstadt Eisleben sind wir Ansprechpartner für regelmäßige Pflegeintervalle, Winterdienst-Routen, Gebäudereinigung und kurzfristige Einsätze rund um Immobilien.",
     heroSuffix: "Facility Management für Eisleben.",
     metaDescription:
-      "Green Guard GmbH für Lutherstadt Eisleben: Gebäudereinigung, Grünanlagenpflege, Hausmeisterservice, Winterdienst und Strauchpflege für Immobilien.",
+      "Green Guard GmbH für Lutherstadt Eisleben: Böschungs- & Hangpflege, Solarparkpflege, Gebäudereinigung, Grünanlagenpflege, Hausmeisterservice, Winterdienst und Strauchpflege.",
     lead:
       "Für Lutherstadt Eisleben verbinden wir Außenpflege, Reinigung und Objektbetreuung zu einem klaren Leistungsangebot für Immobilien, Gewerbe und private Grundstücke.",
     focus: [
@@ -182,7 +182,7 @@ export const localAreas = [
     text: "In Mansfeld unterstützen wir bei gepflegten Außenanlagen, zuverlässiger Objektbetreuung, Winterdienst, Reinigung und saisonalen Pflegearbeiten.",
     heroSuffix: "Objektpflege für Mansfeld.",
     metaDescription:
-      "Facility Management in Mansfeld: Green Guard GmbH bietet Grünanlagenpflege, Hausmeisterservice, Winterdienst, Gebäudereinigung und Strauchpflege.",
+      "Facility Management in Mansfeld: Böschungs- & Hangpflege, Solarparkpflege, Grünanlagenpflege, Hausmeisterservice, Winterdienst, Gebäudereinigung und Strauchpflege.",
     lead:
       "Mansfeld liegt im regionalen Kerngebiet. Dadurch lassen sich wiederkehrende Arbeiten, Besichtigungen und Objektpflege sinnvoll planen.",
     focus: [
@@ -226,7 +226,7 @@ export const localAreas = [
     text: "Im Landkreis Mansfeld-Südharz verbindet Green Guard GmbH regionale Nähe mit planbarer Ausführung für private Grundstücke, Wohnanlagen und Gewerbeobjekte.",
     heroSuffix: "Regional stark im Landkreis.",
     metaDescription:
-      "Facility Management Mansfeld-Südharz: Green Guard GmbH bietet Grünpflege, Hausmeisterservice, Winterdienst, Reinigung, Strauchpflege und Mietgeräte.",
+      "Facility Management Mansfeld-Südharz: Böschungs- & Hangpflege, Solarparkpflege, Grünpflege, Hausmeisterservice, Winterdienst, Reinigung, Strauchpflege und Mietgeräte.",
     lead:
       "Mansfeld-Südharz ist unser regionales Kerngebiet. Für Kunden im Landkreis zählt, dass Leistungen nicht einzeln gedacht werden, sondern als verlässliche Betreuung rund um Objekt und Außenfläche.",
     focus: [
@@ -270,7 +270,7 @@ export const localAreas = [
     text: "Auch Aschersleben kann für größere oder planbare Einsätze im Bereich Grünpflege, Hausmeisterservice, Gebäudereinigung und Objektbetreuung abgestimmt werden.",
     heroSuffix: "Einsätze in Aschersleben nach Absprache.",
     metaDescription:
-      "Green Guard GmbH für Aschersleben: Grünanlagenpflege, Hausmeisterservice, Winterdienst, Gebäudereinigung und Objektpflege nach Absprache.",
+      "Green Guard GmbH für Aschersleben: Böschungs- & Hangpflege, Solarparkpflege, Grünanlagenpflege, Hausmeisterservice, Winterdienst und Gebäudereinigung.",
     lead:
       "Für Aschersleben prüfen wir vor allem planbare Einsätze, bei denen Leistungsumfang, Anfahrt und Terminfenster sinnvoll zusammenpassen.",
     focus: [
@@ -314,7 +314,7 @@ export const localAreas = [
     text: "Für Bernburg prüfen wir Einsätze rund um Grünanlagenpflege, Reinigung, Hausmeisterservice und Winterdienst abhängig von Umfang, Objekt und Route.",
     heroSuffix: "Facility Management für Bernburg nach Absprache.",
     metaDescription:
-      "Green Guard GmbH für Bernburg: Grünanlagenpflege, Hausmeisterservice, Gebäudereinigung, Winterdienst und Objektpflege nach individueller Abstimmung.",
+      "Green Guard GmbH für Bernburg: Böschungs- & Hangpflege, Solarparkpflege, Grünanlagenpflege, Hausmeisterservice, Gebäudereinigung und Winterdienst.",
     lead:
       "In Bernburg sind besonders planbare Arbeiten interessant, bei denen mehrere Leistungen oder wiederkehrende Einsätze sinnvoll gebündelt werden können.",
     focus: [
@@ -358,7 +358,7 @@ export const localAreas = [
     text: "Halberstadt kann bei passenden Rahmenbedingungen für planbare Objektpflege, Grünflächenpflege, Reinigung und Winterdienst berücksichtigt werden.",
     heroSuffix: "Planbare Objektpflege für Halberstadt.",
     metaDescription:
-      "Green Guard GmbH für Halberstadt: Facility Management, Grünanlagenpflege, Hausmeisterservice, Winterdienst und Gebäudereinigung nach Planung.",
+      "Green Guard GmbH für Halberstadt: Böschungs- & Hangpflege, Solarparkpflege, Facility Management, Grünanlagenpflege, Hausmeisterservice, Winterdienst und Gebäudereinigung.",
     lead:
       "Für Halberstadt prüfen wir vor allem größere oder wiederkehrende Einsätze, damit Anfahrt, Leistung und Terminplanung wirtschaftlich sinnvoll bleiben.",
     focus: [
@@ -402,7 +402,7 @@ export const localAreas = [
     text: "Für Quedlinburg stimmen wir Einsätze in Grünpflege, Gebäudereinigung, Hausmeisterservice und Winterdienst individuell nach Objekt und Leistungsumfang ab.",
     heroSuffix: "Einsätze in Quedlinburg nach Absprache.",
     metaDescription:
-      "Green Guard GmbH für Quedlinburg: Grünanlagenpflege, Hausmeisterservice, Gebäudereinigung, Winterdienst und Objektbetreuung nach Absprache.",
+      "Green Guard GmbH für Quedlinburg: Böschungs- & Hangpflege, Solarparkpflege, Grünanlagenpflege, Hausmeisterservice, Gebäudereinigung, Winterdienst und Objektbetreuung.",
     lead:
       "Quedlinburg kann bei passenden Aufträgen Teil der Einsatzplanung sein, besonders wenn es um größere Flächen, wiederkehrende Betreuung oder kombinierte Leistungen geht.",
     focus: [
@@ -446,7 +446,7 @@ export const localAreas = [
     text: "Halle (Saale) gehört besonders beim Winterdienst zum wichtigen Einsatzgebiet von Green Guard GmbH. Für Verwaltungen, Gewerbeflächen, Wohnanlagen, Zufahrten und Parkbereiche stimmen wir Routen, Räumzeiten und Streudienst frühzeitig ab.",
     heroSuffix: "Winterdienst und Objektpflege in Halle (Saale).",
     metaDescription:
-      "Winterdienst Halle (Saale): Green Guard GmbH übernimmt Räum- und Streudienst, Zufahrten, Parkflächen und Objektpflege für Verwaltungen, Gewerbe und Wohnanlagen.",
+      "Winterdienst Halle (Saale): Green Guard GmbH – auch Böschungs- & Hangpflege, Solarparkpflege, Räum- und Streudienst, Grünpflege und Objektpflege für Verwaltungen, Gewerbe und Wohnanlagen.",
     lead:
       "Halle (Saale) ist für Green Guard GmbH besonders beim Winterdienst ein Schwerpunkt. Für Verwaltungen, Gewerbe und Objektbetreiber stimmen wir Routen, Einsatzzeiten, Streupunkte und Dokumentation sorgfältig ab.",
     focus: [
@@ -490,7 +490,7 @@ export const localAreas = [
     text: "Je nach Auftrag und Kapazität betreuen wir auch umliegende Orte in Sachsen-Anhalt. Entscheidend sind Einsatzort, Leistungsumfang und ein sinnvoll geplanter Ablauf.",
     heroSuffix: "Weitere Orte nach Absprache.",
     metaDescription:
-      "Green Guard GmbH betreut weitere Orte in Sachsen-Anhalt nach Absprache: Grünpflege, Hausmeisterservice, Winterdienst, Reinigung und Mietgeräte.",
+      "Green Guard GmbH betreut weitere Orte in Sachsen-Anhalt: Böschungs- & Hangpflege, Solarparkpflege, Grünpflege, Hausmeisterservice, Winterdienst, Reinigung und Mietgeräte.",
     lead:
       "Nicht jeder Auftrag passt in eine starre Ortsliste. Wenn Einsatzort, Leistungsumfang und Planung zusammenpassen, prüfen wir gerne weitere Orte in Sachsen-Anhalt.",
     focus: [
@@ -549,6 +549,10 @@ export function buildAreaKeywords(areaName: string) {
     `Gebäudereinigung ${areaName}`,
     `Treppenhausreinigung ${areaName}`,
     `Strauchpflege ${areaName}`,
+    `Böschungsmähen ${areaName}`,
+    `Böschungspflege ${areaName}`,
+    `Hangpflege ${areaName}`,
+    `Solarparkpflege ${areaName}`,
     `Objektbetreuung ${areaName}`,
     `Mietgeräte ${areaName}`,
   ];
@@ -590,4 +594,9 @@ export const coreLocalSeoKeywords = [
   "Strauchpflege Sachsen-Anhalt",
   "Geräte mieten Gerbstedt",
   "Mietgeräte Mansfeld-Südharz",
+  "Böschungsmähen Sachsen-Anhalt",
+  "Böschungspflege Mansfeld-Südharz",
+  "Hangpflege Halle Saale",
+  "Böschungsmähen Halle Saale",
+  "Solarparkpflege Sachsen-Anhalt",
 ] as const;

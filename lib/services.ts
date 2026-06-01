@@ -26,16 +26,32 @@ export const services: ServiceDetail[] = [
     title: "Solarparkpflege",
     eyebrow: "PV-Flächen · Grünunterhalt",
     intro:
-      "Grünunterhalt unter und zwischen Modulreihen mit ferngesteuerter Mähraupe und Profi-Technik – für sichere Freiflächen und planbare Pflegeintervalle.",
+      "Grünunterhalt auf PV-Freiflächen mit durchdachter Profi-Technik – von der ferngesteuerten Mähraupe über Hochgrasmäher bis zum Aufsitzmäher, passend zur jeweiligen Anlage.",
     tags: [
       "Grünflächen unter Modulen",
+      "Hochgrasmäher & Aufsitzmäher",
       "Ferngesteuerte Mähraupe",
-      "Böschungen & Randbereiche",
       "Wartungsverträge",
     ],
     href: "/dienstleistungen/solarparkpflege",
     image: SITE_MEDIA_DEFAULTS["service.solarparkpflege"],
     imageBadge: "PV & Grün",
+  },
+  {
+    slug: "boeschungspflege",
+    title: "Böschungs- & Hangpflege",
+    eyebrow: "Böschungen · Hänge · Infrastruktur",
+    intro:
+      "Böschungsmähen und Hangpflege dort, wo Freischneider an Standfestigkeit stoßen – mit ferngesteuerter Mähraupe, Hochgrasmäher und Profi-Flotte für schwer zugängliche Flächen.",
+    tags: [
+      "Böschungsmähen",
+      "Hangpflege",
+      "Schwer zugängliche Flächen",
+      "Grünpflege Infrastruktur",
+    ],
+    href: "/dienstleistungen/boeschungspflege",
+    image: SITE_MEDIA_DEFAULTS["service.boeschungspflege"],
+    imageBadge: "Bis 45° Hang",
   },
   {
     slug: "gruenanlage",

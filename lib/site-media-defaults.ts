@@ -7,6 +7,7 @@ export const SITE_MEDIA_KEYS = [
   "about.mower",
   "service.gruenanlage",
   "service.solarparkpflege",
+  "service.boeschungspflege",
   "service.hausmeisterservice",
   "service.winterdienst",
   "service.reinigung",
@@ -34,6 +35,7 @@ export const SITE_MEDIA_EDITOR_GROUPS: { title: string; keys: readonly SiteMedia
     keys: [
       "service.gruenanlage",
       "service.solarparkpflege",
+      "service.boeschungspflege",
       "service.hausmeisterservice",
       "service.winterdienst",
       "service.reinigung",
@@ -56,6 +58,7 @@ export const SITE_MEDIA_HINTS: Record<SiteMediaKey, string> = {
     "Kachel „Rasenmäher“ im Grün-Block – Startseite und „Über uns“.",
   "service.gruenanlage": "Leistungsseite „Grünanlagenpflege“: großes Kopfbild.",
   "service.solarparkpflege": "Leistungsseite „Solarparkpflege“: großes Kopfbild.",
+  "service.boeschungspflege": "Leistungsseite „Böschungs- & Hangpflege“: großes Kopfbild.",
   "service.hausmeisterservice": "Leistungsseite „Hausmeisterservice“: großes Kopfbild.",
   "service.winterdienst": "Leistungsseite „Winterdienst“: großes Kopfbild.",
   "service.reinigung": "Leistungsseite „Gebäudereinigung“: großes Kopfbild.",
@@ -74,6 +77,7 @@ export const SITE_MEDIA_PREVIEW_FRAME: Record<SiteMediaKey, SiteMediaPreviewFram
   "about.mower": "tile",
   "service.gruenanlage": "serviceHero",
   "service.solarparkpflege": "serviceHero",
+  "service.boeschungspflege": "serviceHero",
   "service.hausmeisterservice": "serviceHero",
   "service.winterdienst": "serviceHero",
   "service.reinigung": "serviceHero",
@@ -90,6 +94,7 @@ export const SITE_MEDIA_LABELS: Record<SiteMediaKey, string> = {
   "about.mower": "Über uns – Kachel Rasenmäher",
   "service.gruenanlage": "Leistung – Grünanlagenpflege",
   "service.solarparkpflege": "Leistung – Solarparkpflege",
+  "service.boeschungspflege": "Leistung – Böschungs- & Hangpflege",
   "service.hausmeisterservice": "Leistung – Hausmeisterservice",
   "service.winterdienst": "Leistung – Winterdienst",
   "service.reinigung": "Leistung – Gebäudereinigung",
@@ -112,6 +117,8 @@ export const SITE_MEDIA_DEFAULTS: Record<SiteMediaKey, string> = {
     "https://images.pexels.com/photos/5163430/pexels-photo-5163430.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "service.solarparkpflege":
     "https://images.pexels.com/photos/15751134/pexels-photo-15751134.jpeg?auto=compress&cs=tinysrgb&w=1600",
+  "service.boeschungspflege":
+    "https://images.pexels.com/photos/2086037/pexels-photo-2086037.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "service.hausmeisterservice":
     "https://images.pexels.com/photos/20077008/pexels-photo-20077008.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "service.winterdienst":

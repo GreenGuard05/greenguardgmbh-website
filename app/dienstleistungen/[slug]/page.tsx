@@ -19,10 +19,10 @@ import {
   buildServiceBreadcrumbJsonLd,
   buildServiceJsonLd,
   createPageMetadata,
-  focusKeywords,
   serviceSeoDescriptions,
   siteUrl,
 } from "@/lib/seo";
+import { serviceMetadataKeywords, serviceMetadataTitle, serviceRegionListText } from "@/lib/service-seo";
 import { site } from "@/lib/site";
 import type { ResolvedSiteMedia } from "@/lib/site-media-defaults";
 import { getResolvedSiteMedia } from "@/lib/site-media.server";
@@ -46,17 +46,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = serviceSeoDescriptions[slug] ?? clipped;
 
   return createPageMetadata({
-    title: `${service.title} · Gerbstedt`,
+    title: serviceMetadataTitle(slug, service.title),
     description,
     path,
-    keywords: focusKeywords(
-      [service.title, `${service.title} Gerbstedt`, `${service.title} Sachsen-Anhalt`],
-      [...service.tags],
-    ),
+    keywords: serviceMetadataKeywords(slug, service),
     ogImage,
     ogImageWidth: 1600,
     ogImageHeight: 1066,
-    ogImageAlt: `${service.title} – Green Guard GmbH`,
+    ogImageAlt: `${service.title} – Green Guard GmbH in ${serviceRegionListText()}`,
   });
 }
 
@@ -141,20 +138,20 @@ export default async function ServicePage({ params }: Props) {
         <ServiceScopeSection scope={page.scope} />
         <InnerPageBand>
           <ServiceFaqSection title={service.title} faqs={faqs} />
-          {slug === "solarparkpflege" ? (
+          {slug === "solarparkpflege" || slug === "boeschungspflege" ? (
             <p className="mt-6 text-center text-sm text-zinc-600">
-              Technik im Einsatz:{" "}
+              Ausgewählte Geräte auch zur Miete:{" "}
               <Link
-                href="/mieten/ferrari-rc-70hy-maehraupe"
+                href="/mieten"
                 className="font-semibold text-emerald-800 underline decoration-emerald-300 underline-offset-4 hover:text-emerald-950"
               >
-                Ferrari RC-70HY Pro Mähraupe mieten
+                Gerätemietservice von Green Guard GmbH
               </Link>
             </p>
           ) : null}
         </InnerPageBand>
         <InnerPageBand className="border-t border-zinc-200/70">
-          <LocalAreasSection />
+          <LocalAreasSection serviceSlug={slug} />
         </InnerPageBand>
         <ServiceCtaBand cta={page.cta} />
       </InnerPageRoot>

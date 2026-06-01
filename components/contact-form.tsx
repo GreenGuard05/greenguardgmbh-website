@@ -6,6 +6,7 @@ import { sendContactRequest, type ContactFormState } from "@/app/kontakt/actions
 const services = [
   "Grünanlagenpflege",
   "Solarparkpflege",
+  "Böschungs- & Hangpflege",
   "Strauch- & Buschpflege",
   "Hausmeisterservice",
   "Winterdienst",
