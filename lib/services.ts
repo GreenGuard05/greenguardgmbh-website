@@ -34,7 +34,7 @@ export const services: ServiceDetail[] = [
       "Wartungsverträge",
     ],
     href: "/dienstleistungen/solarparkpflege",
-    image: "/images/service-solarparkpflege.png",
+    image: SITE_MEDIA_DEFAULTS["service.solarparkpflege"],
     imageBadge: "PV & Grün",
   },
   {

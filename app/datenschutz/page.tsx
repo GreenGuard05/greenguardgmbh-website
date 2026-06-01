@@ -104,7 +104,12 @@ export default function DatenschutzPage() {
           <p>
             Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in einer ansprechenden,
             verständlichen Darstellung unserer Leistungen. Soweit wir eigene Aufnahmen verwenden, entfällt der Abruf bei
-            Pexels für die betreffenden Bilder.
+            Pexels für die betreffenden Bilder. Das Kopfbild der Leistungsseite „Solarparkpflege“ wird von{" "}
+            <strong>images.pexels.com</strong> geladen (Foto von Mark Stebnicki,{" "}
+            <a href="https://www.pexels.com/photo/15751134/" target="_blank" rel="noopener noreferrer">
+              Pexels Photo-ID 15751134
+            </a>
+            ).
           </p>
           <p>
             Weitere Informationen zur Datenverarbeitung durch Pexels finden Sie in der{" "}

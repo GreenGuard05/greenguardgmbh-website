@@ -87,7 +87,16 @@ export default function ImpressumPage() {
             <a href="https://www.pexels.com/de-de/" target="_blank" rel="noopener noreferrer">
               Pexels
             </a>{" "}
-            (Lizenz gemäß Pexels-Nutzungsbedingungen; Namensnennung nicht erforderlich).
+            (Lizenz gemäß Pexels-Nutzungsbedingungen; Namensnennung nicht erforderlich). Das Kopfbild der
+            Leistungsseite „Solarparkpflege“ stammt von Mark Stebnicki über{" "}
+            <a
+              href="https://www.pexels.com/photo/15751134/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Pexels
+            </a>{" "}
+            (Photo-ID 15751134).
           </p>
           <h3>Kartendarstellung (Einsatzgebiet)</h3>
           <p>
