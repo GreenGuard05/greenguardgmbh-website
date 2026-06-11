@@ -182,28 +182,43 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-white/10">
-        <div data-nosnippet className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-5 text-xs text-zinc-500 sm:flex-row sm:px-6">
-          <p className="text-center sm:text-left">
-            © {year} {site.name}. Alle Rechte vorbehalten. Facility Management · Gerbstedt ·
-            Sachsen-Anhalt
+        <div
+          data-nosnippet
+          className="mx-auto max-w-6xl space-y-3 px-4 py-5 text-xs text-zinc-500 sm:px-6"
+        >
+          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+            <p className="text-center sm:text-left">
+              © {year} {site.name}. Alle Rechte vorbehalten. Facility Management · Gerbstedt ·
+              Sachsen-Anhalt
+            </p>
+            <nav
+              aria-label="Rechtliches"
+              className="flex flex-wrap items-center justify-center gap-x-1 text-zinc-400 sm:justify-end"
+            >
+              <Link className="text-zinc-300 hover:text-white" href="/impressum">
+                Impressum
+              </Link>
+              <span aria-hidden className="select-none px-1">
+                ·
+              </span>
+              <Link className="text-zinc-300 hover:text-white" href="/datenschutz">
+                Datenschutz
+              </Link>
+              <span aria-hidden className="select-none px-1">
+                ·
+              </span>
+              <Link className="text-zinc-300 hover:text-white" href="/kontakt">
+                Kontakt
+              </Link>
+            </nav>
+          </div>
+          <p className="text-center leading-relaxed text-zinc-500 sm:text-left">
+            Keine Marketing-Cookies · kein Analyse-Tracking.{" "}
+            <Link className="text-zinc-400 underline hover:text-zinc-200" href="/datenschutz">
+              Details in der Datenschutzerklärung
+            </Link>
+            .
           </p>
-          <nav aria-label="Rechtliches" className="flex flex-wrap items-center justify-center gap-x-1 text-zinc-400 sm:justify-end">
-            <Link className="text-zinc-300 hover:text-white" href="/impressum">
-              Impressum
-            </Link>
-            <span aria-hidden className="select-none px-1">
-              ·
-            </span>
-            <Link className="text-zinc-300 hover:text-white" href="/datenschutz">
-              Datenschutz
-            </Link>
-            <span aria-hidden className="select-none px-1">
-              ·
-            </span>
-            <Link className="text-zinc-300 hover:text-white" href="/kontakt">
-              Kontakt
-            </Link>
-          </nav>
         </div>
       </div>
     </footer>

@@ -65,7 +65,7 @@ export const pageDescriptions = {
   impressum:
     "Impressum der Green Guard GmbH, Gerbstedt: Angaben nach TMG, HRB 35595 (Amtsgericht Stendal), Vertretung und Verantwortlicher für den Inhalt dieser Website.",
   datenschutz:
-    "Datenschutz auf greenguard-msh.de: Zwecke der Datenverarbeitung, Kontaktformular, Server-Logs, Speicherdauer und Ihre Rechte nach DSGVO – transparent erklärt.",
+    "Datenschutz auf greenguard-msh.de: Hosting, Kontaktformular, Cookies, Pexels-Bilder, kein Tracking – Ihre Rechte nach DSGVO transparent erklärt.",
 } as const;
 
 /** Handgeschriebene Snippets je Leistungsseite (eindeutig für Sitelinks & organische Ergebnisse) */
