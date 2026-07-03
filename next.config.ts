@@ -27,6 +27,17 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
+      /** Alte URL ohne „ue“ (häufig von Vorgänger-Website / externen Links) */
+      {
+        source: "/uber-uns",
+        destination: "/ueber-uns",
+        permanent: true,
+      },
+      {
+        source: "/ueber-uns.html",
+        destination: "/ueber-uns",
+        permanent: true,
+      },
       {
         source: "/impressum.html",
         destination: "/impressum",
