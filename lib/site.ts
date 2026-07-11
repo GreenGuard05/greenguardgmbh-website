@@ -8,6 +8,8 @@ export const site = {
   phone: "01573 2633670",
   phoneTel: "+4915732633670",
   email: "info@greenguard-msh.de",
+  /** Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG */
+  vatId: "DE453139817",
   addressLines: ["Alte Dorfstraße 8", "06347 Gerbstedt", "Sachsen-Anhalt"],
   /** Standort für Karten & Schema.org (Geokoordinaten Firmensitz) */
   geo: { latitude: 51.8083, longitude: 11.4972 },

@@ -177,6 +177,9 @@ export function SiteFooter() {
                 {site.email}
               </a>
             </li>
+            <li className="text-zinc-400">
+              USt-IdNr. {site.vatId}
+            </li>
           </ul>
         </div>
       </div>

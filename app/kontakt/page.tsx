@@ -191,6 +191,12 @@ export default async function KontaktPage({ searchParams }: KontaktPageProps) {
                       {site.email}
                     </a>
                   </div>
+                  <div className="rounded-xl bg-zinc-50 p-3 ring-1 ring-zinc-100 sm:col-span-2">
+                    <p className="text-xs font-bold uppercase tracking-wide text-zinc-500">
+                      USt-IdNr.
+                    </p>
+                    <p className="mt-1 font-semibold text-zinc-800">{site.vatId}</p>
+                  </div>
                 </div>
               </div>
             </RevealOnScroll>

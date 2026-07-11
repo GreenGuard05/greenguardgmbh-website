@@ -63,7 +63,7 @@ export const pageDescriptions = {
   ueberUns:
     "Team & Geschichte: Green Guard GmbH betreut Immobilien und Außenanlagen seit über 15 Jahren in Sachsen-Anhalt – Werte, Arbeitsweise und Einblicke in unsere Arbeit vor Ort.",
   impressum:
-    "Impressum der Green Guard GmbH, Gerbstedt: Angaben nach TMG, HRB 35595 (Amtsgericht Stendal), Vertretung und Verantwortlicher für den Inhalt dieser Website.",
+    "Impressum der Green Guard GmbH, Gerbstedt: Angaben nach TMG, HRB 35595, USt-IdNr. DE453139817, Vertretung und Verantwortlicher.",
   datenschutz:
     "Datenschutz auf greenguard-msh.de: Hosting, Kontaktformular, Cookies, Pexels-Bilder, kein Tracking – Ihre Rechte nach DSGVO transparent erklärt.",
 } as const;
@@ -155,6 +155,7 @@ export function buildLocalBusinessJsonLd(heroImageUrl: string) {
     logo: siteIconUrl,
     telephone: site.phoneTel,
     email: site.email,
+    vatID: site.vatId,
     image: heroImageUrl,
     address: {
       "@type": "PostalAddress",

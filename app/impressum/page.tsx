@@ -49,8 +49,12 @@ export default function ImpressumPage() {
             <br />
             Sitz der Gesellschaft: Gerbstedt
           </p>
-          <h2>Steuernummer</h2>
-          <p>118/107/00302</p>
+          <h2>Umsatzsteuer-Identifikationsnummer (USt-IdNr.)</h2>
+          <p>
+            Gemäß § 27a UStG:
+            <br />
+            {site.vatId}
+          </p>
           <h2>Verantwortlich für den Inhalt gemäß § 55 Abs. 2 RStV</h2>
           <p>
             Justin Zweidorf

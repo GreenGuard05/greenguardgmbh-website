@@ -89,6 +89,8 @@ export default function DatenschutzPage() {
             Telefon: <a href={`tel:${site.phoneTel}`}>{site.phone}</a>
             <br />
             E-Mail: <a href={mailtoHref()}>{site.email}</a>
+            <br />
+            USt-IdNr.: {site.vatId}
           </p>
           <p>
             Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen
