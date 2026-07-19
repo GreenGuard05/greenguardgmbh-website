@@ -48,7 +48,7 @@ export function HomeHero({ heroSideSrc }: { heroSideSrc: string }) {
   const { hintOpacity, hintLift } = useScrollHint();
 
   return (
-    <section className="relative flex flex-col bg-black text-white max-sm:min-h-[100svh] sm:min-h-[100svh]">
+    <section className="relative flex flex-col bg-black text-white sm:min-h-[100svh]">
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         <Image
           src={heroSideSrc}
@@ -69,8 +69,8 @@ export function HomeHero({ heroSideSrc }: { heroSideSrc: string }) {
         </div>
       </div>
 
-      <div className="relative z-10 flex flex-1 flex-col px-4 pb-3 pt-[4.25rem] max-sm:justify-start sm:justify-center sm:px-6 sm:pb-16 sm:pt-28 lg:px-8 lg:pt-32">
-        <div className="mx-auto w-full max-w-3xl max-sm:pt-3 lg:mx-0 lg:max-w-2xl xl:max-w-3xl">
+      <div className="relative z-10 flex flex-col px-4 pb-5 pt-[4.25rem] sm:flex-1 sm:justify-center sm:px-6 sm:pb-16 sm:pt-28 lg:px-8 lg:pt-32">
+        <div className="mx-auto w-full max-w-3xl max-sm:pt-2 lg:mx-0 lg:max-w-2xl xl:max-w-3xl">
           <HeroBrandEyebrow />
 
           <h1 className="mt-2.5 max-w-xl text-[1.55rem] font-bold leading-[1.1] tracking-tight sm:mt-7 sm:text-5xl sm:leading-[1.08] lg:text-[3.35rem] lg:leading-[1.05]">
@@ -121,25 +121,25 @@ export function HomeHero({ heroSideSrc }: { heroSideSrc: string }) {
           >
             Alle Leistungen ansehen →
           </a>
-        </div>
 
-        <p
-          className="pointer-events-none relative z-10 mx-auto mt-auto flex items-center gap-1.5 pb-2 pt-4 text-[10px] font-medium uppercase tracking-[0.18em] text-zinc-400/90 transition-[opacity,transform] duration-300 ease-out sm:mt-10 sm:pb-0 sm:pt-0 sm:text-xs sm:normal-case sm:tracking-normal"
-          style={{
-            opacity: hintOpacity,
-            transform: `translate3d(0, -${hintLift}px, 0)`,
-          }}
-          aria-hidden={hintOpacity < 0.03}
-        >
-          <span className="sm:hidden">Weiter</span>
-          <span className="hidden sm:inline">Leistungen entdecken</span>
-          <span
-            className="inline-flex text-[#a8e055]/90 motion-safe:animate-bounce motion-reduce:animate-none"
-            aria-hidden
+          <p
+            className="pointer-events-none mt-4 flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-zinc-400/90 transition-[opacity,transform] duration-300 ease-out sm:mt-10 sm:text-xs sm:normal-case sm:tracking-normal"
+            style={{
+              opacity: hintOpacity,
+              transform: `translate3d(0, -${hintLift}px, 0)`,
+            }}
+            aria-hidden={hintOpacity < 0.03}
           >
-            ↓
-          </span>
-        </p>
+            <span className="sm:hidden">Weiter</span>
+            <span className="hidden sm:inline">Leistungen entdecken</span>
+            <span
+              className="inline-flex text-[#a8e055]/90 motion-safe:animate-bounce motion-reduce:animate-none"
+              aria-hidden
+            >
+              ↓
+            </span>
+          </p>
+        </div>
       </div>
     </section>
   );
