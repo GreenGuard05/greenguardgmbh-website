@@ -5,6 +5,7 @@ import { HomeFaq } from "@/components/home-faq";
 import { HomeHero } from "@/components/home-hero";
 import { HomeLeistungenGrid } from "@/components/home-leistungen-grid";
 import { HomePreFooterCta } from "@/components/home-pre-footer-cta";
+import { HomeTrustBand } from "@/components/home-trust-band";
 import { RevealOnScroll } from "@/components/reveal-on-scroll";
 import { coreLocalSeoKeywords } from "@/lib/local-seo";
 import { createPageMetadata, focusKeywords, homeDescription } from "@/lib/seo";
@@ -42,25 +43,8 @@ export default async function HomePage() {
 
   return (
     <>
-      <HomeHero
-        heroSideSrc={media.heroSide}
-        heroServices={servicesResolved.map((s) => ({
-          title: s.title,
-          href: s.href,
-        }))}
-        galleryImages={(
-          ["gruenanlage", "solarparkpflege", "boeschungspflege", "hausmeisterservice"] as const
-        ).map((slug) => {
-          const service = servicesResolved.find((s) => s.slug === slug)!;
-          return {
-            id: slug,
-            src: service.image,
-            alt: service.title,
-            serviceTitle: service.title,
-            serviceHref: service.href,
-          };
-        })}
-      />
+      <HomeHero heroSideSrc={media.heroSide} />
+      <HomeTrustBand />
       <RevealOnScroll>
         <HomeLeistungenGrid servicesResolved={servicesResolved} mietenCard={mietenCard} />
       </RevealOnScroll>

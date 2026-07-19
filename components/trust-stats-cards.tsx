@@ -143,15 +143,8 @@ export function TrustStatsCards({
 
       <div className={`gg-trust-accent-perspective h-full min-h-0 ${satisfactionWrapClass}`}>
         <TrustStatCard accent floating className="h-full w-full">
-          <p className="text-base font-bold leading-snug text-white max-sm:text-[10px] max-sm:leading-tight sm:text-lg">
-            {compactHero ? (
-              <>
-                <span className="max-sm:block">Ihre</span>
-                <span className="max-sm:block">Zufriedenheit</span>
-              </>
-            ) : (
-              "Ihre Zufriedenheit"
-            )}
+          <p className="text-base font-bold leading-snug text-white max-sm:text-[11px] max-sm:leading-snug sm:text-lg">
+            Ihre Zufriedenheit
           </p>
           <p className="mt-0.5 text-sm font-semibold leading-snug text-[#a8e055] max-sm:mt-0.5 max-sm:text-[9px] max-sm:leading-tight sm:text-base">
             liegt uns am Herzen

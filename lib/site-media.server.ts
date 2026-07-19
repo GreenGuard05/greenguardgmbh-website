@@ -39,12 +39,32 @@ async function readMergedMedia(): Promise<ResolvedSiteMedia> {
   return { ...base, ...overrides };
 }
 
-/** Für Seiten & Meta: zusammengeführte URLs (Defaults + content/site-media.json) */
-export const getResolvedSiteMedia = unstable_cache(
+/**
+ * Stellt sicher, dass nach Cache-Hits alle aktuellen Keys gesetzt sind
+ * (ältere Cache-Einträge können neue Slots noch nicht enthalten).
+ */
+function withDefaultGapsFilled(media: ResolvedSiteMedia): ResolvedSiteMedia {
+  const out = { ...SITE_MEDIA_DEFAULTS };
+  for (const key of SITE_MEDIA_KEYS) {
+    const value = media[key];
+    if (typeof value === "string" && value.trim() !== "") {
+      out[key] = value.trim();
+    }
+  }
+  return out;
+}
+
+const getCachedSiteMedia = unstable_cache(
   async (): Promise<ResolvedSiteMedia> => readMergedMedia(),
-  ["site-media-v1"],
+  /** v3: lokale Solar-/Böschungsbilder + Lückenfüllung nach Key-Erweiterung */
+  ["site-media-v3"],
   { tags: ["site-media"] },
 );
+
+/** Für Seiten & Meta: zusammengeführte URLs (Defaults + content/site-media.json) */
+export async function getResolvedSiteMedia(): Promise<ResolvedSiteMedia> {
+  return withDefaultGapsFilled(await getCachedSiteMedia());
+}
 
 export async function writeSiteMediaFile(next: ResolvedSiteMedia): Promise<void> {
   await fs.mkdir(path.dirname(FILE), { recursive: true });

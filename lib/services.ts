@@ -51,7 +51,7 @@ export const services: ServiceDetail[] = [
     ],
     href: "/dienstleistungen/boeschungspflege",
     image: SITE_MEDIA_DEFAULTS["service.boeschungspflege"],
-    imageBadge: "Bahn · Straße · Hang",
+    imageBadge: "Bahn · Strasse · Hang",
   },
   {
     slug: "gruenanlage",

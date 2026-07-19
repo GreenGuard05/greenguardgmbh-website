@@ -29,7 +29,10 @@ export function OverlappingImageRow({
   className = "",
   compact = false,
 }: OverlappingImageRowProps) {
-  const gallery = useMemo(() => images.slice(0, MAX_IMAGES), [images]);
+  const gallery = useMemo(
+    () => images.filter((image) => image.src.trim() !== "").slice(0, MAX_IMAGES),
+    [images],
+  );
   const rootRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const closeGuardUntilRef = useRef(0);
@@ -165,7 +168,7 @@ export function OverlappingImageRow({
                 src={image.src}
                 alt={image.alt}
                 fill
-                quality={90}
+                quality={75}
                 priority={compact && index < 2}
                 className="object-cover object-center [transform:translateZ(0)]"
                 sizes={imageSizes}

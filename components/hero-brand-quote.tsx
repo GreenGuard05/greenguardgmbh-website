@@ -1,7 +1,7 @@
 "use client";
 
 import { Caveat } from "next/font/google";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { site } from "@/lib/site";
 
 const handwriting = Caveat({
@@ -69,29 +69,60 @@ function HeroSloganHandwriting() {
       aria-label={`${FULL_SLOGAN} — ${site.managingDirector}, ${site.managingDirectorTitle}`}
     >
       <span className="gg-hero-slogan-inner text-left" aria-hidden>
-        {tokens.slice(0, visibleCount).map((token, index) =>
-          token.char === " " ? (
-            <span key={`${index}-sp`} className="gg-hero-slogan-space" aria-hidden>
-              &nbsp;
-            </span>
-          ) : (
-            <span
-              key={`${index}-${token.char}`}
-              className={
-                token.accent
-                  ? "gg-hero-slogan-accent gg-hero-slogan-char"
-                  : "gg-hero-slogan-char text-white/95"
-              }
-            >
-              {token.char}
-            </span>
-          ),
-        )}
-        {!done && !reduceMotion ? (
-          <span className="gg-hero-slogan-cursor ml-0.5 text-[#a8e055]" aria-hidden>
-            |
-          </span>
-        ) : null}
+        {(() => {
+          const visible = tokens.slice(0, visibleCount);
+          const nodes: ReactNode[] = [];
+          let wordChars: CharToken[] = [];
+          let wordStart = 0;
+
+          const flushWord = () => {
+            if (wordChars.length === 0) return;
+            nodes.push(
+              <span key={`w-${wordStart}`} className="gg-hero-slogan-word">
+                {wordChars.map((token, i) => (
+                  <span
+                    key={`${wordStart + i}-${token.char}`}
+                    className={
+                      token.accent
+                        ? "gg-hero-slogan-accent gg-hero-slogan-char"
+                        : "gg-hero-slogan-char text-white/95"
+                    }
+                  >
+                    {token.char}
+                  </span>
+                ))}
+              </span>,
+            );
+            wordChars = [];
+          };
+
+          visible.forEach((token, index) => {
+            if (token.char === " ") {
+              flushWord();
+              nodes.push(
+                <span key={`${index}-sp`} className="gg-hero-slogan-space" aria-hidden>
+                  &nbsp;
+                </span>,
+              );
+              wordStart = index + 1;
+              return;
+            }
+            if (wordChars.length === 0) wordStart = index;
+            wordChars.push(token);
+          });
+          flushWord();
+
+          return (
+            <>
+              {nodes}
+              {!done && !reduceMotion ? (
+                <span className="gg-hero-slogan-cursor ml-0.5 text-[#a8e055]" aria-hidden>
+                  |
+                </span>
+              ) : null}
+            </>
+          );
+        })()}
       </span>
     </blockquote>
   );

@@ -39,7 +39,7 @@ function FeaturedCard({ service }: { service: ServiceDetail }) {
   return (
     <Link
       href={service.href}
-      className={`group ${cardAccent} col-span-1 min-h-[340px] overflow-hidden rounded-xl border border-zinc-900/10 shadow-xl shadow-zinc-900/12 ring-1 ring-[#70a340]/20 transition duration-300 ease-out hover:-translate-y-0.5 hover:shadow-2xl motion-reduce:transform-none motion-reduce:hover:translate-y-0 sm:min-h-[360px] lg:col-span-2 lg:min-h-[400px]`}
+      className={`group ${cardAccent} col-span-1 min-h-[280px] overflow-hidden rounded-xl border border-zinc-900/10 shadow-xl shadow-zinc-900/12 ring-1 ring-[#70a340]/20 transition duration-300 ease-out hover:-translate-y-0.5 hover:shadow-2xl motion-reduce:transform-none motion-reduce:hover:translate-y-0 sm:min-h-[360px] lg:col-span-2 lg:min-h-[400px]`}
     >
       <Image
         src={service.image}
@@ -81,7 +81,7 @@ function StandardCard({ service }: { service: ServiceDetail }) {
       href={service.href}
       className={`group ${cardAccent} flex min-w-0 flex-col overflow-hidden rounded-xl border border-zinc-200/90 bg-white shadow-md shadow-zinc-900/5 ring-1 ring-zinc-100/90 transition duration-300 ease-out hover:-translate-y-0.5 hover:border-[#70a340]/25 hover:shadow-lg motion-reduce:transform-none motion-reduce:hover:translate-y-0`}
     >
-      <div className="relative h-36 shrink-0 sm:h-40 md:h-44">
+      <div className="relative h-32 shrink-0 sm:h-40 md:h-44">
         <Image
           src={service.image}
           alt={`${service.title} – Green Guard GmbH`}
@@ -95,15 +95,15 @@ function StandardCard({ service }: { service: ServiceDetail }) {
           </span>
         ) : null}
       </div>
-      <div className="flex flex-1 flex-col p-5 pl-4 sm:pl-5">
-        <h3 className="text-lg font-bold text-zinc-900">{service.title}</h3>
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-600">{service.intro}</p>
-        <ul className="mt-4 flex flex-wrap gap-2">
+      <div className="flex flex-1 flex-col p-4 pl-3.5 sm:p-5 sm:pl-5">
+        <h3 className="text-base font-bold text-zinc-900 sm:text-lg">{service.title}</h3>
+        <p className="mt-1.5 flex-1 text-sm leading-relaxed text-zinc-600 sm:mt-2">{service.intro}</p>
+        <ul className="mt-3 flex flex-wrap gap-2 sm:mt-4">
           {pills.map((tag) => (
             <ServiceTag key={tag}>{tag}</ServiceTag>
           ))}
         </ul>
-        <span className="mt-4 text-sm font-semibold text-[#70a340] transition group-hover:text-[#386622]">
+        <span className="mt-3 text-sm font-semibold text-[#70a340] transition group-hover:text-[#386622] sm:mt-4">
           Mehr erfahren →
         </span>
       </div>
@@ -118,7 +118,7 @@ function MietenCard({ card }: { card: MietenHomeCardResolved }) {
       href={card.href}
       className={`group ${cardAccent} flex min-w-0 flex-col overflow-hidden rounded-xl border border-zinc-200/90 bg-white shadow-md shadow-zinc-900/5 ring-1 ring-zinc-100/90 transition duration-300 ease-out hover:-translate-y-0.5 hover:border-[#70a340]/25 hover:shadow-lg motion-reduce:transform-none motion-reduce:hover:translate-y-0`}
     >
-      <div className="relative h-36 shrink-0 sm:h-40 md:h-44">
+      <div className="relative h-32 shrink-0 sm:h-40 md:h-44">
         <Image
           src={card.image}
           alt={`${card.title} – Gerätemiete Green Guard GmbH`}
@@ -130,15 +130,15 @@ function MietenCard({ card }: { card: MietenHomeCardResolved }) {
           {germanUppercase(card.eyebrow)}
         </span>
       </div>
-      <div className="flex flex-1 flex-col p-5 pl-4 sm:pl-5">
-        <h3 className="text-lg font-bold text-zinc-900">{card.title}</h3>
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-600">{card.intro}</p>
-        <ul className="mt-4 flex flex-wrap gap-2">
+      <div className="flex flex-1 flex-col p-4 pl-3.5 sm:p-5 sm:pl-5">
+        <h3 className="text-base font-bold text-zinc-900 sm:text-lg">{card.title}</h3>
+        <p className="mt-1.5 flex-1 text-sm leading-relaxed text-zinc-600 sm:mt-2">{card.intro}</p>
+        <ul className="mt-3 flex flex-wrap gap-2 sm:mt-4">
           {pills.map((tag) => (
             <ServiceTag key={tag}>{tag}</ServiceTag>
           ))}
         </ul>
-        <span className="mt-4 text-sm font-semibold text-[#70a340] transition group-hover:text-[#386622]">
+        <span className="mt-3 text-sm font-semibold text-[#70a340] transition group-hover:text-[#386622] sm:mt-4">
           Mehr erfahren →
         </span>
       </div>
@@ -157,7 +157,7 @@ export function HomeLeistungenGrid({
     servicesForHomeGridFrom(servicesResolved);
 
   return (
-    <section className="relative isolate overflow-visible border-t border-zinc-200/70 py-10 max-sm:py-8 sm:py-20 md:py-24">
+    <section className="relative isolate overflow-visible border-t border-zinc-200/70 py-8 max-sm:py-7 sm:py-20 md:py-24">
       <div className="pointer-events-none absolute inset-0 z-0 bg-white" aria-hidden />
       <div
         className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-white via-[#fafcf8] to-[#f4f9ef]/90"
@@ -186,38 +186,38 @@ export function HomeLeistungenGrid({
         aria-hidden
       />
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
+        <div className="flex flex-col gap-3 sm:gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
           <div className="max-w-2xl">
             <p className="inline-flex rounded-full border border-[#70a340]/25 bg-[#eef6e6] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-emerald-900">
               Facility Management · Sachsen-Anhalt
             </p>
-            <h2 className="mt-3 text-3xl font-bold leading-[1.12] tracking-tight text-zinc-900 max-sm:text-[1.45rem] sm:mt-4 sm:text-4xl md:text-[2.35rem]">
+            <h2 className="mt-2.5 text-3xl font-bold leading-[1.12] tracking-tight text-zinc-900 max-sm:text-[1.4rem] sm:mt-4 sm:text-4xl md:text-[2.35rem]">
               Alle Leistungen
               <br />
               <span className="gg-heading-accent gg-heading-motion font-semibold">aus einer Hand.</span>
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-zinc-600 sm:text-base">
+            <p className="mt-2 text-sm leading-relaxed text-zinc-600 sm:mt-3 sm:text-base">
               Für Privat- & Geschäftskunden – von Grünpflege und Solarparkpflege bis Böschungsmähen
               und Winterdienst.
             </p>
           </div>
-          <p className="max-w-md text-sm leading-relaxed text-zinc-600 lg:max-w-sm lg:pb-1 lg:text-right lg:text-base">
+          <p className="hidden max-w-md text-sm leading-relaxed text-zinc-600 sm:block lg:max-w-sm lg:pb-1 lg:text-right lg:text-base">
             Von Gerbstedt bis Halle (Saale) – zuverlässig, termingerecht und mit einem festen
             Ansprechpartner für Ihr Objekt.
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:gap-5 lg:mt-12 lg:grid-cols-3 lg:gap-6">
+        <div className="mt-6 grid grid-cols-1 gap-3 sm:mt-10 sm:gap-5 lg:mt-12 lg:grid-cols-3 lg:gap-6">
           <FeaturedCard service={gruen} />
           <StandardCard service={haus} />
         </div>
 
-        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-6 lg:gap-6">
+        <div className="mt-3 grid grid-cols-1 gap-3 sm:mt-4 sm:grid-cols-2 sm:gap-4 lg:mt-6 lg:gap-6">
           <StandardCard service={solarpark} />
           <StandardCard service={boeschung} />
         </div>
 
-        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-6 lg:grid-cols-4 lg:gap-6">
+        <div className="mt-3 grid grid-cols-1 gap-3 sm:mt-4 sm:grid-cols-2 sm:gap-4 lg:mt-6 lg:grid-cols-4 lg:gap-6">
           {rowClassic.map((s) => (
             <StandardCard key={s.slug} service={s} />
           ))}
@@ -225,7 +225,7 @@ export function HomeLeistungenGrid({
           <MietenCard card={mietenCard} />
         </div>
 
-        <div className="mt-10 flex justify-center sm:mt-12">
+        <div className="mt-7 flex justify-center sm:mt-12">
           <CtaOutlineLink href="/dienstleistungen">Alle Dienstleistungen ansehen</CtaOutlineLink>
         </div>
       </div>

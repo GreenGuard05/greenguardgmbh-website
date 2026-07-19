@@ -12,33 +12,28 @@ function CheckIcon({ className }: { className?: string }) {
   );
 }
 
-/** Fester Trust-Bereich unten im Hero: Vorteile + Kennzahlen */
+/** Trust-Bereich: Vorteile + Kennzahlen (unter dem Hero, nicht im ersten Viewport) */
 export function HeroStatsBar() {
   return (
-    <div className="absolute inset-x-0 bottom-0 z-30 border-t border-[#70a340]/25 bg-zinc-950/92 shadow-[0_-16px_48px_rgba(0,0,0,0.45)] backdrop-blur-md supports-[backdrop-filter]:bg-zinc-950/82">
-      <div className="mx-auto max-w-6xl px-4 py-2.5 max-sm:px-3 max-sm:py-1.5 sm:px-6 sm:py-5">
+    <div className="bg-zinc-950/95">
+      <div className="mx-auto max-w-6xl px-3 py-3 sm:px-6 sm:py-6">
         <ul
           className="m-0 hidden list-none sm:grid sm:grid-cols-3 sm:gap-3"
           aria-label="Unsere Vorteile"
         >
-          {trustHighlights.map((item, index) => (
+          {trustHighlights.map((item) => (
             <li
               key={item.title}
-              className={[
-                "flex items-center gap-2.5 sm:items-start sm:rounded-xl sm:border sm:border-white/10 sm:bg-white/[0.04] sm:px-4 sm:py-3",
-                "max-sm:px-3 max-sm:py-2.5",
-                index === 0 ? "max-sm:pt-3" : "",
-                index === trustHighlights.length - 1 ? "max-sm:pb-3" : "",
-              ].join(" ")}
+              className="flex items-start gap-2.5 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3"
             >
-              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#70a340]/25 text-[#a8e055] ring-1 ring-[#70a340]/40 sm:mt-0.5 sm:h-7 sm:w-7">
-                <CheckIcon className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+              <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#70a340]/25 text-[#a8e055] ring-1 ring-[#70a340]/40">
+                <CheckIcon className="h-3.5 w-3.5" />
               </span>
               <span className="min-w-0">
-                <span className="block text-[11px] font-bold leading-tight text-white sm:text-sm">
+                <span className="block text-sm font-bold leading-tight text-white">
                   {item.title}
                 </span>
-                <span className="mt-0.5 block text-[10px] leading-snug text-zinc-400 sm:text-[11px]">
+                <span className="mt-0.5 block text-[11px] leading-snug text-zinc-400">
                   {item.text}
                 </span>
               </span>
@@ -47,7 +42,7 @@ export function HeroStatsBar() {
         </ul>
 
         <div
-          className="my-2 hidden h-px bg-gradient-to-r from-transparent via-[#70a340]/35 to-transparent sm:my-4 sm:block"
+          className="my-4 hidden h-px bg-gradient-to-r from-transparent via-[#70a340]/35 to-transparent sm:block"
           aria-hidden
         />
 

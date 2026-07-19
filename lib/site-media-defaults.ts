@@ -115,10 +115,8 @@ export const SITE_MEDIA_DEFAULTS: Record<SiteMediaKey, string> = {
     "https://images.pexels.com/photos/4503267/pexels-photo-4503267.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "service.gruenanlage":
     "https://images.pexels.com/photos/5163430/pexels-photo-5163430.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  "service.solarparkpflege":
-    "https://images.pexels.com/photos/15751134/pexels-photo-15751134.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  "service.boeschungspflege":
-    "https://images.pexels.com/photos/20394372/pexels-photo-20394372.jpeg?auto=compress&cs=tinysrgb&w=1600",
+  "service.solarparkpflege": "/images/services/solarparkpflege.jpg",
+  "service.boeschungspflege": "/images/services/boeschungspflege.jpg",
   "service.hausmeisterservice":
     "https://images.pexels.com/photos/20077008/pexels-photo-20077008.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "service.winterdienst":

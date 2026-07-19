@@ -207,11 +207,12 @@ export default function DatenschutzPage() {
           <p>
             Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in einer ansprechenden,
             verständlichen Darstellung unserer Leistungen. Soweit wir eigene Aufnahmen verwenden, entfällt der Abruf
-            bei Pexels für die betreffenden Bilder. Ausgewiesene Pexels-Fotos u. a.: Solarparkpflege (Mark Stebnicki,{" "}
+            bei Pexels für die betreffenden Bilder. Die Motive zu Solarparkpflege und Böschungs- & Hangpflege werden
+            lokal von unserer Website ausgeliefert (Ursprung Pexels: Mark Stebnicki,{" "}
             <a href="https://www.pexels.com/photo/15751134/" target="_blank" rel="noopener noreferrer">
               Photo-ID 15751134
             </a>
-            ), Böschungs- & Hangpflege (Art Merikotka,{" "}
+            ; Art Merikotka,{" "}
             <a href="https://www.pexels.com/photo/20394372/" target="_blank" rel="noopener noreferrer">
               Photo-ID 20394372
             </a>
