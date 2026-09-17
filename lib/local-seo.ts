@@ -442,44 +442,45 @@ export const localAreas = [
   {
     name: "Halle (Saale)",
     slug: "halle-saale",
-    headline: "Winterdienst-Schwerpunkt Halle (Saale)",
-    text: "Halle (Saale) gehört besonders beim Winterdienst zum wichtigen Einsatzgebiet von Green Guard GmbH. Für Verwaltungen, Gewerbeflächen, Wohnanlagen, Zufahrten und Parkbereiche stimmen wir Routen, Räumzeiten und Streudienst frühzeitig ab.",
+    headline: "Winterdienst Halle (Saale)",
+    text: "Winterdienst in Halle (Saale) und Halle Saale: Green Guard GmbH räumt und streut Gehwege, Zufahrten und Parkflächen für Hausverwaltungen, Gewerbe und Wohnanlagen – mit klarer Routenplanung und Dokumentation.",
     heroSuffix: "Winterdienst und Objektpflege in Halle (Saale).",
     metaDescription:
-      "Winterdienst Halle (Saale): Green Guard GmbH – auch Böschungs- & Hangpflege, Solarparkpflege, Räum- und Streudienst, Grünpflege und Objektpflege für Verwaltungen, Gewerbe und Wohnanlagen.",
+      "Winterdienst Halle (Saale): Schneeräumen, Streudienst & Saisonverträge für Verwaltungen, Gewerbe und Wohnanlagen. Green Guard GmbH – jetzt anfragen.",
     lead:
-      "Halle (Saale) ist für Green Guard GmbH besonders beim Winterdienst ein Schwerpunkt. Für Verwaltungen, Gewerbe und Objektbetreiber stimmen wir Routen, Einsatzzeiten, Streupunkte und Dokumentation sorgfältig ab.",
+      "Suchen Sie Winterdienst in Halle (Saale)? Green Guard GmbH plant Räum- und Streudienst für Verwaltungen, Gewerbeflächen und Wohnanlagen – mit Saisonvertrag oder Einzeleinsatz.",
     focus: [
-      "Winterdienst für Gehwege, Zufahrten, Parkflächen und größere Objektbereiche",
-      "Räum- und Streudienst mit klarer Routenplanung und persönlicher Abstimmung",
-      "Hausmeisterservice und Gebäudereinigung für Verwaltungen und Gewerbe",
+      "Winterdienst Halle (Saale): Schneeräumung für Gehwege, Zufahrten und Parkflächen",
+      "Streudienst und Räumdienst mit Routenplanung und Einsatzdokumentation",
+      "Saisonverträge für Hausverwaltungen und Gewerbeobjekte in Halle Saale",
+      "Zusätzlich Hausmeisterservice und Gebäudereinigung nach Absprache",
     ],
     customers: ["Hausverwaltungen", "Gewerbeflächen", "Objektbetreiber", "Größere Wohnanlagen"],
     faqs: [
       {
-        question: "Fährt Green Guard GmbH auch nach Halle (Saale)?",
+        question: "Bietet Green Guard GmbH Winterdienst in Halle (Saale) an?",
         answer:
-          "Ja. Halle (Saale) gehört zum Einsatzgebiet, vor allem bei planbaren Einsätzen, größeren Objekten und abgestimmten Leistungsumfängen.",
+          "Ja. Winterdienst Halle (Saale) bzw. Winterdienst Halle Saale ist ein Schwerpunkt von Green Guard GmbH – besonders für Verwaltungen, Gewerbeflächen, Wohnanlagen, Parkflächen und Zufahrten.",
       },
       {
-        question: "Ist Winterdienst in Halle (Saale) ein Schwerpunkt?",
+        question: "Welche Flächen deckt der Winterdienst in Halle ab?",
         answer:
-          "Ja. Winterdienst in Halle (Saale) ist ein wichtiger Schwerpunkt, besonders für Verwaltungen, Gewerbeflächen, Wohnanlagen, Parkflächen und Zufahrten.",
+          "Möglich sind Gehwege, Zufahrten, Parkflächen, Objektbereiche und Gewerbeflächen nach abgestimmter Route und Kapazität.",
       },
       {
-        question: "Welche Flächen betreut Green Guard GmbH beim Winterdienst in Halle (Saale)?",
+        question: "Gibt es Saisonverträge für Winterdienst in Halle (Saale)?",
         answer:
-          "Möglich sind Gehwege, Zufahrten, Parkflächen, Objektbereiche und Gewerbeflächen nach abgestimmter Route.",
+          "Ja. Saisonverträge sind sinnvoll, damit Routen, Räumzeiten und Zuständigkeiten vor Winterbeginn klar feststehen.",
       },
       {
-        question: "Sind Saisonverträge für Halle (Saale) möglich?",
+        question: "Fährt Green Guard GmbH auch nach Halle (Saale) außerhalb des Winters?",
         answer:
-          "Ja. Saisonverträge sind besonders sinnvoll, damit Routen, Räumzeiten und Zuständigkeiten vor Winterbeginn klar feststehen.",
+          "Ja. Neben Winterdienst können Grünanlagenpflege, Hausmeisterservice und Gebäudereinigung abgestimmt werden.",
       },
       {
-        question: "Bietet Green Guard GmbH in Halle (Saale) auch Objektpflege außerhalb des Winters an?",
+        question: "Wie frage ich Winterdienst Halle Saale an?",
         answer:
-          "Ja. Neben Winterdienst können auch Grünanlagenpflege, Hausmeisterservice und Gebäudereinigung abgestimmt werden.",
+          "Über das Kontaktformular oder telefonisch. Wir prüfen Objekt, Flächen und gewünschten Umfang und melden uns zeitnah zurück.",
       },
     ],
   },

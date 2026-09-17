@@ -20,8 +20,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const area = getLocalArea(slug);
   if (!area) return { title: "Einsatzgebiet" };
 
+  const title =
+    area.slug === "halle-saale"
+      ? "Winterdienst Halle (Saale) · Schneeräumen & Streudienst"
+      : `Einsatzgebiet ${area.name}`;
+
   return createPageMetadata({
-    title: `Einsatzgebiet ${area.name}`,
+    title,
     description: area.metaDescription,
     path: `/einsatzgebiet/${area.slug}`,
     keywords: focusKeywords(buildAreaKeywords(area.name)),
@@ -35,7 +40,7 @@ function buildAreaJsonLd(area: NonNullable<ReturnType<typeof getLocalArea>>) {
     "@type": "CollectionPage",
     "@id": `${pageUrl}#webpage`,
     url: pageUrl,
-    name: `${site.name} Einsatzgebiet ${area.name}`,
+    name: area.slug === "halle-saale" ? `Winterdienst ${area.name}` : `${site.name} Einsatzgebiet ${area.name}`,
     description: area.metaDescription,
     about: {
       "@id": `${siteUrl}/#localbusiness`,
@@ -75,6 +80,13 @@ export default async function EinsatzgebietDetailPage({ params }: Props) {
     { name: "Einsatzgebiet", item: `${siteUrl}/einsatzgebiet` },
     { name: area.name, item: pageUrl },
   ]);
+  const isHalleWinterFocus = area.slug === "halle-saale";
+  const orderedServices = isHalleWinterFocus
+    ? [
+        ...services.filter((service) => service.slug === "winterdienst"),
+        ...services.filter((service) => service.slug !== "winterdienst"),
+      ]
+    : services;
 
   return (
     <>
@@ -92,17 +104,21 @@ export default async function EinsatzgebietDetailPage({ params }: Props) {
           ]}
         />
         <InnerPageHero
-          eyebrow={`Einsatzgebiet · ${area.name}`}
+          eyebrow={isHalleWinterFocus ? "Winterdienst · Halle (Saale)" : `Einsatzgebiet · ${area.name}`}
           heroTitle={{
-            prefix: "Green Guard GmbH",
-            accent: area.name,
-            suffix: area.heroSuffix,
+            prefix: isHalleWinterFocus ? "Winterdienst" : "Green Guard GmbH",
+            accent: isHalleWinterFocus ? "Halle (Saale)" : area.name,
+            suffix: isHalleWinterFocus
+              ? "Schneeräumen, Streudienst & Saisonverträge."
+              : area.heroSuffix,
           }}
           description={area.lead}
           tone="dark"
           actions={
             <>
-              <CtaPrimary href="/kontakt">Anfrage für diesen Ort stellen</CtaPrimary>
+              <CtaPrimary href={isHalleWinterFocus ? "/kontakt#angebot-formular" : "/kontakt"}>
+                {isHalleWinterFocus ? "Winterdienst anfragen" : "Anfrage für diesen Ort stellen"}
+              </CtaPrimary>
               <InnerPagePhoneLink variant="dark" />
             </>
           }
@@ -118,9 +134,25 @@ export default async function EinsatzgebietDetailPage({ params }: Props) {
                 Zurück zu allen Einsatzgebieten
               </Link>
               <h2 className="mt-5 text-3xl font-bold leading-tight tracking-tight text-zinc-900">
-                Leistungen in <span className="gg-heading-accent gg-heading-motion">{area.name}</span>
+                {isHalleWinterFocus ? (
+                  <>
+                    Winterdienst in{" "}
+                    <span className="gg-heading-accent gg-heading-motion">Halle (Saale)</span>
+                  </>
+                ) : (
+                  <>
+                    Leistungen in <span className="gg-heading-accent gg-heading-motion">{area.name}</span>
+                  </>
+                )}
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-zinc-600 sm:text-base">{area.text}</p>
+              {isHalleWinterFocus ? (
+                <p className="mt-4 text-sm leading-relaxed text-zinc-600 sm:text-base">
+                  Green Guard GmbH übernimmt Winterdienst in Halle (Saale) und Halle Saale für Gehwege,
+                  Zufahrten und Parkflächen – mit Räumdienst, Streudienst und nachvollziehbarer
+                  Dokumentation. Saisonvertrag oder Einzeleinsatz nach Absprache.
+                </p>
+              ) : null}
               <ul className="mt-6 grid gap-3">
                 {area.focus.map((item) => (
                   <li key={item} className="gg-surface-card rounded-2xl border border-zinc-200 bg-white p-4 text-sm font-medium text-zinc-700 shadow-sm">
@@ -128,6 +160,14 @@ export default async function EinsatzgebietDetailPage({ params }: Props) {
                   </li>
                 ))}
               </ul>
+              {isHalleWinterFocus ? (
+                <Link
+                  href="/dienstleistungen/winterdienst"
+                  className="mt-6 inline-flex text-sm font-semibold text-[#70a340] transition hover:text-[#386622]"
+                >
+                  Zur Leistungsseite Winterdienst →
+                </Link>
+              ) : null}
             </div>
 
             <div className="rounded-3xl border border-zinc-200/80 bg-white/90 p-6 shadow-lg shadow-zinc-900/5 ring-1 ring-white sm:p-7">
@@ -156,10 +196,19 @@ export default async function EinsatzgebietDetailPage({ params }: Props) {
               Leistungen
             </p>
             <h2 className="mt-5 text-2xl font-bold leading-tight tracking-tight text-zinc-900 sm:text-3xl">
-              Alles Wichtige für <span className="gg-heading-accent gg-heading-motion">{area.name}</span> auf einen Blick.
+              {isHalleWinterFocus ? (
+                <>
+                  Winterdienst und weitere Leistungen in{" "}
+                  <span className="gg-heading-accent gg-heading-motion">Halle (Saale)</span>
+                </>
+              ) : (
+                <>
+                  Alles Wichtige für <span className="gg-heading-accent gg-heading-motion">{area.name}</span> auf einen Blick.
+                </>
+              )}
             </h2>
             <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {services.map((service) => (
+              {orderedServices.map((service) => (
                 <Link
                   key={service.slug}
                   href={service.href}

@@ -588,7 +588,7 @@ const pages: Record<string, ServicePageContent> = {
       suffix: "rund um die Uhr.",
     },
     heroDescription:
-      "Wir sorgen dafür, dass Wege, Parkplätze und Zufahrten sicher bleiben – in Gerbstedt, Mansfeld-Südharz und besonders auch in Halle (Saale). Rund um die Uhr, 7 Tage die Woche.",
+      "Winterdienst in Halle (Saale), Gerbstedt und Mansfeld-Südharz: Schneeräumen, Streudienst und Dokumentation für Wege, Zufahrten und Parkflächen – rund um die Uhr.",
     heroPrimaryLabel: "Saisonvertrag anfragen",
     story: {
       eyebrow: "Sicher durch den Winter",
@@ -597,8 +597,8 @@ const pages: Record<string, ServicePageContent> = {
       lead:
         "Winterdienst ist mehr als Schneeschieben. Für Eigentümer und Verwaltungen geht es um Sicherheit, Dokumentation und die Erfüllung der Verkehrssicherungspflicht.",
       paragraphs: [
-        "Green Guard GmbH plant Winterdienst-Einsätze für Gehwege, Zufahrten und Parkplätze so, dass gefährliche Glätte frühzeitig reduziert wird. In Halle (Saale) liegt ein besonderer Schwerpunkt auf planbaren Routen für Verwaltungen, Gewerbeflächen, Wohnanlagen und Parkbereiche.",
-        "Gerade bei Hausverwaltungen zählt Verlässlichkeit in den frühen Morgenstunden: Ein Saisonvertrag schafft Planungssicherheit, Einzeleinsätze helfen bei kurzfristigem Bedarf.",
+        "Green Guard GmbH bietet Winterdienst in Halle (Saale) und Halle Saale mit planbaren Routen für Verwaltungen, Gewerbeflächen, Wohnanlagen und Parkbereiche. Gehwege, Zufahrten und Parkplätze werden so geräumt und gestreut, dass Glätte frühzeitig reduziert wird.",
+        "Gerade bei Hausverwaltungen zählt Verlässlichkeit in den frühen Morgenstunden: Ein Saisonvertrag schafft Planungssicherheit, Einzeleinsätze helfen bei kurzfristigem Bedarf – auch in Gerbstedt und Mansfeld-Südharz.",
       ],
       cards: [
         {
@@ -688,16 +688,16 @@ const pages: Record<string, ServicePageContent> = {
       },
     ],
     seoBlock: {
-      eyebrow: "Winterdienst · Halle & Region",
-      heading: `Winterdienst in ${serviceRegionListText()}.`,
-      headingAccent: "Winterdienst",
+      eyebrow: "Winterdienst · Halle (Saale) & Region",
+      heading: "Winterdienst Halle (Saale) und in der Region.",
+      headingAccent: "Halle (Saale)",
       text: serviceRegionalSeoText(
         "Winterdienst mit Schneeräumung und Streudienst",
-        "Für Gehwege, Zufahrten und Parkplätze: Routenplanung, 24/7-Bereitschaft und Einsatzdokumentation zur Erfüllung der Verkehrssicherungspflicht – besonders für Verwaltungen und Gewerbeflächen.",
+        "Schwerpunkt Winterdienst Halle (Saale): Routenplanung, 24/7-Bereitschaft und Einsatzdokumentation zur Verkehrssicherungspflicht – für Verwaltungen, Gewerbe und Wohnanlagen.",
       ),
       bullets: [
-        "Schneeräumung für Gehwege, Zufahrten und Parkplätze",
-        "Abstumpfender Streudienst, Räumdienst und Frostschutzbehandlung",
+        "Winterdienst Halle (Saale): Schneeräumung für Gehwege, Zufahrten und Parkplätze",
+        "Streudienst, Räumdienst und Frostschutzbehandlung",
         "24/7 Bereitschaft, Routenplanung und Einsatzdokumentation",
         serviceRegionalBullet("Saisonverträge und Einzeleinsätze"),
       ],

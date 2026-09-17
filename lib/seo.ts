@@ -79,7 +79,7 @@ export const serviceSeoDescriptions: Record<string, string> = {
   hausmeisterservice:
     "Hausmeisterservice in Gerbstedt, Halle (Saale) & Region: Objektbetreuung, Kleinreparaturen und Kontrolle – ein Ansprechpartner von Green Guard GmbH.",
   winterdienst:
-    "Winterdienst in Halle (Saale), Gerbstedt & Mansfeld-Südharz: Schnee räumen, streuen, dokumentieren – für Wege, Zufahrten und Parkflächen.",
+    "Winterdienst Halle (Saale) & Region: Schneeräumen, Streudienst und Dokumentation für Verwaltungen, Gewerbe und Wohnanlagen – Saisonvertrag oder Einzeleinsatz von Green Guard GmbH.",
   reinigung:
     "Gebäudereinigung in Gerbstedt, Halle (Saale) & Sachsen-Anhalt: Unterhalts- und Grundreinigung für Treppenhäuser, Büros und Gewerbe.",
   strauchpflege:

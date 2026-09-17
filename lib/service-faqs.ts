@@ -119,7 +119,7 @@ export const serviceFaqs: Record<string, ServiceFaq[]> = {
     {
       question: "Bietet Green Guard GmbH Winterdienst mit Saisonvertrag an?",
       answer:
-        "Ja. Saisonverträge sind für Gehwege, Zufahrten und Parkplätze möglich. So werden Routen und Zuständigkeiten vor Winterbeginn sauber geplant.",
+        "Ja. Saisonverträge sind für Gehwege, Zufahrten und Parkplätze möglich. So werden Routen und Zuständigkeiten vor Winterbeginn sauber geplant – besonders sinnvoll für Winterdienst in Halle (Saale).",
     },
     {
       question: "Wird der Winterdienst dokumentiert?",
@@ -130,7 +130,7 @@ export const serviceFaqs: Record<string, ServiceFaq[]> = {
     {
       question: "Übernimmt Green Guard GmbH Winterdienst in Halle (Saale)?",
       answer:
-        "Ja. Winterdienst in Halle (Saale) ist ein wichtiger Schwerpunkt, besonders für Verwaltungen, Gewerbeflächen, Wohnanlagen, Zufahrten und Parkbereiche.",
+        "Ja. Winterdienst Halle (Saale) bzw. Winterdienst Halle Saale ist ein wichtiger Schwerpunkt – für Verwaltungen, Gewerbeflächen, Wohnanlagen, Zufahrten und Parkbereiche.",
     },
   ],
   reinigung: [

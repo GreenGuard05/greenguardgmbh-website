@@ -13,7 +13,8 @@ const serviceAreaFocus: Record<string, { label: string; focus: string }> = {
   },
   winterdienst: {
     label: "Winterdienst",
-    focus: "Schneeräumung, Streudienst und dokumentierte Einsätze – Saisonvertrag oder Einzeleinsatz.",
+    focus:
+      "Schwerpunkt Winterdienst Halle (Saale): Schneeräumung, Streudienst und dokumentierte Einsätze – Saisonvertrag oder Einzeleinsatz.",
   },
   reinigung: {
     label: "Gebäudereinigung",

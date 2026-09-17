@@ -82,7 +82,7 @@ export const services: ServiceDetail[] = [
     title: "Winterdienst",
     eyebrow: "Winterdienst · 24/7",
     intro:
-      "Räum- und Streudienst für Gehwege, Parkplätze und Zufahrten – zuverlässig und pünktlich, auch am frühen Morgen.",
+      "Winterdienst Halle (Saale) & Region: Räum- und Streudienst für Gehwege, Parkplätze und Zufahrten – zuverlässig, auch am frühen Morgen.",
     tags: [
       "Schneeräumung",
       "Streudienst",
