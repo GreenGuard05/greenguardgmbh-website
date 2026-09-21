@@ -15,8 +15,15 @@ export function googleReviewDisplayText(review: GoogleReview): string {
   return review.text;
 }
 
-/** Alle 10 Rezensionen laut Google-Unternehmensprofil (Stand Mai 2026) */
+/** Alle 11 Rezensionen laut Google-Unternehmensprofil (Stand September 2026) */
 export const googleReviews: GoogleReview[] = [
+  {
+    name: "Jens Schwarz",
+    initial: "J",
+    avatarClass: "bg-emerald-700",
+    date: "vor kurzem",
+    text: "Als Immobilienverwaltung in Halle (Saale) sind wir mit der Qualität der Dienstleistungen der Firma GreenGuard sehr zufrieden. Objektbezogene Wünsche werden berücksichtigt, zeitnah und sehr ordentlich erledigt. Ein großes DANKESCHÖN und auf eine weiterhin erfolgreiche Zusammenarbeit!",
+  },
   {
     name: "Google-Nutzer",
     initial: "G",
