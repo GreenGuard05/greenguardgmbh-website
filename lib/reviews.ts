@@ -15,8 +15,15 @@ export function googleReviewDisplayText(review: GoogleReview): string {
   return review.text;
 }
 
-/** Alle 11 Rezensionen laut Google-Unternehmensprofil (Stand September 2026) */
+/** Alle 12 Rezensionen laut Google-Unternehmensprofil (Stand September 2026) */
 export const googleReviews: GoogleReview[] = [
+  {
+    name: "TJ",
+    initial: "T",
+    avatarClass: "bg-blue-600",
+    date: "vor kurzem",
+    text: "Unsere Anlagen rund um den Betriebssitz werden seit langer Zeit gepflegt. Die Arbeiten werden immer sehr sauber und ordentlich ausgeführt. Der Kontakt ist immer sehr nett und freundlich. Eine Empfehlung geben wir immer wieder gerne ab.",
+  },
   {
     name: "Jens Schwarz",
     initial: "J",
