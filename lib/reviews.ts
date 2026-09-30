@@ -15,8 +15,15 @@ export function googleReviewDisplayText(review: GoogleReview): string {
   return review.text;
 }
 
-/** Alle 12 Rezensionen laut Google-Unternehmensprofil (Stand September 2026) */
+/** Alle 13 Rezensionen laut Google-Unternehmensprofil (Stand September 2026) */
 export const googleReviews: GoogleReview[] = [
+  {
+    name: "Beate Habicht",
+    initial: "B",
+    avatarClass: "bg-pink-500",
+    date: "vor einer Woche",
+    text: "Freundliches auftreten. Schnelle und saubere Erledigung des Auftrages. Die Firma ist nur zu empfehlen. Danke",
+  },
   {
     name: "TJ",
     initial: "T",
