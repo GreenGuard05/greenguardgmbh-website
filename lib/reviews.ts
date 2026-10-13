@@ -15,13 +15,20 @@ export function googleReviewDisplayText(review: GoogleReview): string {
   return review.text;
 }
 
-/** Alle 13 Rezensionen laut Google-Unternehmensprofil (Stand September 2026) */
+/** Alle 14 Rezensionen laut Google-Unternehmensprofil (Stand Oktober 2026) */
 export const googleReviews: GoogleReview[] = [
+  {
+    name: "ga ko",
+    initial: "G",
+    avatarClass: "bg-teal-600",
+    date: "vor kurzem",
+    text: "Wir schätzen sehr die Kompetenz, Freundlichkeit und das Engagement der Firma. Termine und Absprachen werden jederzeit eingehalten und die anstehenden Arbeiten professionell ausgeführt. Wir sind zufriedene Kunden und können die Firma zu 100 % weiterempfehlen.",
+  },
   {
     name: "Beate Habicht",
     initial: "B",
     avatarClass: "bg-pink-500",
-    date: "vor einer Woche",
+    date: "vor 2 Wochen",
     text: "Freundliches auftreten. Schnelle und saubere Erledigung des Auftrages. Die Firma ist nur zu empfehlen. Danke",
   },
   {
