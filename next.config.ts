@@ -34,6 +34,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/mietgeraete/polsterreiniger-teppichreiniger-waschsauger",
+        destination: "/mieten/polsterreiniger-teppichreiniger-waschsauger",
+        permanent: true,
+      },
+      {
         source: "/ueber-uns.html",
         destination: "/ueber-uns",
         permanent: true,

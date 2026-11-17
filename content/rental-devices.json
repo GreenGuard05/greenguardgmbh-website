@@ -1,5 +1,28 @@
 [
   {
+    "id": "polsterreiniger-teppichreiniger-waschsauger",
+    "name": "Polsterreiniger & Teppichreiniger Kärcher Puzzi 10/1",
+    "image": "/images/rental/polsterreiniger-teppichreiniger-kaercher-puzzi-10-1-mieten.webp",
+    "description": "Professioneller Waschsauger zum Selbstreinigen von Sofa, Autositzen, Teppichen und Matratzen. Der Kärcher Puzzi 10/1 arbeitet mit Sprühextraktion.",
+    "details": "Tagesmiete 39 € brutto, Kaution 200 €. Elektrisch, mit Teppichbodendüse und separater Polsterdüse. Abholung in Gerbstedt OT Augsdorf, Verfügbarkeit auf Anfrage.",
+    "facts": ["Sofa, Auto, Teppich, Matratze", "Polster- und Teppichbodendüse", "10 l Frischwasser · elektrisch"],
+    "price": "39 EUR / 24h",
+    "deposit": "200 EUR Kaution",
+    "fuel": "Elektro, kein Kraftstoff",
+    "suitableFor": [
+      "Sofas und Couchen",
+      "Stoff-Autositze",
+      "Teppiche und Teppichböden",
+      "Textile Matratzenoberflächen",
+      "Sessel und Bürostühle"
+    ],
+    "notSuitableFor": [
+      "Leder und wasserempfindliche Bezüge",
+      "Seide und nicht farbechte Textilien",
+      "Stark schäumende Haushaltsreiniger"
+    ]
+  },
+  {
     "id": "benzin-holzhaecksler",
     "name": "Mobiler Benzin-Holzhäcksler mit Antrieb",
     "image": "/images/rental/benzin-holzhaecksler.png",
