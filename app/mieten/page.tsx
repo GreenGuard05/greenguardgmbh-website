@@ -195,8 +195,8 @@ export default async function MietenPage() {
               <span className="gg-heading-accent gg-heading-motion">direkt anfragen.</span>
             </h2>
             <p className="mt-5 text-base leading-relaxed text-zinc-700 sm:text-lg">
-              Diese Mietgeräte kannst du im Admin-Bereich selbst pflegen. Jede Karte führt direkt zum
-              Kontaktformular und übergibt das gewünschte Gerät automatisch.
+              Wählen Sie das passende Gerät aus. Die Anfrage führt direkt zum Kontaktformular und trägt das
+              gewünschte Gerät schon ein.
             </p>
             <div className="mt-7 rounded-2xl border border-emerald-900/10 bg-white/90 p-5 shadow-md shadow-zinc-900/5">
               <h3 className="text-base font-bold text-zinc-900">Wichtig vorab</h3>
